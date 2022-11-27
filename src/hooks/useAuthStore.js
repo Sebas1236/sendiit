@@ -23,7 +23,7 @@ export const useAuthStore = () => {
             dispatch( onLogin({ name: data.name, uid: data.uid }) );
 
         } catch (error) {
-            dispatch( onLogout('Credenciales incorrectas') );
+            dispatch( onLogout(error.response.data?.msg || '--') );
             setTimeout(() => {
                 dispatch( clearErrorMessage );
             }, 10);
@@ -38,13 +38,32 @@ export const useAuthStore = () => {
                 const { data } = await sendiitApi.post('/auth/new', { name, last_name, email, password });
                 localStorage.setItem('token', data.token );
                 localStorage.setItem('token-init-date', new Date().getTime() );
-                dispatch( onLogin({ name: data.name, uid: data.uid }) );
+                dispatch( onLogout() );
+                // dispatch( onLogin({ name: data.name, uid: data.uid }) );
             } catch (error) {
                 dispatch( onLogout( error.response.data?.msg || '--' ) );
                 setTimeout(() => {
                     dispatch( clearErrorMessage );
                 }, 10);
             }
+    };
+
+    const verificarUsuario = async({ confirmationCode })=> {
+        console.log(confirmationCode);
+        console.log('entra');
+        dispatch( onChecking() );
+        try {
+            const { data } = await sendiitApi.get(`/auth/confirm/${confirmationCode}`, {confirmationCode: confirmationCode} );
+            localStorage.setItem('token', data.token );
+            localStorage.setItem('token-init-date', new Date().getTime() );
+            dispatch( onLogout() );
+        } catch (error) {
+            console.log('error');
+            dispatch( onLogout( 'Porfavor verifique su cuenta') );
+            setTimeout(() => {
+                dispatch( clearErrorMessage );
+            }, 10);
+        }
     };
 
     const checkAuthToken = async() => {
@@ -80,5 +99,6 @@ export const useAuthStore = () => {
         startLogin,
         startLogout,
         startRegister,
+        verificarUsuario,
     }
 }

@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { Navbar, Footer } from '../../components'
 import { useAuthStore, useForm } from '../../hooks'
@@ -22,7 +23,8 @@ export const RegisterPage = () => {
             Swal.fire('Error en registro', 'Contraseñas no son iguales', 'error');
             return;
         }
-        startRegister({ email: registerEmail, name: registerName, last_name: registerLastName, password: registerPassword })
+        startRegister({ email: registerEmail, name: registerName, last_name: registerLastName, password: registerPassword });
+        Swal.fire('Correo de verificación enviado', 'Su registro ha sido exitoso. Por favor, revise su correo.', 'success');
     }
 
     // Para estar al tanto de los cambios de errorMessage
@@ -92,12 +94,22 @@ export const RegisterPage = () => {
                         />
                     </div>
 
+                    <div class="form-check d-flex justify-content-center mb-5">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+                    <label class="form-check-label" for="form2Example3">
+                      Acepto los <a href="#!">Términos y condiciones</a>
+                    </label>
+                  </div>
+
                     <div className="d-grid gap-2">
                         <input
                             type="submit"
                             className="btnSubmit"
                             value="Crear cuenta" />
                     </div>
+                    <p class="text-center text-muted mt-5 mb-0">¿Ya tienes una cuenta? 
+                    <Link to="/auth/login"><u>Iniciar Sesión</u></Link></p>
+                    
                 </form>
             </div>
             <Footer />
