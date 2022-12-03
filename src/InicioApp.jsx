@@ -63,11 +63,17 @@ export const InicioApp = () => {
                         type="text" className="campo form-control shadow" 
                         id="floatingInput" placeholder="" disabled={nombreActivo}
                         name="name" {...register('name',{
-                            required: true,
-
-                        })}
-                        />
-                    { errors.name?.type === 'required' && <small style={{'color': '#f2317f'}}>El campo no puede estar vacío</small> }
+                            required: {
+                                value: true,
+                                message: "El campo no puede estar vacío"
+                            },
+                            pattern: {
+                                value: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+                                message: "Ingrese un nombre válido"
+                            }
+                        })}/>
+                        {errors.name && <span style={{ 'color': '#f2317f' }}>{errors.name.message}</span>}
+                    
                     </div>
                     <div className='col align-right'>
                     <button type="button" className='editar' disabled={!nombreActivo} onClick={activarNombre}> <img src='/img/edit.png' height ="60" width="60" /></button></div>
@@ -81,11 +87,17 @@ export const InicioApp = () => {
                         id="floatingInput" placeholder=""
                         name="last_name" disabled={apellidoActivo}
                         {...register('last_name',{
-                            required: true,
-
-                        })}
-                        />
-                    { errors.last_name?.type === 'required' && <small style={{'color': '#f2317f'}}>El campo no puede estar vacío</small> }</div>
+                            required: {
+                                value: true,
+                                message: "El campo no puede estar vacío"
+                            },
+                            pattern: {
+                                value: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+                                message: "Ingrese apellidos válidos"
+                            }
+                        })}/>
+                    {errors.last_name && <span style={{ 'color': '#f2317f' }}>{errors.last_name.message}</span>}
+                    </div>
                     <div className='col align-right'>
                     <button type="button" className='editar' disabled={!apellidoActivo} onClick={activarApellido}> <img src='/img/edit.png' height ="60" width="60" /></button></div>
                     </div>
@@ -99,9 +111,16 @@ export const InicioApp = () => {
                         id="floatingInput" placeholder=""
                         name="phone" disabled={telefonoActivo}
                         {...register("phone",{
-                            required: true
+                            required: {
+                                value: true,
+                                message: "El campo no puede estar vacío"
+                            },
+                            pattern: {
+                                value: /^(\(\+?\d{2,3}\)[\*|\s|\-|\.]?(([\d][\*|\s|\-|\.]?){6})(([\d][\s|\-|\.]?){2})?|(\+?[\d][\s|\-|\.]?){8}(([\d][\s|\-|\.]?){2}(([\d][\s|\-|\.]?){2})?)?)$/,
+                                message: "Ingrese un número telefónico válido"
+                            }
                         })}/>
-                        { errors.phone?.type === 'required' && <small style={{'color': '#f2317f'}}>El campo no puede estar vacío</small> }
+                    {errors.phone && <span style={{ 'color': '#f2317f' }}>{errors.phone.message}</span>}
                     </div>
                     <div className='col align-right'>
                     <button type="button" className='editar' disabled={!telefonoActivo} onClick={activarTel}> <img src='/img/edit.png' height ="60" width="60" /></button></div>
