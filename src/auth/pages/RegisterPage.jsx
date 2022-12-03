@@ -182,7 +182,7 @@ export const RegisterPage = () => {
                                     message: "El campo no puede estar vacío"
                                 },
                                 pattern: {
-                                    value: '/^([a-zA-Z][ ]?)+$/',
+                                    value: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
                                     message: "Ingrese un nombre válido"
                                 }
                             })} />
@@ -199,6 +199,10 @@ export const RegisterPage = () => {
                                 required: {
                                     value: true,
                                     message: "El campo no puede estar vacío"
+                                },
+                                pattern: {
+                                    value: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+                                    message: "Ingrese apellidos válidos"
                                 }
                             })} />
                             {errors.registerLastName && <span style={{ 'color': '#f2317f' }}>{errors.registerLastName.message}</span>}
@@ -214,6 +218,10 @@ export const RegisterPage = () => {
                                 required: {
                                     value: true,
                                     message: "El campo no puede estar vacío"
+                                },
+                                pattern: {
+                                    value: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                                    message: "Ingrese un email válido"
                                 }
                             })} />
                             {errors.registerEmail && <span style={{ 'color': '#f2317f' }}>{errors.registerEmail.message}</span>}
@@ -231,12 +239,16 @@ export const RegisterPage = () => {
                                     message: "El campo no puede estar vacío"
                                 },
                                 minLength: {
-                                    value: 6,
-                                    message: "La contraseña debe de ser de al menos 6 caracteres"
+                                    value: 8,
+                                    message: "La contraseña debe de ser de al menos 8 caracteres"
                                 },
                                 maxLength: {
-                                    value: 15,
-                                    message: "La contraseña debe tener un máximo de 15 caracteres"
+                                    value: 18,
+                                    message: "La contraseña debe tener un máximo de 18 caracteres"
+                                },
+                                pattern: {
+                                    value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,18}$/,
+                                    message: "La contraseña debe tener almenos una minúscula, mayúscula, un dígito y un símbolo"
                                 }
                             })} />
                         {errors.registerPassword && <span style={{ 'color': '#f2317f' }}>{errors.registerPassword.message}</span>}
@@ -255,14 +267,14 @@ export const RegisterPage = () => {
                                     value: true,
                                     message: "El campo no puede estar vacío"
                                 },
-                                minLength: {
-                                    value: 6,
-                                    message: "La contraseña debe de ser de al menos 6 caracteres"
-                                },
-                                maxLength: {
-                                    value: 15,
-                                    message: "La contraseña debe tener un máximo de 15 caracteres"
-                                }
+                                // minLength: {
+                                //     value: 6,
+                                //     message: "La contraseña debe de ser de al menos 6 caracteres"
+                                // },
+                                // maxLength: {
+                                //     value: 15,
+                                //     message: "La contraseña debe tener un máximo de 15 caracteres"
+                                // }
                             })} />
                         {errors.registerPassword2 && <span style={{ 'color': '#f2317f' }}>{errors.registerPassword2.message}</span>}
 

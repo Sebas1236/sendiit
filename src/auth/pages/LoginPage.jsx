@@ -42,7 +42,7 @@ export const LoginPage = () => {
               
                 <div className='row text-center '>
                     <div className="form-signin w-100 m-auto">
-                        <form onSubmit={handleSubmit(loginSubmit)}>
+                        <form onSubmit={handleSubmit(loginSubmit)} noValidate>
                           <img className="mb-4" src='/img/brand/logo.png' alt="sendiit" width="250"/>
                           <h1 className="h3 mb-5 fw-normal">Iniciar sesión</h1>
     
@@ -52,9 +52,16 @@ export const LoginPage = () => {
                                 id="floatingInput" placeholder="Correo electrónico"
                                 name="loginEmail"
                                 {...register('loginEmail',{
-                                    required: true,   
+                                    required: {
+                                        value: true,
+                                        message: 'El campo no puede estar vacío'
+                                    },
+                                    pattern: {
+                                        value: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                                        message: "Ingrese un email válido"
+                                    }
                                 })}/>
-                                { errors.loginEmail?.type === 'required' && <small style={{'color': '#f2317f'}}>El campo no puede estar vacío</small> }
+                            {errors.loginEmail && <span style={{ 'color': '#f2317f' }}>{errors.loginEmail.message}</span>}
                             <label htmlFor="floatingInput">Correo electrónico</label>
                           </div>
                           <div className="form-floating mb-4">
@@ -62,11 +69,24 @@ export const LoginPage = () => {
                                 id="floatingPassword" placeholder="Contraseña"
                                 name="loginPassword"
                                 {...register('loginPassword',{
-                                    required: true,
-                                    minLength: 6,
+                                    required: {
+                                        value: true,
+                                        message: 'El campo no puede estar vacío'
+                                    },
+                                    minLength: {
+                                        value: 8,
+                                        message: 'La contraseña debe de ser de al menos 8 caracteres'
+                                    },
+                                    maxLength: {
+                                        value: 18,
+                                        message: "La contraseña debe tener un máximo de 18 caracteres"
+                                    },
+                                    // pattern: {
+                                    //     value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,18}$/,
+                                    //     message: "La contraseña debe tener almenos una minúscula, mayúscula, un dígito y un símbolo"
+                                    // }
                                 })}/>
-                                { errors.loginPassword?.type === 'required' && <small style={{'color': '#f2317f'}}>El campo no puede estar vacío</small> }
-                                { errors.loginPassword?.type === 'minLength' && <small style={{'color': '#f2317f'}}>La contraseña es de al menos 6 caracteres</small> }
+                            {errors.loginPassword && <span style={{ 'color': '#f2317f' }}>{errors.loginPassword.message}</span>}
                             <label htmlFor="floatingPassword">Contraseña</label>
                           </div>
     
