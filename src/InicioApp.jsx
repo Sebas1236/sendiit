@@ -39,21 +39,6 @@ export const InicioApp = () => {
     }
 
     return (
-        // <>
-        //     <Navbar />  
-        //     <h1>Bienvenido { name }</h1>
-        //     {/* <h2>Uid { uid }</h2> */}
-        //     <h2>Email { email }</h2>
-        //     <h2>Apellidos { last_name }</h2>
-        //     <form onSubmit={handleSubmit(updateSubmit)}>
-        //         <input type="email" readOnly {...register('email')}/>
-        //         <input type="text" {...register('name')}/>
-        //         <input type="text" {...register('last_name')}/>
-        //         <input type="text" {...register('phone')}/>
-        //         <button type="submit">Click</button>
-        //     </form>
-        //     <Footer />
-        // </>
         <div className='container-fluid'>
         <div className='row'>
             <Navbar /> 
@@ -62,7 +47,7 @@ export const InicioApp = () => {
         <div className='container mb-5'>
         <div className="d-flex justify-content-between">
                   <h3 className="mb-5 fw-bold p-4">Mi cuenta</h3>
-                  <h3 className="mb-5 p-4">ID del usuario:  <p>{uid}</p></h3>
+                  {/* <h3 className="mb-5 p-4">ID del usuario:  <p>{uid}</p></h3> */}
                   
         </div>
         

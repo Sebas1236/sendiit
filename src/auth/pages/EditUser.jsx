@@ -65,7 +65,7 @@ export const EditUser = () => {
             <div className='container mb-5'>
             <div className="d-flex justify-content-between">
                       <h3 className="mb-5 fw-bold p-4">Mi cuenta</h3>
-                      <h3 className="mb-5 p-4">ID del usuario:  <p>302122</p></h3>
+                      {/* <h3 className="mb-5 p-4">ID del usuario:  <p>302122</p></h3> */}
                       
             </div>
             

@@ -67,6 +67,15 @@ export const ResetPassword = () => {
 
     });
 
+    // Para estar al tanto de los cambios de errorMessage
+    useEffect(() => {
+        if (errorMessage !== undefined) {
+
+            Swal.fire('Error en la autenticación', errorMessage, 'error');
+        }
+
+    }, [errorMessage]);
+
 
     const resetPasswordSubmit = (data) => {
         startResetPassword({ uid, token, password: data.password, password2: data.password2 });
@@ -123,8 +132,8 @@ export const ResetPassword = () => {
                             <span className="text-left">Requerimientos de contraseña</span>
                             <br />
 
-                            <i className={icon}></i> Debe ser un mínimo de 8 caracteres.<br/>
-                            <i className={icon2}></i> Debe contener al menos una mayúscula, una minúscula, un dígito y un caracter especial.<br/>
+                            <i className={icon}></i> Debe ser un mínimo de 8 caracteres.<br />
+                            <i className={icon2}></i> Debe contener al menos una mayúscula, una minúscula, un dígito y un caracter especial.<br />
                             <i className={icon3}></i> Las contraseñas deben coincidir.
                             <br />
                         </div>

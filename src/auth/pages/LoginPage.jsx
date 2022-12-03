@@ -11,18 +11,11 @@ import { useAuthStore } from '../../hooks'
 import './css/LoginPage.css'
 import './css/NavbarLanding.css'
 
-// const loginFormFields = {
-//     loginEmail: '',
-//     loginPassword: '',
-// }
-
 export const LoginPage = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const { startLogin, errorMessage } = useAuthStore();
-
-    // const { loginEmail, loginPassword, onInputChange: onLoginInputChange } = useForm(loginFormFields);
 
     const loginSubmit = (data) => {
         // console.log(data.loginEmail);
@@ -41,73 +34,7 @@ export const LoginPage = () => {
     }, [errorMessage]);
 
     return (
-        // <>
-        //     <Navbar />
-        //     <div className="container login-container">
 
-        //         <div className="row">
-        //             <div className="col-md-6 login-form-1">
-        //                 <h3>Ingreso</h3>
-        //                 <form onSubmit={ handleSubmit(loginSubmit) }>
-        //                     <div className="form-group mb-2">
-        //                         <input
-        //                             type="text"
-        //                             className="form-control"
-        //                             placeholder="Correo"
-        //                             name="loginEmail"
-        //                             {...register('loginEmail',{
-        //                                 required: true, 
-        //                                 // value={loginEmail}
-        //                                 // onChange={onLoginInputChange}    
-        //                             })}/>
-
-        //                         { errors.loginEmail?.type === 'required' && <small style={{'color': '#f2317f'}}>El campo no puede estar vacío</small> }
-        //                         {/* <small style={{'color': '#f2317f'}}>El campo no puede estar vacío</small> */}
-        //                     </div>
-        //                     <div className="form-group mb-2">
-        //                         <input
-        //                             type="password"
-        //                             className="form-control"
-        //                             placeholder="Contraseña"
-        //                             name="loginPassword"
-        //                             {...register('loginPassword',{
-        //                                 required: true,
-        //                                 minLength: 6,
-        //                             })}
-        //                             // value={loginPassword}
-        //                             // onChange={onLoginInputChange}
-        //                         />
-        //                         { errors.loginPassword?.type === 'required' && <small style={{'color': '#f2317f'}}>El campo no puede estar vacío</small> }
-        //                         {/* { errors.loginPassword?.type === 'minLength' && <small style={{'color': '#f2317f'}}>La contraseña debe de ser de al menos 6 caracteres</small> } */}
-        //                     </div>
-        //                     <div className="row mb-4">
-        //                         <div className="col d-flex justify-content-center">
-        //                             <div className="form-check">
-        //                                 <input className="form-check-input" type="checkbox" value="" id="form2Example31" defaultChecked={true} />
-        //                                 <label className="form-check-label" htmlFor="form2Example31"> Recuérdame </label>
-        //                             </div>
-        //                         </div>
-
-        //                         <div className="col">
-        //                             <p><Link to="/forgot-password">Recuperar Contraseña </Link></p>
-        //                         </div>
-        //                     </div>
-        //                     <div className="d-grid gap-2">
-        //                         <input
-        //                             type="submit"
-        //                             className="btnSubmit"
-        //                             value="Login"
-        //                         />
-        //                     </div>
-        //                     <div className="text-center">
-        //                         <p>¿No tienes una cuenta? <Link to="/auth/register">Registrarse</Link></p>
-        //                     </div>
-        //                 </form>
-        //             </div>
-        //         </div>
-        //     </div>
-        //     <Footer />
-        
             <div className='container-fluid'>
                 <div className='row'>
                     <NavbarInicio/> 
