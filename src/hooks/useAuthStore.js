@@ -1,6 +1,7 @@
 // Objetivo realizar interacción con auth en store
 
 import { useDispatch, useSelector } from "react-redux"
+import resetApi from "../api/resetApi";
 import sendiitApi from "../api/sendiitApi";
 import { clearErrorMessage, onChecking, onLogin, onLogout } from "../store";
 
@@ -18,9 +19,11 @@ export const useAuthStore = () => {
             // Es una petición POST dónde se envían email y password
             // Segmento adicional de URL
             const { data } = await sendiitApi.post('/auth',{email, password,});
+            // console.log(data.token);
             localStorage.setItem('token', data.token );
             localStorage.setItem('token-init-date', new Date().getTime() );
-            dispatch( onLogin({ name: data.name, uid: data.uid }) );
+            // console.log( data.name );
+            dispatch( onLogin({ name: data.name, uid: data.uid, last_name: data.last_name, email , password: data.password, phone: data.phone }) );
 
         } catch (error) {
             dispatch( onLogout(error.response.data?.msg || '--') );
@@ -36,15 +39,14 @@ export const useAuthStore = () => {
             dispatch( onChecking() );
             try {
                 const { data } = await sendiitApi.post('/auth/new', { name, last_name, email, password });
-                localStorage.setItem('token', data.token );
-                localStorage.setItem('token-init-date', new Date().getTime() );
+                // localStorage.setItem('token', data.token );
+                // localStorage.setItem('token-init-date', new Date().getTime() );
                 dispatch( onLogout() );
+                // dispatch( clearErrorMessage );
                 // dispatch( onLogin({ name: data.name, uid: data.uid }) );
             } catch (error) {
                 dispatch( onLogout( error.response.data?.msg || '--' ) );
-                setTimeout(() => {
-                    dispatch( clearErrorMessage );
-                }, 10);
+                dispatch( clearErrorMessage );
             }
     };
 
@@ -72,16 +74,34 @@ export const useAuthStore = () => {
 
         try {
             const { data } = await sendiitApi.get('auth/renew');
+            // console.log({ data });
             localStorage.setItem('token', data.token );
             // En caso de validación con esta fecha
-            localStorage.setItem('token-init-date', new Date().getTime() );
-            dispatch( onLogin({ name: data.name, uid: data.uid }) );
+            // localStorage.setItem('token-init-date', new Date().getTime() );
+            //TODO: MEJORAR
+            dispatch( onLogin({ name: data.name, uid: data.uid, email: data.email, last_name: data.last_name, password: data.password, phone: data.phone}) );
         } catch (error) {
             //El token ya no funciona
             localStorage.clear();
             dispatch( onLogout() );
         }
     };
+
+    const startUpdate = async({ uid, name, last_name, email, password, phone }) => {
+        // dispatch( onChecking() );
+        try {
+            //TODO CAMBIAR DE LUGAR
+            const { data } = await resetApi.put(`/${uid}`, {name, last_name, email, password, phone})
+            dispatch( onLogin({ name: data.name, uid: data.uid, email: data.email, last_name: data.last_name, password: data.password, phone: data.phone}) );
+        } catch (error) {
+            console.log('error');
+            dispatch( onLogout( 'Error al actualizar usuario') );
+            setTimeout(() => {
+                dispatch( clearErrorMessage );
+            }, 10);
+        }
+
+    }
 
     const startLogout = () => {
         localStorage.clear();
@@ -100,5 +120,6 @@ export const useAuthStore = () => {
         startLogout,
         startRegister,
         verificarUsuario,
+        startUpdate
     }
 }
