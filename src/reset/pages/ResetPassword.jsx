@@ -70,7 +70,7 @@ export const ResetPassword = () => {
 
     const resetPasswordSubmit = (data) => {
         startResetPassword({ uid, token, password: data.password, password2: data.password2 });
-        Swal.fire('Correo de recuperación enviado', 'Se ha enviado un link para restablecer su contraseña. Por favor, revise su correo.', 'success');
+        Swal.fire('Contraseña restablecida', 'Su contraseña ha sido restablecida con éxito.', 'success');
     }
 
 
