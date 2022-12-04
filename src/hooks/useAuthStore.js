@@ -3,7 +3,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import resetApi from "../api/resetApi";
 import sendiitApi from "../api/sendiitApi";
-import { clearErrorMessage, onChecking, onLogin, onLogout } from "../store";
+import { clearErrorMessage, onChecking, onLoadUser, onLogin, onLogout } from "../store";
 
 export const useAuthStore = () => {
 
@@ -23,7 +23,7 @@ export const useAuthStore = () => {
             localStorage.setItem('token', data.token );
             localStorage.setItem('token-init-date', new Date().getTime() );
             // console.log( data.name );
-            dispatch( onLogin({ name: data.name, uid: data.uid, last_name: data.last_name, email , password: data.password, phone: data.phone }) );
+            dispatch( onLogin({ name: data.name, uid: data.uid, last_name: data.last_name, email: data.email, phone: data.phone }) );
 
         } catch (error) {
             dispatch( onLogout(error.response.data?.msg || '--') );
@@ -79,7 +79,7 @@ export const useAuthStore = () => {
             // En caso de validación con esta fecha
             // localStorage.setItem('token-init-date', new Date().getTime() );
             //TODO: MEJORAR
-            dispatch( onLogin({ name: data.name, uid: data.uid, email: data.email, last_name: data.last_name, password: data.password, phone: data.phone}) );
+            dispatch( onLogin({ name: data.name, uid: data.uid, last_name: data.last_name, email: data.email, phone: data.phone }) );
         } catch (error) {
             //El token ya no funciona
             localStorage.clear();
@@ -87,20 +87,26 @@ export const useAuthStore = () => {
         }
     };
 
-    const startUpdate = async({ uid, name, last_name, email, password, phone }) => {
-        // dispatch( onChecking() );
+    //* OBTIENE LOS DATOS DE LA BD
+    //TODO: CHECAR UID EN EL STORE
+    const startLoadingUser = async({ uid }) => {
         try {
-            //TODO CAMBIAR DE LUGAR
-            const { data } = await resetApi.put(`/${uid}`, {name, last_name, email, password, phone})
-            dispatch( onLogin({ name: data.name, uid: data.uid, email: data.email, last_name: data.last_name, password: data.password, phone: data.phone}) );
+            const { data } = await sendiitApi.post('/user', { uid });
+            // console.log({uid});
+            dispatch(onLoadUser({ ...data.usuario, uid }));
         } catch (error) {
-            console.log('error');
-            dispatch( onLogout( 'Error al actualizar usuario') );
-            setTimeout(() => {
-                dispatch( clearErrorMessage );
-            }, 10);
+            console.log('Error cargando usuario');
+            console.log(error);
         }
-
+    };
+    
+    const startUserUpdate = async({ uid, name, last_name, phone }) => {
+        try {
+            const { data } = await sendiitApi.post('/user/profile', { uid, name, last_name, phone });
+        } catch (error) {
+            console.log('Error actualizando usuario');
+            console.log(error);
+        }
     }
 
     const startLogout = () => {
@@ -120,6 +126,7 @@ export const useAuthStore = () => {
         startLogout,
         startRegister,
         verificarUsuario,
-        startUpdate
+        startLoadingUser,
+        startUserUpdate,
     }
 }
