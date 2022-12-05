@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400&display=swap');
+
 *{
-    font-family: 'Poppins';
-    font-style: normal;
+	font-family:  'Roboto Condensed', 'Poppins', 'Arial', sans-serif;
+  font-style: normal;
 }
 
 a{
