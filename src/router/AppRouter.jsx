@@ -9,6 +9,7 @@ import { ForgotPassword } from "../reset/pages/ForgotPassword";
 import { ResetPassword } from "../reset/pages/ResetPassword";
 import { LandingPage } from "../auth/pages/LandingPage";
 import { RecoverMessageEmail } from "../auth/pages/RecoverMessageEmail";
+import { CreditCardPage } from "../CreditCard/components/CreditCardPage";
 
 
 export const AppRouter = () => {
@@ -53,6 +54,7 @@ export const AppRouter = () => {
           : (
             <>
               <Route path="/" element={<InicioApp />} />
+              <Route path="/pago" element={<CreditCardPage/>}/>
               <Route path='/*' element={<Navigate to="/" />} />
               {/* <Route path='/auth/confirm/*' element={<Bienvenida />} />
               <Route path='/auth/confirm/:confirmationCode' element={<Bienvenida />} /> */}

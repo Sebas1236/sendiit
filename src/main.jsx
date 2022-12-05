@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { SendiitApp } from './SendiitApp';
-// import './styles.css';
+import './styles.css';
 /* 
 LOGOS Y COLORES
 #212e46
@@ -9,7 +9,7 @@ LOGOS Y COLORES
 #f9d950
 */
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <SendiitApp/>
-  </React.StrictMode>
+  // </React.StrictMode>
 )
