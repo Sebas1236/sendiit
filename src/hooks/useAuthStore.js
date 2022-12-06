@@ -89,9 +89,9 @@ export const useAuthStore = () => {
 
     //* OBTIENE LOS DATOS DE LA BD
     //TODO: CHECAR UID EN EL STORE
-    const startLoadingUser = async({ uid }) => {
+    const startLoadingUser = async() => {
         try {
-            const { data } = await sendiitApi.post('/user', { uid });
+            const { data } = await sendiitApi.get('/user');
             // console.log({uid});
             dispatch(onLoadUser({ ...data.usuario, uid }));
         } catch (error) {
