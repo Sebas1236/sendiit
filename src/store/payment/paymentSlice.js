@@ -1,25 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-//TODO: LEER DEL BACKEND
-const tempCard =
-{
-    _id: 1,
-    cardName: 'Sebastián',
-    cardNumber: '123456',
-    month: 10,
-    year: 2033,
-    bgColor: '#fafafa',
-    user: {
-        _id: '123',
-        name: 'Sebas'
-    }
-}
-
 export const paymentSlice = createSlice({
     name: 'payment',
     initialState: {
+        isLoadingCards: true,
         cards: [
-            tempCard,
+            // tempCard,
         ],
         activeCard: null,
     },
@@ -48,9 +34,32 @@ export const paymentSlice = createSlice({
                 state.activeCard = null;
             }
         },
+        onLoadCards: (state, { payload = [] }) => {
+            state.isLoadingCards = false;
+            // state.cards = payload;
+            payload.forEach( card => {
+                //Some regresa true si lo encuentra
+                const exists = state.cards.some( dbCard => dbCard._id === card._id );
+                if(!exists){
+                    state.cards.push( card );
+                }
+            });
+        },
+        onLogoutCard: ( state ) => {
+            state.isLoadingCards = true;
+            state.cards = [];
+            state.activeCard = null;
+        },
     },
 });
 
 
 // Action creators are generated for each case reducer function
-export const { onSetActiveCard, onAddNewCard, onUpdateCard, onDeleteCard } = paymentSlice.actions;
+export const { 
+    onAddNewCard, 
+    onDeleteCard, 
+    onLoadCards,
+    onLogoutCard,
+    onSetActiveCard, 
+    onUpdateCard, 
+} = paymentSlice.actions;

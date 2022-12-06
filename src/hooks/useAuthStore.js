@@ -3,7 +3,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import resetApi from "../api/resetApi";
 import sendiitApi from "../api/sendiitApi";
-import { clearErrorMessage, onChecking, onLoadUser, onLogin, onLogout } from "../store";
+import { clearErrorMessage, onChecking, onLoadUser, onLogin, onLogout, onLogoutCard } from "../store";
 
 export const useAuthStore = () => {
 
@@ -111,6 +111,7 @@ export const useAuthStore = () => {
 
     const startLogout = () => {
         localStorage.clear();
+        dispatch( onLogoutCard() );
         dispatch( onLogout() );
     }
 

@@ -1,9 +1,10 @@
 import React from 'react'
+import { useEffect } from 'react';
 import { useCardStore } from '../../hooks';
 import { useUiStore } from '../../hooks/useUiStore'
 
 export const CreditCardBox = () => {
-    const { cards, setActiveCard } = useCardStore();
+    const { cards, setActiveCard, startLoadingCards } = useCardStore();
     // console.log(cards);
     const { openCreditCardModal } = useUiStore();
 
@@ -16,6 +17,11 @@ export const CreditCardBox = () => {
         // console.log({ click: card });
         setActiveCard( card );
     }
+
+    useEffect(() => {
+        startLoadingCards();
+    }, []);
+    
 
     return (
         <>

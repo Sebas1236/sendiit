@@ -1,33 +1,63 @@
 import { useDispatch, useSelector } from "react-redux"
-import { onAddNewCard, onDeleteCard, onSetActiveCard, onUpdateCard } from "../store";
+import Swal from "sweetalert2";
+import sendiitApi from "../api/sendiitApi";
+import { onAddNewCard, onDeleteCard, onLoadCards, onSetActiveCard, onUpdateCard } from "../store";
 
 export const useCardStore = () => {
 
-    const { cards, activeCard } = useSelector( state => state.payment ); 
+    const { cards, activeCard } = useSelector(state => state.payment);
     const dispatch = useDispatch();
+    const { user } = useSelector(state => state.auth);
 
-    const setActiveCard = ( paymentCard ) => {
-        dispatch( onSetActiveCard( paymentCard ) );
+    const setActiveCard = (paymentCard) => {
+        dispatch(onSetActiveCard(paymentCard));
     };
 
     //Crear una nueva tarjeta
-    const startSavingCard = async( paymentCard ) => {
+    const startSavingCard = async (paymentCard) => {
         //TODO: LLEGAR AL BACKEND
-
-        //Todo bien
-        if( paymentCard._id ) {
-            //Actualizando
-            dispatch( onUpdateCard({ ...paymentCard }) );
-        }else{
-            //Creando
-            dispatch( onAddNewCard({ ...paymentCard, _id: 5 }) );
+        try {
+            if (paymentCard._id) {
+                //Actualizando
+                await sendiitApi.put(`/cards/${paymentCard._id}`, paymentCard);
+                dispatch(onUpdateCard({ ...paymentCard, user }));
+                return;
+            } else {
+                //Creando
+                const { data } = await sendiitApi.post('/cards', paymentCard);
+                console.log(data.savedCard._id);
+                dispatch(onAddNewCard({ ...paymentCard, _id: data.savedCard._id, user }));
+            }
+        } catch (error) {
+            console.log(error);
+            Swal.fire('Error al guardar', error.response.data?.msg, 'error');
         }
-    }
+        //Todo bien
 
-    const startDeletingCard = () => {
+    };
+
+    const startDeletingCard = async() => {
         //TODO: LLEGAR AL BACKEND
-        dispatch( onDeleteCard() );
-    }
+        try {
+            await sendiitApi.delete(`/cards/${activeCard._id}`);
+            dispatch(onDeleteCard());
+        } catch (error) {
+            console.log(error);
+            Swal.fire('Error al eliminar', error.response.data?.msg, 'error');
+        }
+        
+    };
+
+    const startLoadingCards = async () => {
+        try {
+            const { data } = await sendiitApi.get('/cards');
+            const { creditCards } = data;
+            dispatch(onLoadCards(creditCards));
+        } catch (error) {
+            console.log(error);
+            console.log('Error cargando tarjetas');
+        }
+    };
 
     return {
         //*Propiedades
@@ -36,8 +66,9 @@ export const useCardStore = () => {
         hasCardSelected: !!activeCard,
 
         //*Métodos
-        startDeletingCard,
         setActiveCard,
+        startDeletingCard,
+        startLoadingCards,
         startSavingCard,
     }
 };

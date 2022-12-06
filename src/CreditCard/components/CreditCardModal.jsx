@@ -154,6 +154,7 @@ export const CreditCardModal = () => {
                 <button
                     className="btn btn-outline-primary btn-block"
                     onClick={onCloseModal}
+                    type="button    "
                 >
                     <i className='fa-solid fa-xmark'></i>
                     <span>Cancelar</span>

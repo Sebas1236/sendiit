@@ -54,7 +54,7 @@ export const RegisterPage = () => {
             <img className="mb-4" src='/img/brand/logo.png' alt="sendiit" width="300"/>
             <h2 className='fw-bold mb-4'>Crear cuenta</h2>
             <h5 className='text-start'>*Campos obligatorios</h5>
-                <form onSubmit={handleSubmit(registerSubmit)} className="text-start">
+                <form onSubmit={handleSubmit(registerSubmit)} className="text-start" noValidate>
                 
                 
                     <div className="form-group mb-2">
