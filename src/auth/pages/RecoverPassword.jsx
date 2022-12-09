@@ -14,7 +14,7 @@ const registerFormFields = {
 
 export const RecoverPassword = () => {
 
-    const { startRegister, errorMessage } = useAuthStore();
+    const { startRegister, errorMessage, clearErrorMessage2 } = useAuthStore();
     const { registerName, registerLastName, registerEmail, registerPassword, registerPassword2, onInputChange: onRegisterInputChange } = useForm( registerFormFields );
     
     const registerSubmit = ( event ) => {
@@ -30,6 +30,8 @@ export const RecoverPassword = () => {
               
             Swal.fire('Error en la autenticación', errorMessage, 'error');
         }
+
+				clearErrorMessage2();
           
     }, [errorMessage]);
 

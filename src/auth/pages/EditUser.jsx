@@ -16,7 +16,7 @@ export const EditUser = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const { startLogin, errorMessage } = useAuthStore();
+    const { startLogin, errorMessage, clearErrorMessage2 } = useAuthStore();
 
     const [ nombreActivo, setNombre ] = useState(true)
 
@@ -51,6 +51,8 @@ export const EditUser = () => {
         if (errorMessage !== undefined) {
 
             Swal.fire('Error en la autenticación', errorMessage, 'error');
+
+						clearErrorMessage2();
         }
 
     }, [errorMessage]);

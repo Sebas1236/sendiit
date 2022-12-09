@@ -15,12 +15,17 @@ export const LoginPage = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const { startLogin, errorMessage } = useAuthStore();
+    const { startLogin, errorMessage, clearErrorMessage2 } = useAuthStore();
 
     const loginSubmit = (data) => {
         // console.log(data.loginEmail);
         // Swal.fire('Iniciar Sesión', 'Iniciando sesión...', 'success');
         startLogin({ email: data.loginEmail, password: data.loginPassword });
+
+				if (errorMessage !== undefined) {
+
+					Swal.fire('Error en la autenticación', errorMessage, 'error');
+				}
     }
 
 
@@ -29,6 +34,8 @@ export const LoginPage = () => {
         if (errorMessage !== undefined) {
 
             Swal.fire('Error en la autenticación', errorMessage, 'error');
+
+						clearErrorMessage2();
         }
 
     }, [errorMessage]);

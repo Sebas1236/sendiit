@@ -8,7 +8,7 @@ import './css/RegisterPage.css'
 
 export const RegisterPage = () => {
     const [ botonActivo, setBotonActivo] = useState(false);
-    const { startRegister, errorMessage } = useAuthStore();
+    const { startRegister, errorMessage, clearErrorMessage2 } = useAuthStore();
     // const { registerName, registerLastName, registerEmail, registerPassword, registerPassword2, onInputChange: onRegisterInputChange } = useForm( registerFormFields );
     const { register, handleSubmit, formState: { errors }, watch, getValues } = useForm();
 
@@ -27,6 +27,8 @@ export const RegisterPage = () => {
         if (errorMessage !== undefined) {
             Swal.fire('Error en la autenticación', errorMessage, 'error');
         }
+
+				clearErrorMessage2();
 
     }, [errorMessage]);
 
