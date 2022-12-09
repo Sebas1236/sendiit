@@ -3,7 +3,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import resetApi from "../api/resetApi";
 import sendiitApi from "../api/sendiitApi";
-import { clearErrorMessage, onChecking, onLoadUser, onLogin, onLogout } from "../store";
+import { clearErrorMessage, onChecking, onLoadUser, onLogin, onLogout, onLogoutCard } from "../store";
 
 export const useAuthStore = () => {
 
@@ -89,9 +89,9 @@ export const useAuthStore = () => {
 
     //* OBTIENE LOS DATOS DE LA BD
     //TODO: CHECAR UID EN EL STORE
-    const startLoadingUser = async({ uid }) => {
+    const startLoadingUser = async() => {
         try {
-            const { data } = await sendiitApi.post('/user', { uid });
+            const { data } = await sendiitApi.get('/user');
             // console.log({uid});
             dispatch(onLoadUser({ ...data.usuario, uid }));
         } catch (error) {
@@ -111,6 +111,7 @@ export const useAuthStore = () => {
 
     const startLogout = () => {
         localStorage.clear();
+        dispatch( onLogoutCard() );
         dispatch( onLogout() );
     }
 

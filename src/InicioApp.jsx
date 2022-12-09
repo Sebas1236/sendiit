@@ -13,7 +13,7 @@ export const InicioApp = () => {
     //Apenas se cargue el componente se dispara el efecto
     // console.log(user);
     useEffect(() => {
-        startLoadingUser({ uid });
+        startLoadingUser();
     }, []);
     const updateSubmit = (data) => {
         let { name, last_name, phone } = data;
