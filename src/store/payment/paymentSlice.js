@@ -7,6 +7,7 @@ export const paymentSlice = createSlice({
         cards: [
             // tempCard,
         ],
+        message: undefined,
         activeCard: null,
     },
     reducers: {
@@ -15,7 +16,6 @@ export const paymentSlice = createSlice({
         },
         onAddNewCard: (state, { payload }) => {
             state.cards.push(payload);
-            state.activeCard = null;
         },
         onUpdateCard: (state, { payload }) => {
             //Map regresa un nuevo arreglo basado en el valor de retorno

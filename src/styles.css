@@ -59,3 +59,13 @@
   width: 50px;
   height: 50px;
 }
+
+i{
+  font-size: 150%;
+  font-weight: lighter;
+  margin-left: 2px;
+}
+
+.btn {
+  font-size: 90%;
+}

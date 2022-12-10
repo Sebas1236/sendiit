@@ -5,15 +5,24 @@ export const FabDelete = () => {
 
     const { startDeletingCard, hasCardSelected } = useCardStore();
     const { closeCreditCardModal } = useUiStore();
-
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
     const handleDelete = async() => {
-        await Swal.fire({
+        await swalWithBootstrapButtons.fire({
             title: '¿Estás seguro que deseas eliminar esta tarjeta?',
-            showDenyButton: true,
+            text: 'No podrás revertir esta acción!',
+            icon: 'warning',
+            // showDenyButton: true,
             showCancelButton: true,
-            confirmButtonText: 'Sí',
-            denyButtonText: `No`,
-            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'Sí, elimínala!',
+            // denyButtonText: `No`,
+            cancelButtonText: 'No, cancelar!',
+            // reverseButtons: true,
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {

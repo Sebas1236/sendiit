@@ -1,7 +1,6 @@
 // Objetivo realizar interacción con auth en store
 
 import { useDispatch, useSelector } from "react-redux"
-import resetApi from "../api/resetApi";
 import sendiitApi from "../api/sendiitApi";
 import { clearErrorMessage, onChecking, onLoadUser, onLogin, onLogout, onLogoutCard } from "../store";
 
@@ -90,10 +89,13 @@ export const useAuthStore = () => {
     //* OBTIENE LOS DATOS DE LA BD
     //TODO: CHECAR UID EN EL STORE
     const startLoadingUser = async() => {
+
         try {
             const { data } = await sendiitApi.get('/user');
+            // console.log(data);
             // console.log({uid});
-            dispatch(onLoadUser({ ...data.usuario, uid }));
+            //TODO VERIFICAR LIBRE DE ERRORES
+            dispatch(onLoadUser({ ...data.usuario, uid: data.usuario._id }));
         } catch (error) {
             console.log('Error cargando usuario');
             console.log(error);

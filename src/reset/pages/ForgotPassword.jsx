@@ -20,7 +20,7 @@ export const ForgotPassword = () => {
 
     const forgotPasswordSubmit = (data) => {
         console.log(data.email);
-        startRecoverEmail({email: data.email});
+        startRecoverEmail({ email: data.email });
         Swal.fire('Correo de recuperación enviado', 'Se ha enviado un link para restablecer su contraseña. Por favor, revise su correo.', 'success');
     }
 
@@ -36,14 +36,14 @@ export const ForgotPassword = () => {
     return (
         <div className='container-fluid'>
             <div className='row'>
-                <NavbarInicio /> 
+                <NavbarInicio />
             </div>
 
             <div className='row text-center '>
                 <div className="form-signin w-100 m-auto">
-                <img className="mb-4" src="/img/brand/logo.png" alt="sendiit" width="250"/>
+                    <img className="mb-4" src="/img/brand/logo.png" alt="sendiit" width="250" />
                     <form onSubmit={handleSubmit(forgotPasswordSubmit)}>
-                    <h3 className='fw-bold mb-5'>Recuperar contraseña</h3>
+                        <h3 className='fw-bold mb-5'>Recuperar contraseña</h3>
                         <div className="form-group mb-4 ">
                             <input
                                 type="email"
@@ -51,31 +51,39 @@ export const ForgotPassword = () => {
                                 placeholder="Correo"
                                 name="email"
                                 {...register('email', {
-                                    required: true
-                                })}/>
-                        { errors.email?.type === 'required' && <small style={{'color': '#f2317f'}}>El campo no puede estar vacío</small> }
-                            
+                                    required: {
+                                        value: true,
+                                        message: 'El campo no puede estar vacío'
+                                    },
+                                    pattern: {
+                                        value: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                                        message: 'Ingresa un email válido'
+                                    }
+                                }
+                                )} />
+                            {errors.email && <span style={{ 'color': '#f2317f' }}>{errors.email.message}</span>}
+
                         </div>
-                        
+
                         <div className='col '>
-                        
+
                             <input
-                                className="w-75 btn btn-lg btn-rojo btn-60" 
-                                type="submit"   
+                                className="w-75 btn btn-lg btn-rojo btn-60"
+                                type="submit"
                                 onClick={<Link to="/auth/recover-email"></Link>}
                                 value="Recuperar contraseña" />
                         </div>
-                        
+
                     </form>
                 </div>
             </div>
             <div className='row altura'>
-               
+
             </div>
             <div className='row'>
-              <FooterLanding />
+                <FooterLanding />
             </div>
-            
+
         </div>
     )
 }
