@@ -10,7 +10,8 @@ import { ResetPassword } from "../reset/pages/ResetPassword";
 import { LandingPage } from "../auth/pages/LandingPage";
 import { RecoverMessageEmail } from "../auth/pages/RecoverMessageEmail";
 import { CreditCardPage } from "../CreditCard/components/CreditCardPage";
-
+import { AddPaymentMet } from '../auth/pages/AddPaymentMet';
+import { LoadingPage } from "../LoadingPage";
 
 export const AppRouter = () => {
 
@@ -25,7 +26,8 @@ export const AppRouter = () => {
   if (status === 'checking') {
     return (
       //TODO: ANIMACIÓN DE CARGA
-      <h3>Cargando...</h3>
+      // <h3>Cargando...</h3>
+      <LoadingPage />
     )
   }
 
@@ -37,24 +39,26 @@ export const AppRouter = () => {
             //Si no estoy autenticado
             <>
               {/* Auth   */}
-              
+
               <Route path="/auth/login" element={<LoginPage />} />
               <Route path="/auth/register" element={<RegisterPage />} />
               <Route path="/auth/landing" element={<LandingPage />} />
               <Route path='/auth/confirm/*' element={<Bienvenida />} />
               {/* Forgot & Reset Password  */}
-              <Route path="/auth/recover-email" element={ <RecoverMessageEmail/> }/>
-              <Route path="/auth/forgot-password" element={ <ForgotPassword/> }/>
+              <Route path="/auth/recover-email" element={<RecoverMessageEmail />} />
+              <Route path="/auth/forgot-password" element={<ForgotPassword />} />
               {/* <Route path="/auth/reset-password/landing" element={ <LandingPage/> }/> */}
-              <Route path="/auth/reset-password/*" element={ <ResetPassword/> }/>
+              <Route path="/auth/reset-password/*" element={<ResetPassword />} />
+
               {/* Otras rutas */}
               <Route path='/*' element={<Navigate to="/auth/login" />} />
             </>
           )
           : (
             <>
+              <Route path="auth/pages/AddPaymentMet" element={<AddPaymentMet />} />
               <Route path="/" element={<InicioApp />} />
-              <Route path="/pago" element={<CreditCardPage/>}/>
+              <Route path="/pago" element={<CreditCardPage />} />
               <Route path='/*' element={<Navigate to="/" />} />
               {/* <Route path='/auth/confirm/*' element={<Bienvenida />} />
               <Route path='/auth/confirm/:confirmationCode' element={<Bienvenida />} /> */}

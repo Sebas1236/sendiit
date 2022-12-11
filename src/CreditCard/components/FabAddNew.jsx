@@ -6,17 +6,17 @@ export const FabAddNew = () => {
     const { setActiveCard } = useCardStore();
 
     const handleClickNew = () => {
-        setActiveCard({
-            cardName: '',
-            cardNumber: '',
-            month: 10,
-            year: 2023,
-            bgColor: '#fafafb',
-            user: {
-                _id: '1234',
-                name: 'Sebast'
-            }
-        });
+        // setActiveCard({
+        //     cardName: '',
+        //     cardNumber: '',
+        //     month: 10,
+        //     year: 2023,
+        //     bgColor: '#fafafb',
+        //     user: {
+        //         _id: '1234',
+        //         name: 'Sebast'
+        //     }
+        // });
         setActiveCard(null);
         //Limpiar nota anterior
         openCreditCardModal();

@@ -1,0 +1,29 @@
+.header-text {
+    font-size: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.btn-rojo{
+    background-color:#ffffff;
+    border-radius: 53px;
+    border-color: #ff0000;
+    color: rgb(255, 0, 0);
+}
+
+.back-color{
+    background-color:#212e46;
+}
+
+/*
+.select-size{
+    display:block;
+    height:35px;
+    width:170px;
+}
+
+.model-container1{
+    float:left;
+}
+*/
+

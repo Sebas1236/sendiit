@@ -8,11 +8,6 @@ import { useResetStore } from "../../hooks/useResetStore";
 import '../../auth/pages/css/LoginPage.css'
 import { useIsFirstRender } from "../../hooks";
 
-// const formFields = {
-//     password: '',
-//     password2: '',
-// }
-
 export const ResetPassword = () => {
     //TODO: MEJORAR
     const uid = window.location.pathname.split("/")[3];
@@ -54,8 +49,6 @@ export const ResetPassword = () => {
             {
                 let getPassword = getValues("password");
                 let re = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,18}$/;
-                console.log(getPassword);
-                console.log(re.test(getPassword));
                 (re.test(getPassword))
                     ?
                     setIcon2('fa-solid fa-check')
@@ -79,7 +72,22 @@ export const ResetPassword = () => {
 
     const resetPasswordSubmit = (data) => {
         startResetPassword({ uid, token, password: data.password, password2: data.password2 });
-        Swal.fire('Contraseña restablecida', 'Su contraseña ha sido restablecida con éxito.', 'success');
+        Swal.fire({
+            title: 'Su contraseña ha sido restablecida',
+            // text: 'Su cuenta ha sido verificada',
+            icon: 'success',
+            html:
+              '<a href="/auth/login">Iniciar Sesión</a> ',
+            showCloseButton: true,
+            showCancelButton: true,
+            focusConfirm: false,
+            confirmButtonText:
+              '<i class="fa fa-thumbs-up"></i> Genial!',
+            confirmButtonAriaLabel: 'Thumbs up, great!',
+            cancelButtonText:
+              '<i class="fa fa-thumbs-down"></i>',
+            cancelButtonAriaLabel: 'Thumbs down'
+          })
     }
 
 
@@ -105,7 +113,7 @@ export const ResetPassword = () => {
                                     minLength: 8
                                 })} />
                             {errors.password?.type === 'required' && <small style={{ 'color': '#f2317f' }}>El campo no puede estar vacío</small>}
-                            {errors.password?.type === 'minLength' && <small style={{ 'color': '#f2317f' }}>Al menos 6 caracteres</small>}
+                            {errors.password?.type === 'minLength' && <small style={{ 'color': '#f2317f' }}>Al menos 8 caracteres</small>}
 
                             <label htmlFor="floatingInput">Nueva contraseña</label>
                         </div>

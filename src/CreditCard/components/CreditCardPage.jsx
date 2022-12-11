@@ -7,18 +7,52 @@ import { FabAddNew } from './FabAddNew';
 import { FabDelete } from './FabDelete';
 
 export const CreditCardPage = () => {
-    
+
     return (
+        // <div className='container-fluid'>
+        //     <div className='row'>
+        //         <Navbar />
+        //     </div>
+        //     <CreditCardBox
+        //         // cards={cards}
+        //     // style={{height:'calc(100vh-80p)'}}
+        //     />
+        //     <CreditCardModal />
+        //     <FabAddNew/>
+        //     {/* <FabDelete/> */}
+
+        //     <div className='row'>
+        //         <FooterLanding />
+        //     </div>
+        // </div>
         <div className='container-fluid'>
             <div className='row'>
                 <Navbar />
             </div>
-            <CreditCardBox
-                // cards={cards}
-            // style={{height:'calc(100vh-80p)'}}
-            />
+            <br /><br />
+            <p className="text-center fw-bold fs-4">Administrar métodos de pago</p>
+            <div className="d-flex justify-content-center align-items-center">
+                <div className="col-md-7">
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Nombre en la tarjeta</th>
+                                <th scope="col">Vencimiento</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <CreditCardBox />
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <CreditCardModal />
-            <FabAddNew/>
+            <div className='text-center fw-bold fs-4'>
+                <FabAddNew />
+            </div>
+            <br />
             {/* <FabDelete/> */}
 
             <div className='row'>

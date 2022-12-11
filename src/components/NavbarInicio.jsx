@@ -7,7 +7,7 @@ export const NavbarInicio = () => {
         <div className="container-fluid p-0">
             <nav className="navbar navbar-expand-lg margen0 navbar-dark ">
               
-                    <a className="navbar-brand">
+                    <a className="navbar-brand" href="/auth/landing"> 
                         <img src="/img/brand/logoblanco.png" alt="Logo" width="150" height="50" className="d-inline-block align-text-top ms-5"/>
                     </a>
                 

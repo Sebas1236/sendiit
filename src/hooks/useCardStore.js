@@ -25,7 +25,7 @@ export const useCardStore = () => {
             } else {
                 //Creando
                 const { data } = await sendiitApi.post('/cards', paymentCard);
-                console.log(data.savedCard._id);
+                // console.log(data.savedCard._id);
                 dispatch(onAddNewCard({ ...paymentCard, _id: data.savedCard._id, user }));
             }
         } catch (error) {

@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 import Swal from 'sweetalert2';
 import { useCardStore, useUiStore } from '../../hooks';
 import { FabDelete } from './FabDelete';
+import './CreditCardModal.css'
 
 const customStyles = {
     content: {
@@ -64,19 +65,40 @@ export const CreditCardModal = () => {
             overlayClassName="modal-fondo"
             closeTimeoutMS={200}
         >
-            <h6><strong>Administrar método de pago</strong></h6>
-            <hr />
+            <div className="back-color">
+            <h6 className='header-text'><strong>
+                {
+                    (activeCard)
+                    ? "Editar método de pago"
+                    : "Agregar método de pago"
+                }
+                
+            </strong></h6>
+            <hr /></div>
             <form onSubmit={handleSubmit(onCardSubmit)} className="container">
                 <div className='form-group mb-2'>
                     <label>Número de tarjeta</label>
                     <input
                         className={`form-control ${errors.cardNumber && 'is-invalid'}`}
-                        placeholder='Número'
+                        placeholder='Ej. 378282246310005'
                         {...register('cardNumber', {
                             required: {
                                 value: true,
                                 message: 'El campo no puede estar vacío'
                             },
+                            pattern: {
+                                       //Mastercard | Visa | American Express
+                                value: /^5[1-5][0-9]{14}|4[0-9]{12}(?:[0-9]{3})?|3[47][0-9]{13}$/,
+                                message: "Ingrese un número de tarjeta válido"
+                            },
+                            minLength: {
+                                value: 15,
+                                message: "La tarjeta es de al menos 15 dígitos"
+                            },
+                            maxLength: {
+                                value: 16,
+                                message: 'La tarjeta debe de ser de máximo 16 dígitos'
+                            }
                             // value: cardNumber
                         })} />
                     {errors.cardNumber && <span style={{ 'color': '#f2317f' }}>{errors.cardNumber.message}</span>}
@@ -84,29 +106,38 @@ export const CreditCardModal = () => {
                 <div className='form-group mb-2'>
                     <label>Nombre en la tarjeta</label>
                     <input
-                        className='form-control'
-                        placeholder='Nombre en la tarjeta'
+                        className={`form-control ${errors.cardNumber && 'is-invalid'}`}
+                        placeholder='Ej. Mario Aguilar Pérez'
                         {...register('cardName', {
                             required: {
                                 value: true,
                                 message: 'El campo no puede estar vacío'
                             },
+                            pattern: {
+                                value: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+                                message: "Ingrese un nombre válido"
+                            }
                             // value: cardName
                         })} />
                     {errors.cardName && <span style={{ 'color': '#f2317f' }}>{errors.cardName.message}</span>}
                 </div>
                 <div className='form-group mb-2'>
-                    <label>Fecha de vencimiento</label>
-
+                    <label>Fecha de vencimient</label>
+                    &nbsp;&nbsp;&nbsp;
                     <select
                         {...register('month', {
                             required: {
                                 value: true,
                                 message: 'El campo no puede estar vacío'
                             },
+                            pattern: {
+                                value: /^([1-9]|1[0-2])$/,
+                                message: 'Números'
+                            }
                             // value: cardNumber
                         })}>
                         {errors.month && <span style={{ 'color': '#f2317f' }}>{errors.month.message}</span>}
+                        <option defaultValue={'Mes'}>Mes</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -120,7 +151,8 @@ export const CreditCardModal = () => {
                         <option>11</option>
                         <option>12</option>
                     </select>
-                    <select
+                    &nbsp;&nbsp;&nbsp;
+                    <select 
                         {...register('year', {
                             required: {
                                 value: true,
@@ -129,6 +161,7 @@ export const CreditCardModal = () => {
                             // value: cardNumber
                         })}>
                         {errors.year && <span style={{ 'color': '#f2317f' }}>{errors.year.message}</span>}
+                        <option defaultValue={'Año'}>Año</option>
                         <option>2023</option>
                         <option>2024</option>
                         <option>2025</option>
@@ -151,23 +184,24 @@ export const CreditCardModal = () => {
                         <option>2042</option>
                     </select>
                 </div>
-                <hr />
-                <button
-                    className="btn btn-outline-primary btn-block"
+                <hr/>
+                <button 
+                    className="btn btn-outline-danger btn-block btn-rojo"
                     onClick={onCloseModal}
-                    type="button    "
+                    type="button"
                 >
                     <i className='fa-solid fa-xmark'></i>
-                    <span>Cancelar</span>
+                    <span> Cancelar</span>
                 </button>
-                <button
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button 
                     type="submit"
                     className="btn btn-outline-primary btn-block"
                 >
                     <i className='fas fa-save'></i>
-                    <span>Guardar</span>
+                    <span> Guardar</span>
                 </button>
-                {activeCard&& <FabDelete/>}
+                <div>{activeCard&& <FabDelete/>}</div>
             </form>
 
         </Modal>
