@@ -50,7 +50,7 @@ export const LoginPage = () => {
                 <div className='row text-center '>
                     <div className="form-signin w-100 m-auto">
                         <form onSubmit={handleSubmit(loginSubmit)} noValidate>
-                          <img className="mb-4" src='/img/brand/logo.png' alt="sendiit" width="250"/>
+                          <img className="mb-4" src='/img/brand/logo_sendiit-dark.png' alt="sendiit" width="250"/>
                           <h1 className="h3 mb-5 fw-normal">Iniciar sesión</h1>
     
                           <div className="form-floating mb-4 ">

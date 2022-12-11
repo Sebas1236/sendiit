@@ -13,7 +13,7 @@ export const LandingPage = () => {
             <div className='row text-center '>
                 <div className="form-signin w-100 m-auto ">
 
-                    <img className="mb-4 imagenCentro" src='/img/brand/logo.png' alt="sendiit" width="300" />
+                    <img className="mb-4 imagenCentro" src='/img/brand/logo_sendiit-dark.png' alt="sendiit" width="300" />
                 </div>
                 <div>
                     <div id="nosotros">

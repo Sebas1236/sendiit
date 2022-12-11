@@ -7,7 +7,7 @@ export const Navbar = () => {
           <nav className="navbar navbar-expand-lg margen0 navbar-dark ">
             
                   <a className="navbar-brand" href="/auth/login">
-                      <img src="/img/brand/logoblanco.png" alt="Logo" width="150" height="50" className="d-inline-block align-text-top ms-5"/>
+                      <img src="/img/brand/logo_sendiit-light.png" alt="Logo" height="30" className="d-inline-block align-text-top ms-5"/>
                   </a>
               
               <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

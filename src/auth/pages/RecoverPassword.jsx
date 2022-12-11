@@ -43,7 +43,7 @@ export const RecoverPassword = () => {
 
             <div className='row text-center '>
                 <div className="form-signin w-100 m-auto">
-                <img className="mb-4" src="/img/brand/logo.png" alt="sendiit" width="250"/>
+                <img className="mb-4" src="/img/brand/logo_sendiit-dark.png" alt="sendiit" width="250"/>
                     <form onSubmit={registerSubmit}>
                     <h3 className='fw-bold mb-5'>Recuperar contraseña</h3>
                         <div className="form-group mb-4 ">

@@ -8,7 +8,7 @@ export const NewPasswordMessage = () => {
             </div>
             <div className='row text-center '>
                 <div className="form-signin w-100 m-auto">
-                <img className="mb-4" src="/img/brand/logo.png" alt="sendiit" width="250"/>
+                <img className="mb-4" src="/img/brand/logo_sendiit-dark.png" alt="sendiit" width="250"/>
                 </div>
             </div>
 
