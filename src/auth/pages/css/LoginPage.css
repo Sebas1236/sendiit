@@ -5,6 +5,15 @@
   font-style: normal;
 }
 
+body{
+	/* background-image: linear-gradient(45deg, #7288cc,#fdfdfd); */
+	background-color:  #f0f0f0;
+	/* Provisional */
+	/* background-repeat: repeat;
+	background-blend-mode: darken;
+	background-size: 300px;
+	background-image: url(/public/img/pattt.jpg); */
+}
 
 
 a{
@@ -17,14 +26,16 @@ a:hover{
 
 
 .form-signin {
-    max-width: 400px;
+    max-width: 800px;
     padding: 15px;
+		background-color: #fff;
+		border-radius: 10px;
+		box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
 }
   
 .form-signin .form-floating:focus-within {
     z-index: 2;
 }
-
 
 .r{
     height: 50px;
@@ -54,6 +65,12 @@ a:hover{
     box-shadow: 0 0 0 0.25rem rgb(33 46 70 / 25%);
 }
 
+.error{
+		color: #e41f1a;
+		font-size: 14px;
+		text-align: start;
+		padding-left: 8px;
+}
 
 /* ------------------LANDING PAGE-------------------*/
 

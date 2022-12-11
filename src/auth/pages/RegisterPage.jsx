@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
-import { NavbarInicio, FooterLanding } from '../../components'
+import { FormHeader, NavbarInicio, FooterLanding } from '../../components'
 import { useAuthStore, useIsFirstRender } from '../../hooks'
 import './css/RegisterPage.css'
 
@@ -52,9 +52,8 @@ export const RegisterPage = () => {
             </div>
 
             <div className='row text-center '>
-                <div className="form-signin w-100 m-auto">
-                    <img className="mb-4" src='/img/brand/logo_sendiit-dark.png' alt="sendiit" width="300" />
-                    <h2 className='fw-bold mb-4'>Crear cuenta</h2>
+                <div className="form-signin w-100 mx-auto mt-4">
+										<FormHeader title={"Crear cuenta"} />
                     <h5 className='text-start'>*Campos obligatorios</h5>
                     <form onSubmit={handleSubmit(registerSubmit)} className="text-start" noValidate>
 

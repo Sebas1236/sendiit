@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
-import { NavbarInicio, Footer, FooterLanding } from '../../components'
+import { FormHeader, NavbarInicio, Footer, FooterLanding } from '../../components'
 import { useAuthStore, useForm } from '../../hooks'
 import './css/LoginPage.css'
 
@@ -42,10 +42,9 @@ export const RecoverPassword = () => {
             </div>
 
             <div className='row text-center '>
-                <div className="form-signin w-100 m-auto">
-                <img className="mb-4" src="/img/brand/logo_sendiit-dark.png" alt="sendiit" width="250"/>
-                    <form onSubmit={registerSubmit}>
-                    <h3 className='fw-bold mb-5'>Recuperar contraseña</h3>
+                <div className="form-signin w-100 mx-auto mt-4">
+              		<form onSubmit={registerSubmit}>
+                  <FormHeader title={"Recuperar contraseña"} />
                         <div className="form-group mb-4 ">
                             <input
                                 type="email"

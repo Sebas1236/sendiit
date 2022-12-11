@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSearchParams } from "react-router-dom";
 import Swal from "sweetalert2";
-import { FooterLanding, Navbar, NavbarInicio } from "../../components";
+import { FormHeader, FooterLanding, Navbar, NavbarInicio } from "../../components";
 import { useResetStore } from "../../hooks/useResetStore";
 // import './css/LoginPage.css'
 import '../../auth/pages/css/LoginPage.css'
@@ -98,10 +98,9 @@ export const ResetPassword = () => {
             </div>
 
             <div className='row text-center '>
-                <div className="form-signin w-100 m-auto">
+                <div className="form-signin w-100 mx-auto mt-4">
                     <form onSubmit={handleSubmit(resetPasswordSubmit)}>
-                        <img className="mb-4" src='/img/brand/logo_sendiit-dark.png' alt="sendiit" width="250" />
-                        <h1 className="h3 mb-5 fw-bold">Cambiar contraseña</h1>
+                        <FormHeader title="Restablecer contraseña" />
 
                         <div className="form-floating mb-4 ">
                             <input

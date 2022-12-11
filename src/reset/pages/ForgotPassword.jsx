@@ -40,7 +40,7 @@ export const ForgotPassword = () => {
             </div>
 
             <div className='row text-center '>
-                <div className="form-signin w-100 m-auto">
+                <div className="form-signin w-100  mx-auto mt-4">
                     <img className="mb-4" src="/img/brand/logo_sendiit-dark.png" alt="sendiit" width="250" />
                     <form onSubmit={handleSubmit(forgotPasswordSubmit)}>
                         <h3 className='fw-bold mb-5'>Recuperar contraseña</h3>

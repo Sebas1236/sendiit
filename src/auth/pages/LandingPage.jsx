@@ -1,5 +1,5 @@
 import { NavbarLanding, FooterLanding } from '../../components';
-import './css/LoginPage.css'
+import './css/LandingPage.css'
 import './css/NavbarLanding.css'
 
 export const LandingPage = () => {
@@ -9,15 +9,14 @@ export const LandingPage = () => {
             <div className='row'>
                 <NavbarLanding />
             </div>
-            <img className="mb-4 casillerosImagen col-12 img-fluid" src='/img/brand/locker.jpg' alt="casilleros"  ></img>
+            <img className="casillerosImagen col-12" src='/img/brand/locker.jpg' alt="casilleros"  ></img>
             <div className='row text-center '>
-                <div className="form-signin w-100 m-auto ">
-
-                    <img className="mb-4 imagenCentro" src='/img/brand/logo_sendiit-dark.png' alt="sendiit" width="300" />
+                <div className="w-100 mx-auto ">
+                    <img className="imagenCentro" src='/img/brand/logo_sendiit-dark.png' alt="sendiit" width="300" />
                 </div>
                 <div>
                     <div id="nosotros">
-                        <h1> Nosotros </h1>
+                        <h1> Nosotros</h1>
                         <p>
                             Somos una empresa dedicada al envío de paquetes a través de lockers, donde cada usuario podrá enviar paquetes desde la aplicación o página web a una ubicación deseada sin tener que interactuar con otras personas. Todo en menos de 24 hrs.
                         </p>
