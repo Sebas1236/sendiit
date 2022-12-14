@@ -45,7 +45,7 @@ h4{
     color: white;
 }
 
-.btn-primary{
+.btn-primary-c{
 	background-color:rgba(228, 31, 26, 1);
 	border-color: rgb(228, 31, 26);
   border-radius: 8px;
@@ -57,7 +57,7 @@ h4{
 	transition-property: all;
 }
 
-.btn-primary:hover{
+.btn-primary-c:hover{
 	background-color:rgba(228, 31, 26, 0);
 	border-color: #e41f1a;
   border-radius: 32px;
@@ -68,7 +68,7 @@ h4{
 
 .btn-secondary{
 	background-color:rgba(33, 46, 70, 0);
-	border-color: rgba(33, 46, 70, 0);
+	border-color: rgba(33, 46, 70, 1);
   border-radius: 8px;
 	color: rgba(33, 46, 70, 1) , white;
 	transition-timing-function: ease-in;
@@ -82,10 +82,11 @@ h4{
 }
 
 .btn-secondary:hover{
-	background-color: rgba(33, 46, 70, 0);
-	border-color: rgba(33, 46, 70, 1);
+	/* background-color: rgba(33, 46, 70, 1); */
+	/* border-color: rgba(33, 46, 70, 1); */
   border-radius: 32px;
 	color: rgba(33, 46, 70, 1);
+	/* color: rgb(255, 255, 255); */
 
 	transition-duration: 1s;
 }

@@ -70,7 +70,7 @@ export const LoginPage = () => {
 															<label htmlFor="floatingInput">Correo electrónico</label>
 														</div>
 														<div className="form-floating mb-4">
-															<input type="password" className="form-control"
+															<input type="password" className="form-control shadow"
 																	id="floatingPassword" placeholder="Contraseña"
 																	name="loginPassword"
 																	{...register('loginPassword',{
@@ -102,7 +102,7 @@ export const LoginPage = () => {
 																	<div className='row'>
 																			<div className='col'>
 																			<input
-																				className="w-100 btn btn-lg btn-primary" 
+																				className="w-100 btn btn-lg btn-primary-c" 
 																				type="submit"
 																				value="Iniciar sesión" />
 																			</div>

@@ -63,7 +63,7 @@ export const RegisterPage = () => {
                             <label htmlFor="registerName" className="form-label">*Nombre</label>
                             <input
                                 type="text"
-                                className="form-control"
+                                className="form-control shadow"
                                 placeholder="Ingresa tu nombre"
                                 name="registerName"
                                 {...register('registerName', {
@@ -82,7 +82,7 @@ export const RegisterPage = () => {
                             <label htmlFor="registerLastName" className="form-label">*Apellidos</label>
                             <input
                                 type="text"
-                                className="form-control"
+                                className="form-control shadow"
                                 placeholder="Ingresa tus apellidos"
                                 name="registerLastName"
                                 {...register('registerLastName', {
@@ -101,7 +101,7 @@ export const RegisterPage = () => {
                             <label htmlFor="registerEmail" className="form-label">*Correo electrónico</label>
                             <input
                                 type="email"
-                                className="form-control"
+                                className="form-control shadow" 
                                 placeholder="ejemplo@email.com"
                                 name="registerEmail"
                                 {...register('registerEmail', {
@@ -120,7 +120,7 @@ export const RegisterPage = () => {
                             <label htmlFor="registerEmail2" className="form-label">*Confirmar Correo electrónico</label>
                             <input
                                 type="email"
-                                className="form-control"
+                                className="form-control shadow"
                                 placeholder="ejemplo@email.com"
                                 name="registerEmail2"
                                 {...register('registerEmail2', {
@@ -145,7 +145,7 @@ export const RegisterPage = () => {
                             <label htmlFor="registerPassword" className="form-label">*Contraseña</label>
                             <input
                                 type="password"
-                                className="form-control"
+                                className="form-control shadow"
                                 placeholder="Contraseña"
                                 name="registerPassword"
                                 {...register('registerPassword', {
@@ -173,7 +173,7 @@ export const RegisterPage = () => {
                             <label htmlFor="registerPassword2" className="form-label">*Confirma contraseña</label>
                             <input
                                 type="password"
-                                className="form-control"
+                                className="form-control shadow"
                                 placeholder="Repita la contraseña"
                                 name="registerPassword2"
                                 {...register('registerPassword2', {
@@ -200,7 +200,7 @@ export const RegisterPage = () => {
 
                         <div className='col text-center'>
                             <input
-                                className="w-50 btn btn-lg btn-rojo"
+                                className="w-50 btn btn-lg btn-primary-c"
                                 type="submit"
                                 value="Crear cuenta" disabled={!botonActivo} />
                         </div>
