@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400&display=swap');
 
 *{
-	font-family:  'Roboto Condensed', 'Poppins', 'Arial', sans-serif;
+	font-family:  'Poppins', 'Roboto Condensed', 'Arial', sans-serif;
   font-style: normal;
 }
 
@@ -9,15 +9,16 @@ body{
 	/* background-image: linear-gradient(45deg, #7288cc,#fdfdfd); */
 	background-color:  #f0f0f0;
 	/* Provisional */
-	/* background-repeat: repeat;
-	background-blend-mode: darken;
-	background-size: 300px;
-	background-image: url(/public/img/pattt.jpg); */
+	 background-repeat: repeat;
+	background-blend-mode: lighten;
+	background-size: 400px;
+	background-image: url(/public/img/patt.jpg); 
 }
 
 
 a{
     color: rgb(0, 0, 0);
+		font-size: 14px;
 }
 
 a:hover{
@@ -104,8 +105,38 @@ h1{
     color: #e41f1a;
 }
 
+.btn-primary{
+	background-color:rgba(228, 31, 26, 1);
+	border-color: rgb(228, 31, 26);
+  border-radius: 8px;
+  color: #fff;
+}
+
+.btn-primary:hover{
+	background-color:rgba(228, 31, 26, 0);
+  border-radius: 32px;
+  color: #e41f1a;
+	
+	transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1) ;
+}
+
+.btn-secondary{
+	background-color:rgba(33, 46, 70, 1);
+	border-color: rgba(33, 46, 70, 1);
+  border-radius: 8px;
+  color: rgba(33, 46, 70, 1);
+}
+
+.btn-secondary:hover{
+	background-color: rgba(33, 46, 70, 0);
+  border-radius: 32px;
+  color: white;
+	transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1) ;
+}
+
+
 p{
-    font-size: 18px;
+    font-size: 14px;
 }
 
 #nosotros h5{

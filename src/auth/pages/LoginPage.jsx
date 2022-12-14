@@ -6,8 +6,8 @@ import {FormHeader, FooterLanding, NavbarInicio } from '../../components';
 import { useAuthStore } from '../../hooks'
 
 // import './LoginPage.css'
-import './css/LoginPage.css'
-import './css/NavbarLanding.css'
+//import './css/LoginPage.css'
+//import './css/NavbarLanding.css'
 
 export const LoginPage = () => {
 
@@ -53,7 +53,7 @@ export const LoginPage = () => {
 													<div className="form-body p-3">
 														<div className="form-floating mb-4 ">
 															<input 
-																	type="email" className="form-control" 
+																	type="email" className="form-control shadow" 
 																	id="floatingInput" placeholder="Correo electrónico"
 																	name="loginEmail"
 																	{...register('loginEmail',{
@@ -98,19 +98,19 @@ export const LoginPage = () => {
 														<p className='mb-1 text-center'>¿Olvidaste tu contraseña?</p>
 														<p className='text-center'> <a href='forgot-password'>Recuperar contraseña</a>  </p>
 														
-														<div className="container-fluid">
+														<div className="container-fluid mt-4">
 																	<div className='row'>
 																			<div className='col'>
-																					<Link to="/auth/register" className='w-100 btn btn-lg btn-gris text-center'>Crear cuenta</Link>
-			
-																			</div>
-			
-																			<div className='col'>
 																			<input
-																				className="w-100 btn btn-lg btn-rojo" 
+																				className="w-100 btn btn-lg btn-primary" 
 																				type="submit"
 																				value="Iniciar sesión" />
 																			</div>
+																			<div className='col'>
+																					<Link to="/auth/register" className='w-100 btn btn-lg btn-secondary'>Crear cuenta</Link>
+			
+																			</div>
+			
 																	</div>
 														</div>
                           

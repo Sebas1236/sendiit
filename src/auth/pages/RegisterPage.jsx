@@ -52,11 +52,12 @@ export const RegisterPage = () => {
             </div>
 
             <div className='row text-center '>
-                <div className="form-signin w-100 mx-auto mt-4">
-										<FormHeader title={"Crear cuenta"} />
-                    <h5 className='text-start'>*Campos obligatorios</h5>
+                <div className="form-signin w-100 mx-auto mt-4 mb-4">
+									
                     <form onSubmit={handleSubmit(registerSubmit)} className="text-start" noValidate>
-
+										<FormHeader title={"Crear cuenta"} />
+										<div className="form-body p-3">
+                    <h5 className='text-start'>*Campos obligatorios</h5>
 
                         <div className="form-group mb-2">
                             <label htmlFor="registerName" className="form-label">*Nombre</label>
@@ -205,7 +206,10 @@ export const RegisterPage = () => {
                         </div>
                         <p className="text-center fw-bold mt-3 mb-0">¿Ya tienes una cuenta?
                             <Link to="/auth/login"><u> Iniciar Sesión</u></Link></p>
-
+														
+														</div>
+			
+						
                     </form>
                 </div>
             </div>
