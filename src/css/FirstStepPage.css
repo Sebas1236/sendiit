@@ -1,0 +1,76 @@
+.puntos{
+    padding-top:2%;
+    
+}
+
+.right{
+    text-align: right;
+}
+
+.dot.primer{
+    border: 5px solid #228B22;
+}
+
+.verde{
+    background-color: #228B22;
+}
+
+.dot{
+    height: 35px;
+    width: 35px;
+    border-radius: 100% ;
+    display: inline-block;
+    border: 5px solid #898989;
+}
+
+hr{
+    width: 10px;
+    border-top: 3px solid #898989;
+    display: inline-block;  
+    opacity: 1;
+}
+
+.step{
+    padding-left: 5%;
+}
+
+
+.fW-700{
+    font-weight: 700;
+}
+
+
+
+/*----------------------FORMULARIO-----------------------*/
+
+.formulario{
+    margin: 2% 7% 8% 7%;
+    background-color: #F9F9F9;
+    border-radius: 16px;
+    padding: 2% 5%;
+}
+
+.z{
+ z-index: 1;
+ position: relative;
+ bottom: 30px;
+ left:110px;
+}
+
+select{
+    margin-top: 30px;
+}
+
+.btn-sig{
+    color: #F9F9F9;
+    border-radius: 16px;
+    background-color: #E41F1A;
+    margin-left: 87%;
+}
+
+.btn-prev{
+    color: #F9F9F9;
+    border-radius: 16px;
+    background-color: #E41F1A;
+    /* margin-left: 87%; */
+}

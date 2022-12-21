@@ -1,0 +1,18 @@
+body
+{
+		background-color: #f0f0f0 !important;
+}
+
+.margen0 {
+    background-color: #212E46;
+    margin: 0;
+}
+
+.nav-item{
+    padding-right: 30px;
+    padding-left: 10px;
+}
+
+a.nav-link{
+    color: white;
+}

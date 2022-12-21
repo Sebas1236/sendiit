@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400&display=swap');
+
+*{
+	font-family:  'Poppins', 'Roboto Condensed', 'Arial', sans-serif;
+  font-style: normal;
+}
+
+body{
+	/* background-image: linear-gradient(45deg, #7288cc,#fdfdfd); */
+	background-color:  #fefefe;
+	/* Provisional */
+	/*background-repeat: repeat;
+	background-blend-mode: lighten;
+	background-size: 400px;
+	background-image: url(/public/img/patt.jpg); */
+}
+
+
+a{
+    color: rgb(0, 0, 0);
+		font-size: 14px;
+}
+
+a:hover{
+    color: #e41f1a;
+}
+
+
+.form-signin {
+    max-width: 800px;
+    padding: 15px;
+		/* background-color: #fff; */
+		/* border-radius: 10px; */
+		/* box-shadow: 0 0 10px 0 rgba(0,0,0,.2); */
+}
+  
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.r{
+    height: 50px;
+}
+
+.btn-rojo{
+    background-color:#e41f1a;
+    border-radius: 53px;
+    color: white;
+}
+
+.btn-60{
+    width: 60% !important;
+}
+
+.btn-gris{
+    background-color:#8B8B8B;
+    border-radius: 53px;
+    color: white;
+}
+
+
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(33 46 70 / 25%);
+}
+
+.error{
+		color: #e41f1a;
+		font-size: 14px;
+		text-align: start;
+		padding-left: 8px;
+}
+
+/* ------------------LANDING PAGE-------------------*/
+
+
+.casillerosImagen {
+    top:0;
+    left:0;
+    position: absolute;
+    height: 550px;
+    z-index: -1;
+}
+
+.imagenCentro{
+    margin-top: 158px;
+    text-align: center;
+}
+
+#nosotros{
+    margin: 220px 80px 0px 80px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+h1{
+    font-size: 30px;
+    font-weight: bolder;
+    padding-bottom: 20px;
+}
+
+.colorRojo{
+    color: #e41f1a;
+}
+
+.btn-primary-c{
+	background-color:rgba(228, 31, 26, 1);
+	border-color: rgb(228, 31, 26);
+  border-radius: 8px;
+  color: #fff;
+}
+
+.btn-primary-c:hover{
+	background-color:rgba(228, 31, 26, 0);
+  border-radius: 32px;
+  color: #e41f1a;
+	
+	transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1) ;
+}
+
+.btn-secondary{
+	background-color:rgba(33, 46, 70, 1);
+	border-color: rgba(33, 46, 70, 1);
+  border-radius: 8px;
+  color: rgba(33, 46, 70, 1);
+}
+
+.btn-secondary:hover{
+	background-color: rgba(33, 46, 70, 0);
+  border-radius: 32px;
+  color: white;
+	transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1) ;
+}
+
+
+p{
+    font-size: 14px;
+}
+
+#nosotros h5{
+    font-size: 22px;
+    padding-top: 20px;
+}
+
+@media (min-width:1200px) {
+    #sucursales1{
+        padding-bottom: 40px;
+        margin: 0 150px 0 150px;
+    }
+}
+
+
+.sucursales-img{
+    padding-top: 50px;
+}
+
+.sucursales-img div{
+    padding: 40px;
+}
+
+footer{
+    padding: 30px;
+}
+
+.fab{
+    font-size: 30px;
+    font-weight: lighter;
+}
+
+footer span{
+    font-size: 18px;
+}
+
+.contacto{
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+    padding-top: 20px;
+}
+
+footer .colorRojo{
+    font-size: 30px;
+}
+
+footer a:link { text-decoration: none; }
+
+
+footer a:visited { text-decoration: none; }
+
+
+footer a:hover { text-decoration: none; }
+
+
+footer a:active { text-decoration: none; }
+
+.altura{
+    height: 240px;
+    
+}
+
+.password hint-wrapper .hint{
+    margin-bottom: 0;
+    padding: 8px 0;
+    font-size: 13px;
+    position: relative;
+}
+

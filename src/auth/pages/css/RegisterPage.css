@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400&display=swap');
+
+*{
+	font-family:  'Poppins', 'Roboto Condensed', 'Arial', sans-serif;
+  font-style: normal;
+}
+
+
+
+a{
+    color: rgb(0, 0, 0);
+}
+
+
+
+.form-signin {
+    max-width: 400px;
+    padding: 15px;
+}
+  
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+
+.r{
+    height: 50px;
+}
+
+.btn-rojo{
+    background-color:#e41f1a;
+    border-radius: 53px;
+    color: white;
+}
+
+.btn-gris{
+    background-color:#8B8B8B;
+    border-radius: 53px;
+    color: white;
+}
+
+
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(33 46 70 / 25%);
+}

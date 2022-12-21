@@ -1,0 +1,30 @@
+.altura1{
+    height: 40px;
+}
+
+.btn-primary-c{
+	background-color:rgba(228, 31, 26, 1);
+	border-color: rgb(228, 31, 26);
+  border-radius: 8px;
+  color: #fff;
+}
+
+.btn-primary-c:hover{
+	background-color:rgba(228, 31, 26, 0);
+  border-radius: 32px;
+  color: #e41f1a;
+	
+	transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1) ;
+}
+
+.altura2{
+    height: 200px;;
+}
+
+.blanco{
+    color: white;
+}
+
+.rojo {
+  color: rgb(228, 31, 26, 1);
+}

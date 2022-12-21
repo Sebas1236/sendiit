@@ -1,0 +1,120 @@
+/* Modal */
+.ReactModalPortal > div{
+  opacity: 0;
+}
+
+.ReactModalPortal .ReactModal__Overlay {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  transition: opacity .2s ease-in-out;
+  z-index: 999;
+}
+
+.modal-fondo {
+  background-color: rgba(0, 0, 0, 0.3);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  position: fixed;
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModalPortal .ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.modal {
+  background: white;
+  border-radius: 5px;
+  color: rgb(51, 51, 51);
+  display: inline;
+  max-height: 320px;
+  max-width: 500px;
+  outline: none;
+  padding: 10px;
+} 
+
+/* FABS */
+.fab {
+  border-radius: 80%;
+  bottom: 10px;
+  font-size: 20px;
+  padding: 10px;
+  position: fixed;
+  right: 20px;
+}
+
+.fab-danger {
+  border-radius: 80%;
+  bottom: 10px;
+  font-size: 20px;
+  padding: 10px;
+  position: fixed;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+}
+
+i{
+  font-size: 150%;
+  font-weight: lighter;
+  margin-left: 2px;
+}
+
+.btn {
+  font-size: 90%;
+}
+
+.blue {
+  color: #212e46;
+  background-color: #212e46;
+  border: 0px;
+}
+
+.active{
+  /* color:blueviolet; */
+  color: #f9d950;
+}
+/* .container{
+  color: dodgerblue
+} */
+
+/* .fa-cog{
+  color: black;
+} */
+
+.loading-map {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100vw;
+}
+
+.search-container {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+  left: 20px;
+  padding: 5px;
+  position: fixed;
+  top: 20px;
+  width: 250px;
+  z-index: 999;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.list-group-item.active {
+  background-color: #212e46;
+  border-color: #212e46;
+}
