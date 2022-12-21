@@ -1,8 +1,8 @@
 
 export const Footer = () => {
     return (
-        <>
-            <footer className="text-center text-white fixed-bottom" style={{ backgroundColor: "#212e46" }}>
+        <div className="container-fluid p-0 m-0">
+            <footer className="container-fluid text-center text-white p-0 m-0" style={{ backgroundColor: "#212e46" }}>
                 <div className="container pt-2">
                     <section className="mb-2">
                         <a
@@ -10,47 +10,41 @@ export const Footer = () => {
                             href="#!"
                             role="button"
                             data-mdb-ripple-color="dark"
-                        ><i className="fab fa-facebook-f"></i
-                        ></a>
+                        ><i className="fab fa-facebook-f"></i></a>
 
                         <a
                             className="btn btn-link btn-floating btn-lg text-white m-1"
                             href="#!"
                             role="button"
                             data-mdb-ripple-color="dark"
-                        ><i className="fab fa-twitter"></i
-                        ></a>
+                        ><i className="fab fa-twitter"></i></a>
 
                         <a
                             className="btn btn-link btn-floating btn-lg text-white m-1"
                             href="#!"
                             role="button"
                             data-mdb-ripple-color="dark"
-                        ><i className="fab fa-google"></i
-                        ></a>
+                        ><i className="fab fa-google"></i></a>
 
                         <a
                             className="btn btn-link btn-floating btn-lg text-white m-1"
                             href="#!"
                             role="button"
                             data-mdb-ripple-color="dark"
-                        ><i className="fab fa-instagram"></i
-                        ></a>
+                        ><i className="fab fa-instagram"></i></a>
 
                         <a
                             className="btn btn-link btn-floating btn-lg text-white m-1"
                             href="#!"
                             role="button"
                             data-mdb-ripple-color="dark"
-                        ><i className="fab fa-linkedin"></i
-                        ></a>
+                        ><i className="fab fa-linkedin"></i></a>
                         <a
                             className="btn btn-link btn-floating btn-lg text-white m-1"
                             href="#!"
                             role="button"
                             data-mdb-ripple-color="white"
-                        ><i className="fab fa-github"></i
-                        ></a>
+                        ><i className="fab fa-github"></i></a>
                     </section>
                 </div>
 
@@ -59,6 +53,6 @@ export const Footer = () => {
                     <a className="text-white" href="#"> sendiit</a>
                 </div>
             </footer>
-        </>
+       </div>
     )
 }

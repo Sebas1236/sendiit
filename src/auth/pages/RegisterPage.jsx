@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
-import { NavbarInicio, FooterLanding } from '../../components'
+import { FormHeader, NavbarInicio, FooterLanding } from '../../components'
 import { useAuthStore, useIsFirstRender } from '../../hooks'
 import './css/RegisterPage.css'
 
 export const RegisterPage = () => {
-    const [botonActivo, setBotonActivo] = useState(false);
-    const { startRegister, errorMessage } = useAuthStore();
+    const [ botonActivo, setBotonActivo] = useState(false);
+    const { startRegister, errorMessage, clearErrorMessage2 } = useAuthStore();
     // const { registerName, registerLastName, registerEmail, registerPassword, registerPassword2, onInputChange: onRegisterInputChange } = useForm( registerFormFields );
     const { register, handleSubmit, formState: { errors }, watch, getValues } = useForm();
     const isFirstRender = useIsFirstRender();
@@ -27,6 +27,8 @@ export const RegisterPage = () => {
         if (errorMessage !== undefined) {
             Swal.fire('Error en la autenticación', errorMessage, 'error');
         }
+
+				clearErrorMessage2();
 
     }, [errorMessage]);
 
@@ -50,18 +52,18 @@ export const RegisterPage = () => {
             </div>
 
             <div className='row text-center '>
-                <div className="form-signin w-100 m-auto">
-                    <img className="mb-4" src='/img/brand/logo.png' alt="sendiit" width="300" />
-                    <h2 className='fw-bold mb-4'>Crear cuenta</h2>
-                    <h5 className='text-start'>*Campos obligatorios</h5>
+                <div className="form-signin w-100 mx-auto mt-4 mb-4">
+									
                     <form onSubmit={handleSubmit(registerSubmit)} className="text-start" noValidate>
-
+										<FormHeader title={"Crear cuenta"} />
+										<div className="form-body p-3">
+                    <h5 className='text-start'>*Campos obligatorios</h5>
 
                         <div className="form-group mb-2">
                             <label htmlFor="registerName" className="form-label">*Nombre</label>
                             <input
                                 type="text"
-                                className="form-control"
+                                className="form-control shadow"
                                 placeholder="Ingresa tu nombre"
                                 name="registerName"
                                 {...register('registerName', {
@@ -80,7 +82,7 @@ export const RegisterPage = () => {
                             <label htmlFor="registerLastName" className="form-label">*Apellidos</label>
                             <input
                                 type="text"
-                                className="form-control"
+                                className="form-control shadow"
                                 placeholder="Ingresa tus apellidos"
                                 name="registerLastName"
                                 {...register('registerLastName', {
@@ -99,7 +101,7 @@ export const RegisterPage = () => {
                             <label htmlFor="registerEmail" className="form-label">*Correo electrónico</label>
                             <input
                                 type="email"
-                                className="form-control"
+                                className="form-control shadow" 
                                 placeholder="ejemplo@email.com"
                                 name="registerEmail"
                                 {...register('registerEmail', {
@@ -118,7 +120,7 @@ export const RegisterPage = () => {
                             <label htmlFor="registerEmail2" className="form-label">*Confirmar Correo electrónico</label>
                             <input
                                 type="email"
-                                className="form-control"
+                                className="form-control shadow"
                                 placeholder="ejemplo@email.com"
                                 name="registerEmail2"
                                 {...register('registerEmail2', {
@@ -143,7 +145,7 @@ export const RegisterPage = () => {
                             <label htmlFor="registerPassword" className="form-label">*Contraseña</label>
                             <input
                                 type="password"
-                                className="form-control"
+                                className="form-control shadow"
                                 placeholder="Contraseña"
                                 name="registerPassword"
                                 {...register('registerPassword', {
@@ -171,7 +173,7 @@ export const RegisterPage = () => {
                             <label htmlFor="registerPassword2" className="form-label">*Confirma contraseña</label>
                             <input
                                 type="password"
-                                className="form-control"
+                                className="form-control shadow"
                                 placeholder="Repita la contraseña"
                                 name="registerPassword2"
                                 {...register('registerPassword2', {
@@ -198,13 +200,16 @@ export const RegisterPage = () => {
 
                         <div className='col text-center'>
                             <input
-                                className="w-50 btn btn-lg btn-rojo"
+                                className="w-50 btn btn-lg btn-primary-c"
                                 type="submit"
                                 value="Crear cuenta" disabled={!botonActivo} />
                         </div>
                         <p className="text-center fw-bold mt-3 mb-0">¿Ya tienes una cuenta?
                             <Link to="/auth/login"><u> Iniciar Sesión</u></Link></p>
-
+														
+														</div>
+			
+						
                     </form>
                 </div>
             </div>

@@ -118,6 +118,12 @@ export const useAuthStore = () => {
         dispatch( onLogoutPackage() );
     }
 
+		//Clear error message
+		const clearErrorMessage2 = () => {
+			dispatch( clearErrorMessage() );
+		}
+
+
     return {
         //* Propiedades
         errorMessage,
@@ -132,5 +138,6 @@ export const useAuthStore = () => {
         verificarUsuario,
         startLoadingUser,
         startUserUpdate,
+				clearErrorMessage2,
     }
 }

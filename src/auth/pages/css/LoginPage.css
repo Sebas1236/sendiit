@@ -1,10 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400&display=swap');
+
 *{
-    font-family: 'Poppins';
-    font-style: normal;
+	font-family:  'Poppins', 'Roboto Condensed', 'Arial', sans-serif;
+  font-style: normal;
 }
+
+body{
+	/* background-image: linear-gradient(45deg, #7288cc,#fdfdfd); */
+	background-color:  #fefefe;
+	/* Provisional */
+	/*background-repeat: repeat;
+	background-blend-mode: lighten;
+	background-size: 400px;
+	background-image: url(/public/img/patt.jpg); */
+}
+
 
 a{
     color: rgb(0, 0, 0);
+		font-size: 14px;
 }
 
 a:hover{
@@ -13,14 +27,16 @@ a:hover{
 
 
 .form-signin {
-    max-width: 400px;
+    max-width: 800px;
     padding: 15px;
+		/* background-color: #fff; */
+		/* border-radius: 10px; */
+		/* box-shadow: 0 0 10px 0 rgba(0,0,0,.2); */
 }
   
 .form-signin .form-floating:focus-within {
     z-index: 2;
 }
-
 
 .r{
     height: 50px;
@@ -50,6 +66,12 @@ a:hover{
     box-shadow: 0 0 0 0.25rem rgb(33 46 70 / 25%);
 }
 
+.error{
+		color: #e41f1a;
+		font-size: 14px;
+		text-align: start;
+		padding-left: 8px;
+}
 
 /* ------------------LANDING PAGE-------------------*/
 
@@ -83,8 +105,38 @@ h1{
     color: #e41f1a;
 }
 
+.btn-primary-c{
+	background-color:rgba(228, 31, 26, 1);
+	border-color: rgb(228, 31, 26);
+  border-radius: 8px;
+  color: #fff;
+}
+
+.btn-primary-c:hover{
+	background-color:rgba(228, 31, 26, 0);
+  border-radius: 32px;
+  color: #e41f1a;
+	
+	transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1) ;
+}
+
+.btn-secondary{
+	background-color:rgba(33, 46, 70, 1);
+	border-color: rgba(33, 46, 70, 1);
+  border-radius: 8px;
+  color: rgba(33, 46, 70, 1);
+}
+
+.btn-secondary:hover{
+	background-color: rgba(33, 46, 70, 0);
+  border-radius: 32px;
+  color: white;
+	transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1) ;
+}
+
+
 p{
-    font-size: 18px;
+    font-size: 14px;
 }
 
 #nosotros h5{

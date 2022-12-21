@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400&display=swap');
+
 *{
-    font-family: 'Poppins';
-    font-style: normal;
+	font-family:  'Poppins', 'Roboto Condensed', 'Arial', sans-serif;
+  font-style: normal;
 }
 
 a{
@@ -42,6 +44,54 @@ h4{
     border-radius: 53px;
     color: white;
 }
+
+.btn-primary-c{
+	background-color:rgba(228, 31, 26, 1);
+	border-color: rgb(228, 31, 26);
+  border-radius: 8px;
+  color: #e41f1a;
+	color: white;
+
+	transition-timing-function: ease-out;
+	transition-duration: .5s;
+	transition-property: all;
+}
+
+.btn-primary-c:hover{
+	background-color:rgba(228, 31, 26, 0);
+	border-color: #e41f1a;
+  border-radius: 32px;
+	color: #e41f1a;
+
+	transition-duration: 1s;
+}
+
+.btn-secondary{
+	background-color:rgba(33, 46, 70, 0);
+	border-color: rgba(33, 46, 70, 1);
+  border-radius: 8px;
+	color: rgba(33, 46, 70, 1) , white;
+	transition-timing-function: ease-in;
+	transition-duration: 1s;
+	transition-property: all;
+
+	transition-timing-function: ease-out;
+	transition-duration: .5s;
+	transition-property: all;
+	
+}
+
+.btn-secondary:hover{
+	/* background-color: rgba(33, 46, 70, 1); */
+	/* border-color: rgba(33, 46, 70, 1); */
+  border-radius: 32px;
+	color: rgba(33, 46, 70, 1);
+	/* color: rgb(255, 255, 255); */
+
+	transition-duration: 1s;
+}
+
+
 
 
 .form-control:focus {
