@@ -24,10 +24,10 @@ export const FabAddNew = () => {
 
     return (
         <button
-            className="btn btn-primary"
+            className="btn btn-primary bg-transparent text-body text-decoration-underline border-0"
             onClick={handleClickNew}
         >
-            <i className='fa-solid fa-plus'></i>
+            <img src="/img/icons/creditCardHand.png" alt="..." width="60px" height=""/>Agregar una tarjeta de crédito o débito
         </button>
     )
 }

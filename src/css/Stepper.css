@@ -1,0 +1,132 @@
+.boximg{
+  position: relative;
+  top: 90px;
+}
+/*Stepper 1
+.divmenu{
+    padding: 30px 0;
+    padding-left: 20px;
+    transform: translate(100px,-110px);
+}
+
+.step-item{
+    text-decoration: none;
+    position: relative;
+    line-height: 1rem;
+    font-weight: 500;
+}
+
+
+.circle {
+  background: white;
+  position: relative;
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1.5em;
+  border-radius: 100%;
+  left: -42px;
+  top: 50%;
+  transform: translateY(150%);
+  text-align: center;
+  box-shadow: 0 0 0 3px green;
+}
+
+.circle:after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: -10px;
+    right: 40%;
+    bottom: 1px;
+    left: 48%;
+    height: 150%;
+    width: 3px;
+    transform: scale(1, 2);
+    transform-origin: 5% -100%;
+    background-color: green;
+    z-index: -1;
+  }
+
+  .step-item:last-child .circle:after {
+    display: none
+  }
+
+  .active{
+    font-weight: 700;
+  }
+
+
+  .active::before{
+    background: greenyellow;
+  }
+*/
+
+/*Stepper 2*/
+
+  .navmenu {
+    padding: 30px 0;
+    padding-left: 20px;
+    transform: translate(100px,-110px);
+  }
+
+.navmenu ul{
+  padding-left: 50px;
+  position: relative;
+}
+
+.navmenu ul::after{
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: calc(100% - 70px);
+  left: 45px;
+  top: 10px;
+  background: gray;
+  z-index: -1;
+  margin-top: 20px;
+}
+
+
+.navmenu ul li{
+  padding : 30px 0;
+  padding-left: 20px;
+}
+
+.navmenu p{
+  padding-left: 50px;
+  position: relative;
+}
+
+.navmenu ul li p.title{
+  text-decoration: none;
+  position: relative;
+  font-size: 1.5rem;
+  line-height: 1rem;
+  font-weight: 500;
+}
+
+.navmenu ul li p.title::before{
+  content: "";
+  position: absolute;
+  background: white;
+  width: 1.5em;
+  height: 1.5em;
+  left: -42px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50px;
+  border: 4px solid gray;
+  transition: background 250ms;
+}
+
+.navmenu ul li p.active{
+  font-weight: 700;
+}
+
+.navmenu ul li p.active::before{
+  width: 1.8em;
+  height: 1.8em;
+  left: -45px;
+  background: #00D615;
+  border: #00D615;
+}

@@ -1,4 +1,5 @@
 export * from './Bienvenida';
+export * from './Bienvenidaa';
 export * from './Footer';
 export * from './FooterLanding';
 export * from './Navbar';

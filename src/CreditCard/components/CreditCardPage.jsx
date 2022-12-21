@@ -9,22 +9,6 @@ import { FabDelete } from './FabDelete';
 export const CreditCardPage = () => {
 
     return (
-        // <div className='container-fluid'>
-        //     <div className='row'>
-        //         <Navbar />
-        //     </div>
-        //     <CreditCardBox
-        //         // cards={cards}
-        //     // style={{height:'calc(100vh-80p)'}}
-        //     />
-        //     <CreditCardModal />
-        //     <FabAddNew/>
-        //     {/* <FabDelete/> */}
-
-        //     <div className='row'>
-        //         <FooterLanding />
-        //     </div>
-        // </div>
         <div className='container-fluid'>
             <div className='row'>
                 <Navbar />

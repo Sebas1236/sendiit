@@ -12,6 +12,11 @@ import { RecoverMessageEmail } from "../auth/pages/RecoverMessageEmail";
 import { CreditCardPage } from "../CreditCard/components/CreditCardPage";
 import { AddPaymentMet } from '../auth/pages/AddPaymentMet';
 import { LoadingPage } from "../LoadingPage";
+import { Bienvenidaa } from '../components/Bienvenidaa';
+import { MyPackages } from "../packages/components/MyPackages";
+import { FirstStep } from "../packages/components/FirstStep";
+import { TrackSteps } from "../packages/components/TrackSteps";
+import { TrackPackage } from "../packages/components";
 
 export const AppRouter = () => {
 
@@ -57,7 +62,11 @@ export const AppRouter = () => {
           : (
             <>
               <Route path="auth/pages/AddPaymentMet" element={<AddPaymentMet />} />
-              <Route path="/" element={<InicioApp />} />
+              <Route path="/" element={<Bienvenidaa/>}/>
+              <Route path="/editar" element={<InicioApp />} />
+              <Route path="/enviar-paquete" element={<TrackSteps/>}/>
+              <Route path="/ver-paquete" element={<TrackPackage/>}/>
+              <Route path="/mis-paquetes" element={<MyPackages/>}/>
               <Route path="/pago" element={<CreditCardPage />} />
               <Route path='/*' element={<Navigate to="/" />} />
               {/* <Route path='/auth/confirm/*' element={<Bienvenida />} />
