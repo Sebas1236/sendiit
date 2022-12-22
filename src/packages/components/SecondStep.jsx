@@ -201,13 +201,16 @@ export const SecondStep = () => {
 const Filter = ({handleChangeFilter}) => (
 
 	// <form >
-		<div>
+		<div className='form-floating'>
 			<input 
+				id = "filter"
 				type="text"
+				
 				className="form-control"
-				placeholder="Buscar ubicación ..."
+				placeholder="Buscar ubicación"
 				onChange={handleChangeFilter}
 			/>
+			<label className="form-label" for="filter" >Buscar ubicación</label>
 		</div>
 	// </form>
 )
