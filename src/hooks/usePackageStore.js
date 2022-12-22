@@ -24,6 +24,10 @@ export const usePackageStore = () => {
             } else {
                 // console.log(packageInfo);
                 // Creando
+								console.log('Creando paquete');
+								
+								console.log(packageInfo);
+
                 const { data } = await sendiitApi.post('/paquetes', packageInfo);
                 console.log(data.result._id);
                 dispatch(onAddNewPackage({ ...packageInfo, _id: data.result._id, user }));

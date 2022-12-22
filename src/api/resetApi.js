@@ -6,7 +6,7 @@ const { HOST_API_URL } = getEnvVariables();
 const resetApi = axios.create({
     //Servir para no concatenar demasiadas cadenas
     //TODO: SOLUCIONAR ERROR AL OBTENER LA RUTA DE LAS VARIABLES DE ENTORNO
-    baseURL: 'http://localhost:4000',
+    baseURL: 'http://127.0.0.1:4000',
 });
 
 // TODO: Configurar interceptores

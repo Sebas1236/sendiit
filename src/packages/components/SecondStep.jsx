@@ -150,7 +150,8 @@ export const SecondStep = () => {
                             </div>
                             <div className='col-lg-3'></div>
                         </div>
-                        {
+                        {	lockersToShow.length === 0 && <p className='fW-700 fZ text-center'>No hay lockers disponibles en esa ubicación</p>}
+												{
                             lockersToShow.map(locker => (
 
                                 <div className='row' key={locker.id}>
@@ -181,6 +182,7 @@ export const SecondStep = () => {
                                 </div>
 
                             ))
+														
                         }
                         {
                             destino && <input
