@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { authSlice } from "./auth/authSlice";
+import { lockerSlice } from "./lockers/lockerSlice";
 import { mapSlice } from "./maps/mapSlice";
 import { packageDeliverySlice } from "./package/packageDeliverySlice";
 import { packageSlice } from "./package/packageSlice";
@@ -17,6 +18,7 @@ export const store = configureStore({
         places: placesSlice.reducer,
         map: mapSlice.reducer,
         package: packageSlice.reducer,
+        locker: lockerSlice.reducer,
 
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({

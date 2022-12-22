@@ -38,8 +38,12 @@ export const CreditCardModal = () => {
     );
     useEffect(() => {
         if (activeCard !== null) {
-            // console.log(activeCard);
+            console.log(activeCard);
             reset(activeCard);
+        }else{
+            reset({
+                data: ''
+            })
         }
     }, [activeCard]);
 

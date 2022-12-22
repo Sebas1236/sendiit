@@ -7,7 +7,7 @@ import { store } from './store/store';
 import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
 import { getEnvVariables } from '../helpers';
  
-const MAPBOX_ACCESS_TOKEN="YOUR_ACCESS_TOKEN"
+const MAPBOX_ACCESS_TOKEN="pk.eyJ1Ijoic2ViYXMxMjM2IiwiYSI6ImNsYmlyeWVpNTBhYTQzcG54cTRoenhpZ3QifQ.BFA6ei27WaRWEQRBknO62QR_ACCESS_TOKEN"
 mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
 
 //PERMISO PARA GEOLOCALIZACIÓN

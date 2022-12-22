@@ -1,18 +1,27 @@
+import { useEffect } from 'react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import resetApi from '../../api/resetApi'
 import '../../css/FirstStepPage.css'
 import { usePackageDeliveryStore } from '../../hooks'
 import { NextButton } from './NextButton'
 import { PreviousButton } from './PreviousButton'
 
 export const FirstStep = () => {
-    const { setDecrementStep, setIncrementStep, step, startSetDestinatario } = usePackageDeliveryStore();
+    const { setDecrementStep, setIncrementStep, step, startSetDestinatario, destinatario } = usePackageDeliveryStore();
 
-    const { register, handleSubmit, formState: { errors }, watch, getValues } = useForm();
+    const { reset, register, handleSubmit, formState: { errors }, watch, getValues } = useForm();
 
     const increment = () => {
         setIncrementStep();
     }
+
+    useEffect(() => {
+        if(destinatario !==null){
+            reset(destinatario);
+        }
+    }, [destinatario])
+    
 
     const onDestinatarioSubmit = (data) => {
         console.log(data);

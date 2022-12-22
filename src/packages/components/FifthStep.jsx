@@ -1,9 +1,11 @@
 
 import '../../css/FirstStepPage.css'
 import '../../css/colores.css'
-import { FabAddNew } from '../../CreditCard/components'
+import { CreditCardModal, FabAddNew } from '../../CreditCard/components'
 import { NextButton } from './NextButton'
-import { usePackageDeliveryStore, usePackageStore } from '../../hooks'
+import { useCardStore, usePackageDeliveryStore, usePackageStore } from '../../hooks'
+import { useEffect } from 'react'
+import { PreviousButton } from './PreviousButton'
 
 //TODO: REDIRECCIONAR UNA VEZ FINALIZADO EL ENVÍO
 const Tarjeta = ({ tipo, terminacion, nombre, vencimiento, idR }) => {
@@ -25,7 +27,12 @@ const Tarjeta = ({ tipo, terminacion, nombre, vencimiento, idR }) => {
 export const FifthStep = () => {
 
     const { startSavingPackage } = usePackageStore();
-    const { origen: origenStore, destinatario, destino:destinoStore } = usePackageDeliveryStore();
+    const { cards, startLoadingCards } = useCardStore();
+    const { origen: origenStore, destinatario, destino: destinoStore } = usePackageDeliveryStore();
+
+    useEffect(() => {
+        startLoadingCards();
+    }, []);
 
     const onSavePackage = () => {
         //TODO: AÑADIR COSTO
@@ -57,20 +64,33 @@ export const FifthStep = () => {
                                 <tr>
                                     <th scope="col"></th>
                                     <th scope="col"></th>
+                                    <th></th>
                                     <th scope="col">Nombre en la tarjeta</th>
                                     <th scope="col">Vencimiento</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <Tarjeta tipo="Visa" terminacion="*1221" nombre="Miguel Angel" vencimiento="08/23" idR="radio1" />
+                                {/* <Tarjeta tipo="Visa" terminacion="*1221" nombre="Miguel Angel" vencimiento="08/23" idR="radio1" />
                                 <Tarjeta tipo="MasterCard" terminacion="*2222" nombre="Sofia" vencimiento="01/24" idR="radio2" />
-                                <Tarjeta tipo="Visa" terminacion="*9988" nombre="Miranda" vencimiento="12/22" idR="radio3" />
+                                <Tarjeta tipo="Visa" terminacion="*9988" nombre="Miranda" vencimiento="12/22" idR="radio3" /> */}
+                                {
+                                    cards.map(card => (
+                                        <Tarjeta key={card._id}
+                                            tipo="Visa"
+                                            terminacion={card.cardNumber.slice(-3)}
+                                            nombre={card.cardName}
+                                            vencimiento={`${card.month} / ${card.year}`}
+                                            idR="radio1"
+                                        />
+                                    ))
+                                }
                             </tbody>
                         </table>
                     </div>
                 </div>
 
+                <CreditCardModal />
                 <div className='text-center fw-bold fs-4'>
                     <FabAddNew />
                 </div>
@@ -79,12 +99,13 @@ export const FifthStep = () => {
 
             <div className='row m-auto mt-3 mb-5 p-3 anchox justify-content-between'>
                 <div className='col-5 text-start'>
-                    <button type="button" className="btn btn-cancelar ">Cancelar</button>
+                    {/* <button type="button" className="btn btn-cancelar ">Cancelar</button> */}
+                    <PreviousButton/>
                 </div>
                 <div className='col-5 text-end'>
-                    <button 
-                        type="button" 
-                        className="w-20 btn btn-lg btn-sig" 
+                    <button
+                        type="button"
+                        className="w-20 btn btn-lg btn-sig"
                         onClick={onSavePackage}
                     >
                         Finalizar

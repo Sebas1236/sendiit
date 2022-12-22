@@ -34,6 +34,7 @@ export const TrackPackage = () =>{
                     <div className='text-start'>
                         {/* <p><b>ID:</b> 310340</p> */}
                         <p><b>Descripción:</b> { activePackage.descripcion }</p>
+                        <p>Origen: {activePackage.casilleroOrigen.ubicacion.charAt(0).toUpperCase()+activePackage.casilleroOrigen.ubicacion.slice(1)} Destino: {activePackage.casilleroDestino.ubicacion.charAt(0).toUpperCase()+activePackage.casilleroDestino.ubicacion.slice(1)}</p>
                         <p><b>Tamaño:</b> M, 16’’ x 9.5’</p>
                     </div>
 

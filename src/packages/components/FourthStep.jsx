@@ -3,6 +3,7 @@ import '../../css/FirstStepPage.css'
 import '../../css/colores.css'
 import { NextButton } from './NextButton'
 import { usePackageDeliveryStore } from '../../hooks'
+import { PreviousButton } from './PreviousButton'
 
 
 export const FourthStep = () => {
@@ -42,7 +43,8 @@ export const FourthStep = () => {
 
             <div className='row m-auto mt-3 mb-5 p-3 anchox justify-content-between'>
                 <div className='col-5 text-start'>
-                    <button type="button" className="btn btn-cancelar ">Cancelar</button>
+                    {/* <button type="button" className="btn btn-cancelar ">Cancelar</button> */}
+                    <PreviousButton/>
                 </div>
                 <div className='col-5 text-end'>
                     <button 

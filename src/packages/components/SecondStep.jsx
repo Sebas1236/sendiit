@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import '../../css/FirstStepPage.css'
 import '../../css/colores.css'
 import { MapsApp } from '../../maps/MapsApp';
-import { useMapStore, usePackageDeliveryStore, usePlacesStore } from '../../hooks';
+import { useLockerStore, useMapStore, usePackageDeliveryStore, usePlacesStore } from '../../hooks';
 import { NextButton, PreviousButton } from './';
 import { SearchBar } from '../../maps/components';
 import Swal from 'sweetalert2';
@@ -14,37 +14,39 @@ export const SecondStep = () => {
     const { userLocation } = usePlacesStore();
     const { map, isMapReady, getRouteBetweenPoints, getRouteMinutes } = useMapStore();
     const { origen, destino, startSetOrigen, startSetDestino, setIncrementStep, setDecrementStep, step } = usePackageDeliveryStore();
+    const { lockers } = useLockerStore();
+ 
 
-    const lockers = [
-        {
-            id: 1,
-            locker_name: 'Del Valle',
-            locker_availability: 10,
-            locker_coords: [-99.162953, 19.374037],
-            minutes: 42,
-        },
-        {
-            id: 2,
-            locker_name: 'Satélite',
-            locker_availability: 10,
-            locker_coords: [-99.234005, 19.510558],
-            minutes: 26,
-        },
-        {
-            id: 3,
-            locker_name: 'Coyoacán',
-            locker_availability: 10,
-            locker_coords: [-99.179423, 19.345436],
-            minutes: 56,
-        },
-        {
-            id: 4,
-            locker_name: 'Santa Fe',
-            locker_availability: 10,
-            locker_coords: [-99.264389, 19.365604],
-            minutes: 55,
-        },
-    ];
+    // const lockers = [
+    //     {
+    //         id: 1,
+    //         locker_name: 'Del Valle',
+    //         locker_availability: 10,
+    //         locker_coords: [-99.162953, 19.374037],
+    //         minutes: 42,
+    //     },
+    //     {
+    //         id: 2,
+    //         locker_name: 'Satélite',
+    //         locker_availability: 10,
+    //         locker_coords: [-99.234005, 19.510558],
+    //         minutes: 26,
+    //     },
+    //     {
+    //         id: 3,
+    //         locker_name: 'Coyoacán',
+    //         locker_availability: 10,
+    //         locker_coords: [-99.179423, 19.345436],
+    //         minutes: 56,
+    //     },
+    //     {
+    //         id: 4,
+    //         locker_name: 'Santa Fe',
+    //         locker_availability: 10,
+    //         locker_coords: [-99.264389, 19.365604],
+    //         minutes: 55,
+    //     },
+    // ];
 
     useEffect(() => {
         if (userLocation) {

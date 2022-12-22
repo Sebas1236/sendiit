@@ -6,10 +6,12 @@ import { Navbar } from "../../components";
 import { useEffect } from "react";
 import { usePackageStore } from "../../hooks";
 import { Package } from "./Package";
+import { PackageTable } from "./table/PackageTable";
 
 export const MyPackages = () => {
     const { startLoadingPackages, packages, setActivePackage } = usePackageStore();
     useEffect(() => {
+        console.log(packages);
         startLoadingPackages();
     }, []);
 
@@ -32,6 +34,10 @@ export const MyPackages = () => {
                 }
 
             </div>
+            {/* <div className='row p-2 mt-3 mb-5 blanc anchox m-auto rounded-3'>
+                <PackageTable/>
+            </div> */}
+            
             {/* <div className='row p-2 mt-3 mb-5 blanc anchox m-auto rounded-3'>
                 <Package estado="En locker origen" descripcion="Guirnalda navidad" ruta="Origen: Santa Fe. Destino: Satélite"/>
                 <Package estado="Por recibir" descripcion="Documentos de oficina" ruta="Origen: Coyoacán. Destino: Del Valle"/>

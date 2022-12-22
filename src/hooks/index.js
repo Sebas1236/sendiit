@@ -2,6 +2,7 @@ export * from './useAuthStore';
 export * from './useCardStore';
 export * from './useForm';
 export * from './useIsFirstRender';
+export * from './useLockerStore';
 export * from './useMapStore';
 export * from './usePackageDeliveryStore';
 export * from './usePackageStore';

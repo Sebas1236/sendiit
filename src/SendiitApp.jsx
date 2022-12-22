@@ -4,7 +4,7 @@ import { AppRouter } from './router/AppRouter'
 import { store } from './store'
 import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
 
-const MAPBOX_ACCESS_TOKEN="YOUR_ACCESS_TOKEN";
+const MAPBOX_ACCESS_TOKEN="pk.eyJ1Ijoic2ViYXMxMjM2IiwiYSI6ImNsYmlyeWVpNTBhYTQzcG54cTRoenhpZ3QifQ.BFA6ei27WaRWEQRBknO62Q";
 mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
 
 //PERMISO PARA GEOLOCALIZACIÓN
