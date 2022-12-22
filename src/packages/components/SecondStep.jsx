@@ -17,6 +17,19 @@ export const SecondStep = () => {
     const { lockers } = useLockerStore();
 
 
+	const [filter, setFilter] = useState('');
+
+	const handleChangeFilter = (event) =>{
+		const inputString = event.target.value;
+		const inputStringNormalized = inputString.normalize('NFD').replace(/\p{Diacritic}/gu, ""); //remove accents
+		setFilter(inputStringNormalized);
+	} 
+
+	const lockersToShow =
+		/^\s*$/.test(filter)  //if there are something into the search-bar
+		? lockers
+		: lockers.filter(locker => RegExp(`^${filter}`,'i').test(locker.locker_name.normalize('NFD').replace(/\p{Diacritic}/gu, ""))); //remove accents
+
     // const lockers = [
     //     {
     //         id: 1,
@@ -118,8 +131,11 @@ export const SecondStep = () => {
                     </div>
                     <div className='col-lg-6'>
 
-                        <SearchBar className="form-select ubicacion" />
-
+                        {/* <SearchBar className="form-select ubicacion" /> */}
+												<Filter handleChangeFilter={handleChangeFilter}/>
+												<div>
+				
+			</div>
 
 
                     </div>
@@ -154,8 +170,9 @@ export const SecondStep = () => {
                             </div>
                             <div className='col-lg-3'></div>
                         </div>
-                        {
-                            lockers.map(locker => (
+                        {	lockersToShow.length === 0 && <p className='fW-700 fZ text-center'>No hay lockers disponibles en esa ubicación</p>}
+												{
+                            lockersToShow.map(locker => (
 
                                 <div className='row' key={locker.id}>
                                     <div className='col-lg-3'>
@@ -198,6 +215,7 @@ export const SecondStep = () => {
                                 </div>
 
                             ))
+														
                         }
                         {
                             destino && <input
@@ -213,7 +231,22 @@ export const SecondStep = () => {
             </div>
         </div>
     )
-
-
 }
+
+const Filter = ({handleChangeFilter}) => (
+
+	// <form >
+		<div className='form-floating'>
+			<input 
+				id = "filter"
+				type="text"
+				
+				className="form-control"
+				placeholder="Buscar ubicación"
+				onChange={handleChangeFilter}
+			/>
+			<label className="form-label" for="filter" >Buscar ubicación</label>
+		</div>
+	// </form>
+)
 
