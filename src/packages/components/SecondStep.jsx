@@ -15,7 +15,20 @@ export const SecondStep = () => {
     const { map, isMapReady, getRouteBetweenPoints, getRouteMinutes } = useMapStore();
     const { origen, destino, startSetOrigen, startSetDestino, setIncrementStep, setDecrementStep, step } = usePackageDeliveryStore();
     const { lockers } = useLockerStore();
- 
+
+
+	const [filter, setFilter] = useState('');
+
+	const handleChangeFilter = (event) =>{
+		const inputString = event.target.value;
+		const inputStringNormalized = inputString.normalize('NFD').replace(/\p{Diacritic}/gu, ""); //remove accents
+		setFilter(inputStringNormalized);
+	} 
+
+	const lockersToShow =
+		/^\s*$/.test(filter)  //if there are something into the search-bar
+		? lockers
+		: lockers.filter(locker => RegExp(`^${filter}`,'i').test(locker.locker_name.normalize('NFD').replace(/\p{Diacritic}/gu, ""))); //remove accents
 
     // const lockers = [
     //     {
@@ -98,8 +111,11 @@ export const SecondStep = () => {
                     </div>
                     <div className='col-lg-6'>
 
-                        <SearchBar className="form-select ubicacion" />
-
+                        {/* <SearchBar className="form-select ubicacion" /> */}
+												<Filter handleChangeFilter={handleChangeFilter}/>
+												<div>
+				
+			</div>
 
 
                     </div>
@@ -135,7 +151,7 @@ export const SecondStep = () => {
                             <div className='col-lg-3'></div>
                         </div>
                         {
-                            lockers.map(locker => (
+                            lockersToShow.map(locker => (
 
                                 <div className='row' key={locker.id}>
                                     <div className='col-lg-3'>
@@ -180,7 +196,19 @@ export const SecondStep = () => {
             </div>
         </div>
     )
-
-
 }
+
+const Filter = ({handleChangeFilter}) => (
+
+	// <form >
+		<div>
+			<input 
+				type="text"
+				className="form-control"
+				placeholder="Buscar ubicación ..."
+				onChange={handleChangeFilter}
+			/>
+		</div>
+	// </form>
+)
 
