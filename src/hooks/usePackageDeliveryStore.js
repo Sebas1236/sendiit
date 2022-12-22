@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
-import { decrementStep, incrementStep, setDatosPaquete, setDestinatario, setRouteDestiny, setRouteOrigin } from "../store";
+import { decrementStep, incrementStep, onLogoutPackageDelivery, onSetKms, setDatosPaquete, setDestinatario, setRouteDestiny, setRouteOrigin } from "../store";
 
 export const usePackageDeliveryStore = () => {
 
-    const { step, destinatario, datosPaquete, origen, destino } = useSelector(state => state.packageDelivery);
+    const { step, destinatario, datosPaquete, origen, destino, kms } = useSelector(state => state.packageDelivery);
     const dispatch = useDispatch();
 
     const setIncrementStep = () => {
@@ -12,6 +12,10 @@ export const usePackageDeliveryStore = () => {
 
     const setDecrementStep = () => {
         dispatch(decrementStep());
+    }
+
+    const setKms = (kilometers) => {
+        dispatch( onSetKms(kilometers) );
     }
 
     const startSetDestinatario = (destinatario) => {
@@ -30,6 +34,10 @@ export const usePackageDeliveryStore = () => {
         dispatch(setRouteDestiny(routeDestiny));
     };
 
+    const clearPackageInfo = () => {
+        dispatch( onLogoutPackageDelivery() );
+    }
+
     // const startSavingDelivery = () => {
     //     //TODO: LLEGAR AL BACKEND
     // };
@@ -41,6 +49,7 @@ export const usePackageDeliveryStore = () => {
         datosPaquete,
         origen,
         destino,
+        kms,
         //*Métodos
         setIncrementStep,
         setDecrementStep,
@@ -48,5 +57,7 @@ export const usePackageDeliveryStore = () => {
         startSetDatosPaquete,
         startSetOrigen,
         startSetDestino,
+        setKms,
+        clearPackageInfo,
     }
 }

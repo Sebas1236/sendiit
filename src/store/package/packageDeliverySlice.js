@@ -8,6 +8,7 @@ export const packageDeliverySlice = createSlice({
         datosPaquete: null,
         origen: null,
         destino: null,
+        kms: null,
     },
     reducers: {
         incrementStep: (state, /* action */) => {
@@ -20,6 +21,9 @@ export const packageDeliverySlice = createSlice({
             if (state.step >= 1) {
                 state.step -= 1;
             }
+        },
+        onSetKms: (state, { payload }) => {
+            state.kms = payload;
         },
         setDestinatario: (state, action) => {
             state.destinatario = action.payload;
@@ -34,6 +38,14 @@ export const packageDeliverySlice = createSlice({
         setRouteDestiny: (state, { payload }) => {
             // console.log(payload);
             state.destino = payload;
+        },
+        onLogoutPackageDelivery: (state) => {
+            state.step= 0;
+            state.destinatario= null;
+            state.datosPaquete= null;
+            state.origen= null;
+            state.destino= null;
+            state.kms = null;
         }
     },
 });
@@ -46,5 +58,7 @@ export const {
     setDatosPaquete,
     setDestinatario,
     setRouteOrigin,
-    setRouteDestiny
+    setRouteDestiny,
+    onLogoutPackageDelivery,
+    onSetKms,
 } = packageDeliverySlice.actions;

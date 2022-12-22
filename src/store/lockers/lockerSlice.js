@@ -43,13 +43,18 @@ export const lockerSlice = createSlice({
         onLoadLockers: (state, { payload = [] }) => {
             state.isLoadingLockers = false;
             // state.lockers = payload;
-            payload.forEach( locker => {
-                //Some regresa true si lo encuentra
-                const exists = state.lockers.some( dbLocker => dbLocker._id === locker._id );
-                if(!exists){
-                    state.lockers.push( locker );
-                }
-            });
+            state.lockers[0].locker_availability = payload.numCasilleros[1];
+            state.lockers[1].locker_availability = payload.numCasilleros[3];
+            state.lockers[2].locker_availability = payload.numCasilleros[0];
+            state.lockers[3].locker_availability = payload.numCasilleros[2];
+            // payload.forEach( locker => {
+            //     //Some regresa true si lo encuentra
+            //     const exists = state.lockers.some( dbLocker => dbLocker._id === locker._id );
+            //     if(!exists){
+            //         state.lockers.push( locker );
+            //     }
+            // });
+
         },
     },
 });

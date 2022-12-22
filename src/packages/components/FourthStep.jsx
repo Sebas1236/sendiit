@@ -8,13 +8,15 @@ import { PreviousButton } from './PreviousButton'
 
 export const FourthStep = () => {
 
-    const { origen, destino, destinatario, setIncrementStep } = usePackageDeliveryStore();
+    const { origen, destino, destinatario, setIncrementStep, kms } = usePackageDeliveryStore();
     // {console.log({origen, destino, destinatario})};
 
     const increment = () => {
         setIncrementStep();
     }
-
+    console.log(kms);
+    const subtotal = Math.round(kms/3 *24.20+30);
+    const iva = Math.round(0.16*subtotal);
     return (
         <div className='container-fluid'>
 
@@ -32,10 +34,10 @@ export const FourthStep = () => {
                         <p className='fW-700'>Costo de envío:</p>
                     </div>
                     <div className='col-lg-3'>
-                        <p>Subtotal: <span>$93.45</span></p>
-                        <p id="iva">IVA: <span>$15.04</span></p>
+                        <p>Subtotal: <span>${subtotal}</span></p>
+                        <p id="iva">IVA: <span>${iva}</span></p>
                         <hr id="cuenta" />
-                        <p id='total' className='fW-700'>Total: <span>$109.00</span></p>
+                        <p id='total' className='fW-700'>Total: <span>${subtotal+iva}</span></p>
                     </div>
                 </div>
 

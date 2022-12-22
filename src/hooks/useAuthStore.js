@@ -2,7 +2,7 @@
 
 import { useDispatch, useSelector } from "react-redux"
 import sendiitApi from "../api/sendiitApi";
-import { clearErrorMessage, onChecking, onLoadUser, onLogin, onLogout, onLogoutCard, onLogoutPackage } from "../store";
+import { clearErrorMessage, onChecking, onLoadUser, onLogin, onLogout, onLogoutCard, onLogoutPackage, onLogoutPackageDelivery } from "../store";
 
 export const useAuthStore = () => {
 
@@ -116,6 +116,7 @@ export const useAuthStore = () => {
         dispatch( onLogoutCard() );
         dispatch( onLogout() );
         dispatch( onLogoutPackage() );
+        dispatch( onLogoutPackageDelivery() );
     }
 
 		//Clear error message

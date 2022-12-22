@@ -3,12 +3,13 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import resetApi from '../../api/resetApi'
 import '../../css/FirstStepPage.css'
-import { usePackageDeliveryStore } from '../../hooks'
+import { useLockerStore, usePackageDeliveryStore } from '../../hooks'
 import { NextButton } from './NextButton'
 import { PreviousButton } from './PreviousButton'
 
 export const FirstStep = () => {
     const { setDecrementStep, setIncrementStep, step, startSetDestinatario, destinatario } = usePackageDeliveryStore();
+    const { setLockerNumber } = useLockerStore();
 
     const { reset, register, handleSubmit, formState: { errors }, watch, getValues } = useForm();
 
@@ -24,8 +25,12 @@ export const FirstStep = () => {
     
 
     const onDestinatarioSubmit = (data) => {
-        console.log(data);
-        startSetDestinatario(data)
+        // console.log(data);
+        startSetDestinatario(data);
+        const tamano = data.dimensiones.substr(0, destinatario.dimensiones.indexOf(' '));
+        // console.log(tamano)
+        // const tamano = 'Mediano';
+        setLockerNumber(tamano);
         setIncrementStep();
     }
     
@@ -68,7 +73,7 @@ export const FirstStep = () => {
 
                         {/* CAMPOS PARA QUE SE INGRESEN LAS MEDIDAS DEL PAQUETE*/}
                         <div className='col-lg-6'>
-                            <label htmlFor='dimensiones' className='form-label'>*Dimensiones(cm)</label>
+                            <label htmlFor='dimensiones' className='form-label'>*Dimensiones (pulgadas)</label>
                             <div className='row'>
                                 <select className="form-select"
                                     {...register('dimensiones', {

@@ -13,9 +13,9 @@ export const SecondStep = () => {
     const [locationState, setLocationState] = useState("");
     const { userLocation } = usePlacesStore();
     const { map, isMapReady, getRouteBetweenPoints, getRouteMinutes } = useMapStore();
-    const { origen, destino, startSetOrigen, startSetDestino, setIncrementStep, setDecrementStep, step } = usePackageDeliveryStore();
+    const { origen, destino, startSetOrigen, startSetDestino, setIncrementStep, setDecrementStep, step, setKms } = usePackageDeliveryStore();
     const { lockers } = useLockerStore();
- 
+
 
     // const lockers = [
     //     {
@@ -49,6 +49,7 @@ export const SecondStep = () => {
     // ];
 
     useEffect(() => {
+        console.log(lockers);
         if (userLocation) {
             for (const locker of lockers) {
                 getRouteMinutes(userLocation, locker.locker_coords).then((minutes) => {
@@ -57,6 +58,19 @@ export const SecondStep = () => {
             }
         }
     }, [userLocation]);
+
+    useEffect(() => {
+        if (origen && destino) {
+            getRouteBetweenPoints(origen.locker_coords, destino.locker_coords).then(([kms, minutes]) => {
+                // Swal.fire('Ruta establecida', 
+                //     `La ruta es de ${kms} kms con una duración de ${minutes} minutos`, 
+                // 'success');
+                console.log({ kms, minutes });
+                
+            });
+        }
+    }, [])
+
 
     const onClick = (locker) => {
 
@@ -78,12 +92,18 @@ export const SecondStep = () => {
         }
         //* Significa que ya tenemos locker origen
         else if (step === 3) {
-            startSetDestino(locker);
+            if (locker === origen) {
+                Swal.fire('Aviso', 'No puedes elegir el mismo locker de inicio', 'warning');
+            } else {
+                startSetDestino(locker);
+            }
+
             getRouteBetweenPoints(origen.locker_coords, locker.locker_coords).then(([kms, minutes]) => {
                 // Swal.fire('Ruta establecida', 
                 //     `La ruta es de ${kms} kms con una duración de ${minutes} minutos`, 
                 // 'success');
                 console.log({ kms, minutes });
+                setKms(kms);
             });
         }
 
@@ -152,14 +172,27 @@ export const SecondStep = () => {
                                     </div>
 
                                     <div className='col-lg-3'>
-                                        <button
-                                            type="button"
-                                            onClick={() => onClick(locker)}
-                                            className="btn btn-sig1"
-                                        // w-20 btn btn-lg btn-sig
-                                        >
-                                            Seleccionar
-                                        </button>
+                                        {
+                                            locker.locker_availability === 0
+                                                ? <button
+                                                    type="button"
+                                                    // onClick={() => onClick(locker)}
+                                                    className="btn btn-gris mb-2"
+                                                // w-20 btn btn-lg btn-sig
+                                                >
+                                                    Seleccionar
+                                                </button>
+                                                :
+                                                <button
+                                                    type="button"
+                                                    onClick={() => onClick(locker)}
+                                                    className="btn btn-rojo mb-2"
+                                                // w-20 btn btn-lg btn-sig
+                                                >
+                                                    Seleccionar
+                                                </button>
+                                        }
+
                                     </div>
                                     <hr className='tabla' />
                                 </div>

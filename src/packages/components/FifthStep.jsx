@@ -6,6 +6,7 @@ import { NextButton } from './NextButton'
 import { useCardStore, usePackageDeliveryStore, usePackageStore } from '../../hooks'
 import { useEffect } from 'react'
 import { PreviousButton } from './PreviousButton'
+import Swal from 'sweetalert2'
 
 //TODO: REDIRECCIONAR UNA VEZ FINALIZADO EL ENVÍO
 const Tarjeta = ({ tipo, terminacion, nombre, vencimiento, idR }) => {
@@ -28,7 +29,7 @@ export const FifthStep = () => {
 
     const { startSavingPackage } = usePackageStore();
     const { cards, startLoadingCards } = useCardStore();
-    const { origen: origenStore, destinatario, destino: destinoStore } = usePackageDeliveryStore();
+    const { origen: origenStore, destinatario, destino: destinoStore, clearPackageInfo } = usePackageDeliveryStore();
 
     useEffect(() => {
         startLoadingCards();
@@ -47,6 +48,8 @@ export const FifthStep = () => {
         }
         // console.log(newPackage);
         startSavingPackage(newPackage);
+        Swal.fire('Éxito', 'Su paquete ha sido enviado con éxito', 'success');
+        clearPackageInfo();
     }
 
     return (

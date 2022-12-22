@@ -40,7 +40,7 @@ export const CreditCardModal = () => {
         if (activeCard !== null) {
             console.log(activeCard);
             reset(activeCard);
-        }else{
+        } else {
             reset({
                 data: ''
             })
@@ -52,9 +52,9 @@ export const CreditCardModal = () => {
         closeCreditCardModal();
     }
 
-    const onCardSubmit = async(data) => {
+    const onCardSubmit = async (data) => {
         console.log(data);
-        await startSavingCard( data );
+        await startSavingCard(data);
         closeCreditCardModal();
         Swal.fire('Éxito', 'Se han registrado los datos', 'success');
     }
@@ -78,7 +78,7 @@ export const CreditCardModal = () => {
                 }
                 
             </strong></h6>
-            <hr /></div>
+            <br /></div>
             <form onSubmit={handleSubmit(onCardSubmit)} className="container">
                 <div className='form-group mb-2'>
                     <label>Número de tarjeta</label>
@@ -125,10 +125,10 @@ export const CreditCardModal = () => {
                         })} />
                     {errors.cardName && <span style={{ 'color': '#f2317f' }}>{errors.cardName.message}</span>}
                 </div>
-                <div className='form-group mb-2'>
-                    <label>Fecha de vencimient</label>
+                <div className='form-group row '>
+                    <label>Fecha de vencimiento </label>
                     &nbsp;&nbsp;&nbsp;
-                    <select
+                    <select  className='col form-select'
                         {...register('month', {
                             required: {
                                 value: true,
@@ -141,7 +141,7 @@ export const CreditCardModal = () => {
                             // value: cardNumber
                         })}>
                         {errors.month && <span style={{ 'color': '#f2317f' }}>{errors.month.message}</span>}
-                        <option defaultValue={'Mes'}>Mes</option>
+                        <option disabled defaultValue={'Mes'}>Mes</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -156,7 +156,7 @@ export const CreditCardModal = () => {
                         <option>12</option>
                     </select>
                     &nbsp;&nbsp;&nbsp;
-                    <select 
+                    <select className='col form-select'
                         {...register('year', {
                             required: {
                                 value: true,
@@ -165,7 +165,7 @@ export const CreditCardModal = () => {
                             // value: cardNumber
                         })}>
                         {errors.year && <span style={{ 'color': '#f2317f' }}>{errors.year.message}</span>}
-                        <option defaultValue={'Año'}>Año</option>
+                        <option disabled defaultValue={'Año'}>Año</option>
                         <option>2023</option>
                         <option>2024</option>
                         <option>2025</option>
@@ -188,24 +188,31 @@ export const CreditCardModal = () => {
                         <option>2042</option>
                     </select>
                 </div>
-                <hr/>
+                <br/>
+                <div className='row gap-3'>
                 <button 
-                    className="btn btn-outline-danger btn-block btn-rojo"
+                    className="btn btn-gris btn-block col"
                     onClick={onCloseModal}
                     type="button"
                 >
-                    <i className='fa-solid fa-xmark'></i>
+                
                     <span> Cancelar</span>
                 </button>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                {activeCard&&<FabDelete/>}
+                {/* <button 
+                    className="btn btn-rojo btn-block col"
+                    type="button"
+                > Eliminar</button> */}
                 <button 
                     type="submit"
-                    className="btn btn-outline-primary btn-block"
+                    className="btn btn-azul btn-block col"
                 >
-                    <i className='fas fa-save'></i>
+                    
                     <span> Guardar</span>
                 </button>
-                <div>{activeCard&& <FabDelete/>}</div>
+                </div>
+                {/* <div>{activeCard&& <FabDelete/>}</div> */}
             </form>
 
         </Modal>

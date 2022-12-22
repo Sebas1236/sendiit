@@ -1,4 +1,5 @@
 export * from './auth/authSlice';
+export * from './lockers/lockerSlice';
 export * from './maps/mapSlice';
 export * from './package/packageDeliverySlice';
 export * from './package/packageSlice';

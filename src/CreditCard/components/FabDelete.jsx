@@ -7,12 +7,12 @@ export const FabDelete = () => {
     const { closeCreditCardModal } = useUiStore();
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
-          confirmButton: 'btn btn-success',
-          cancelButton: 'btn btn-danger'
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
         },
         buttonsStyling: false
-      })
-    const handleDelete = async() => {
+    })
+    const handleDelete = async () => {
         await swalWithBootstrapButtons.fire({
             title: '¿Estás seguro que deseas eliminar esta tarjeta?',
             text: 'No podrás revertir esta acción!',
@@ -28,25 +28,33 @@ export const FabDelete = () => {
             if (result.isConfirmed) {
                 startDeletingCard();
                 Swal.fire('Tarjeta eliminada!', '', 'success');
-                closeCreditCardModal(); 
+                closeCreditCardModal();
             } else if (result.isDenied) {
                 Swal.fire('No se guardaron los cambios', '', 'info')
             }
         });
-               
+
     };
 
     return (
+        // <button
+        //     // fab-danger
+        //     type="button"
+        //     className="btn btn-danger fab-danger"
+        //     onClick={handleDelete}
+        //     style={{
+        //         display: hasCardSelected ? '':'none'
+        //     }}
+        // >
+        //     <i className='fa-solid fa-trash-alt'></i>
+        // </button>
         <button
-            // fab-danger
+            className="btn btn-rojo btn-block col"
             type="button"
-            className="btn btn-danger fab-danger"
             onClick={handleDelete}
             style={{
-                display: hasCardSelected ? '':'none'
+                display: hasCardSelected ? '' : 'none'
             }}
-        >
-            <i className='fa-solid fa-trash-alt'></i>
-        </button>
+        > Eliminar</button>
     )
 }

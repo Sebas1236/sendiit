@@ -7,7 +7,7 @@ import { useAuthStore } from "../hooks";
 
 
 export const Bienvenidaa = () => {
-    const { user } = useAuthStore();
+    const { user, startLogout } = useAuthStore();
 
     return (
 
@@ -28,11 +28,15 @@ export const Bienvenidaa = () => {
                             <p>De click en la operación que desee realizar</p>
                         </div>
                         <div className="row">
-                            <Link to="/auth/register" className='btn w-75 btn-primary-c m-auto mb-4 mt-3'>Enviar paquete</Link>
-                            <Link to="/auth/register" className='btn w-75 btn-primary-c m-auto mb-4'>Ver mis paquetes</Link>
-                            <Link to="/auth/register" className='btn w-75 btn-primary-c m-auto mb-4'>Ver mi cuenta</Link>
-                            <Link to="/auth/register" className='btn w-75 btn-primary-c m-auto mb-4'>Agregar métodos de pago</Link>
-                            <Link to="/auth/register" className='btn w-75 btn-primary-c m-auto mb-4'>Cerrar sesión</Link>
+                            <Link to="/enviar-paquete" className='btn w-75 btn-primary-c m-auto mb-4 mt-3'>Enviar paquete</Link>
+                            <Link to="/mis-paquetes" className='btn w-75 btn-primary-c m-auto mb-4'>Ver mis paquetes</Link>
+                            <Link to="/editar" className='btn w-75 btn-primary-c m-auto mb-4'>Ver mi cuenta</Link>
+                            <Link to="/pago" className='btn w-75 btn-primary-c m-auto mb-4'>Agregar métodos de pago</Link>
+                            <Link 
+                                to="/auth/register" 
+                                className='btn w-75 btn-primary-c m-auto mb-4'
+                                onClick={startLogout}
+                            >Cerrar sesión</Link>
                         </div>
                         <div className="altura2"></div>
                     </div>
