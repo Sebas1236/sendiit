@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const authSlice = createSlice({
     name: 'auth',
     initialState: {
-        status: 'checking', // 'authenticated', 'not authenticated'
+        status: 'checking', // 'Cliente','Repartidor','Administrador', 'not authenticated'
         user: {},
         errorMessage: undefined,
         isLoadingUser: true,
@@ -17,7 +17,9 @@ export const authSlice = createSlice({
         },
         //Significa que la persona está autenticada
         onLogin: ( state, { payload } ) => {
-            state.status = 'authenticated';
+            // state.status = 'authenticated';
+            state.status = payload.role;
+            console.log(payload.role);
             state.user = payload;
             state.errorMessage = undefined;
         },

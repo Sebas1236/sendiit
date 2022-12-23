@@ -7,6 +7,7 @@ import { packageSlice } from "./package/packageSlice";
 import { paymentSlice } from "./payment/paymentSlice";
 import { placesSlice } from "./places/placesSlice";
 import { uiSlice } from "./ui/uiSlice";
+import { userSlice } from "./users/userSlice";
 
 export const store = configureStore({
     reducer: {
@@ -19,6 +20,7 @@ export const store = configureStore({
         map: mapSlice.reducer,
         package: packageSlice.reducer,
         locker: lockerSlice.reducer,
+        user: userSlice.reducer,
 
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({

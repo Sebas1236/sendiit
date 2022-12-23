@@ -22,7 +22,7 @@ export const useAuthStore = () => {
             localStorage.setItem('token', data.token );
             localStorage.setItem('token-init-date', new Date().getTime() );
             // console.log( data.name );
-            dispatch( onLogin({ name: data.name, uid: data.uid, last_name: data.last_name, email: data.email, phone: data.phone }) );
+            dispatch( onLogin({ name: data.name, uid: data.uid, last_name: data.last_name, email: data.email, phone: data.phone, role: data.role }) );
 
         } catch (error) {
             dispatch( onLogout(error.response.data?.msg || '--') );
@@ -78,7 +78,7 @@ export const useAuthStore = () => {
             // En caso de validación con esta fecha
             // localStorage.setItem('token-init-date', new Date().getTime() );
             //TODO: MEJORAR
-            dispatch( onLogin({ name: data.name, uid: data.uid, last_name: data.last_name, email: data.email, phone: data.phone }) );
+            dispatch( onLogin({ name: data.name, uid: data.uid, last_name: data.last_name, email: data.email, phone: data.phone, role: data.role }) );
         } catch (error) {
             //El token ya no funciona
             localStorage.clear();

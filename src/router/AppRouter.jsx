@@ -17,6 +17,7 @@ import { MyPackages } from "../packages/components/MyPackages";
 import { FirstStep } from "../packages/components/FirstStep";
 import { TrackSteps } from "../packages/components/TrackSteps";
 import { TrackPackage } from "../packages/components";
+import { Inicio } from "../components/admin/Inicio";
 
 export const AppRouter = () => {
 
@@ -40,43 +41,54 @@ export const AppRouter = () => {
     <Routes>
       {
         (status === 'not-authenticated')
-          ? (
-            //Si no estoy autenticado
-            <>
-              {/* Auth   */}
+        && (
+          //Si no estoy autenticado
+          <>
+            {/* Auth   */}
 
-              <Route path="/auth/login" element={<LoginPage />} />
-              <Route path="/auth/register" element={<RegisterPage />} />
-              <Route path="/auth/landing" element={<LandingPage />} />
-              <Route path='/auth/confirm/*' element={<Bienvenida />} />
-              {/* Forgot & Reset Password  */}
-              <Route path="/auth/recover-email" element={<RecoverMessageEmail />} />
-              <Route path="/auth/forgot-password" element={<ForgotPassword />} />
-              {/* <Route path="/auth/reset-password/landing" element={ <LandingPage/> }/> */}
-              <Route path="/auth/reset-password/*" element={<ResetPassword />} />
+            <Route path="/auth/login" element={<LoginPage />} />
+            <Route path="/auth/register" element={<RegisterPage />} />
+            <Route path="/auth/landing" element={<LandingPage />} />
+            <Route path='/auth/confirm/*' element={<Bienvenida />} />
+            {/* Forgot & Reset Password  */}
+            <Route path="/auth/recover-email" element={<RecoverMessageEmail />} />
+            <Route path="/auth/forgot-password" element={<ForgotPassword />} />
+            {/* <Route path="/auth/reset-password/landing" element={ <LandingPage/> }/> */}
+            <Route path="/auth/reset-password/*" element={<ResetPassword />} />
 
-              {/* Otras rutas */}
-              <Route path='/*' element={<Navigate to="/auth/login" />} />
-            </>
-          )
-          : (
-            <>
-              <Route path="auth/pages/AddPaymentMet" element={<AddPaymentMet />} />
-              <Route path="/" element={<Bienvenidaa/>}/>
-              <Route path="/editar" element={<InicioApp />} />
-              <Route path="/enviar-paquete" element={<TrackSteps/>}/>
-              <Route path="/ver-paquete" element={<TrackPackage/>}/>
-              <Route path="/mis-paquetes" element={<MyPackages/>}/>
-              <Route path="/pago" element={<CreditCardPage />} />
-              <Route path='/*' element={<Navigate to="/" />} />
-              {/* <Route path='/auth/confirm/*' element={<Bienvenida />} />
-              <Route path='/auth/confirm/:confirmationCode' element={<Bienvenida />} /> */}
-            </>
-          )
-
+            {/* Otras rutas */}
+            <Route path='/*' element={<Navigate to="/auth/login" />} />
+          </>
+        )
       }
-
-
+      {
+        (status === 'Cliente')
+        && (
+          <>
+            <Route path="auth/pages/AddPaymentMet" element={<AddPaymentMet />} />
+            <Route path="/" element={<Bienvenidaa />} />
+            <Route path="/editar" element={<InicioApp />} />
+            <Route path="/enviar-paquete" element={<TrackSteps />} />
+            <Route path="/ver-paquete" element={<TrackPackage />} />
+            <Route path="/mis-paquetes" element={<MyPackages />} />
+            <Route path="/pago" element={<CreditCardPage />} />
+            <Route path='/*' element={<Navigate to="/" />} />
+            {/* <Route path='/auth/confirm/*' element={<Bienvenida />} />
+              <Route path='/auth/confirm/:confirmationCode' element={<Bienvenida />} /> */}
+          </>
+        )
+      }
+      {
+        (status === 'Administrador')
+        &&
+        (
+          <>
+            <Route path="/" element={<Inicio />} />
+            <Route path="/*" element={<Navigate to="/" />} />
+          </>
+        )
+      }
+      //TODO: AÑADIR PÁGINAS DEL ADMINISTRADOR Y DEL REPARTIDOR
     </Routes>
   )
 }

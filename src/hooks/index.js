@@ -9,3 +9,4 @@ export * from './usePackageStore';
 export * from './usePlacesStore';
 export * from './useResetStore';
 export * from './useUiStore';
+export * from './useUserStore';
