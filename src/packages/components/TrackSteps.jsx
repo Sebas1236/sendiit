@@ -1,7 +1,7 @@
 import { FooterLanding, Navbar } from "../../components"
 import { usePackageDeliveryStore } from "../../hooks";
 import { MapsApp } from "../../maps/MapsApp";
-import { FifthStep, FirstStep, FourthStep, NextButton, SecondStep, SendInformation, ThirdStep, TrackPoints } from "./";
+import { FifthStep, FirstStep, FourthStep, NextButton, SecondStep, SendInformation, ThirdStep, TrackPoints, TrackStepsPoints } from "./";
 
 export const TrackSteps = () => {
     const { setDecrementStep, setIncrementStep, step } = usePackageDeliveryStore();
@@ -11,7 +11,8 @@ export const TrackSteps = () => {
                 <Navbar />
             </div>
             {step === 0 && <SendInformation />}
-            {step >= 1 && <TrackPoints />}
+            {/* {step >= 1 && <TrackPoints />} */}
+						<TrackStepsPoints step={step}/>
             {step === 1 && <FirstStep />}
             {step === 2 && <SecondStep />}
             {step === 3 && <SecondStep />}
