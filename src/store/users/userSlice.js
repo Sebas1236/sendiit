@@ -38,11 +38,11 @@ export const userSlice = createSlice({
             state.isLoadingUsers = false;
             state.users = payload;
             // state.users = payload;
-            payload.forEach(paquete => {
+            payload.forEach(usuario => {
                 //Some regresa true si lo encuentra
-                const exists = state.users.some(dbUser => dbUser._id === paquete._id);
+                const exists = state.users.some(dbUser => dbUser._id === usuario._id);
                 if (!exists) {
-                    state.users.push(paquete);
+                    state.users.push(usuario);
                 }
             });
         },

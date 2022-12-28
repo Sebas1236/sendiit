@@ -5,13 +5,13 @@ import { onAddNewUser, onDeleteUser, onLoadUsers, onSetActiveUser, onUpdateUser 
 
 export const useUserStore = () => {
 
-    const { users, activeUser } = useSelector(state => state.user);
+    const { users, activeUser, isLoadingUsers } = useSelector(state => state.user);
     const dispatch = useDispatch();
     const { user } = useSelector(state => state.auth);
 
-    // const setActiveUser = (paymentUser) => {
-    //     dispatch(onSetActiveUser(paymentUser));
-    // };
+    const setActiveUser = (currentUser) => {
+        dispatch(onSetActiveUser(currentUser));
+    };
 
     //Crear una nueva tarjeta
     // const startSavingUser = async (paymentUser) => {
@@ -48,14 +48,15 @@ export const useUserStore = () => {
         
     // };
 
-    const startLoadingUsers = async () => {
+    const startLoadingUsers = async (role='Repartidor') => {
         try {
-            const { data } = await sendiitApi.get('/users');
-            const { creditUsers } = data;
-            dispatch(onLoadUsers(creditUsers));
+            const { data } = await sendiitApi.post('/user/usuarios', {role});
+            // const { creditUsers } = data;
+            const { usuarios } = data;
+            dispatch(onLoadUsers(usuarios));
         } catch (error) {
             console.log(error);
-            console.log('Error cargando tarjetas');
+            console.log('Error cargando usuarios');
         }
     };
 
@@ -63,10 +64,11 @@ export const useUserStore = () => {
         //*Propiedades
         activeUser,
         users,
+        isLoadingUsers,
         hasUserSelected: !!activeUser,
 
         //*Métodos
-        // setActiveUser,
+        setActiveUser,
         // startDeletingUser,
         startLoadingUsers,
         // startSavingUser,

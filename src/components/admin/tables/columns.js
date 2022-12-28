@@ -5,10 +5,35 @@ export const COLUMNS = [
         accessor: '_id'
     },
     {
-        Header: 'Estado',
-        Footer: 'Estado',
-        accessor: 'estadoActual',
+        Header: 'Nombre',
+        Footer: 'Nombre',
+        accessor: 'name',
     },
+    {
+        Header: 'Apellidos',
+        Footer: 'Apellidos',
+        accessor: 'last_name',
+    },
+    {
+        Header: 'Correo',
+        Footer: 'Correo',
+        accessor: 'email',
+    },
+    {
+        Header: 'Teléfono',
+        Footer: 'Teléfono',
+        accessor: 'phone',
+    },
+    {
+        Header: 'Status',
+        Footer: 'Status',
+        accessor: 'status',
+    },
+    {
+        Header: 'Acciones',
+        Footer: 'Acciones',
+        accessor: '',
+    }
 ]
 
 // export const GROUPED_COLUMNS = [
