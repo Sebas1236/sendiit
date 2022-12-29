@@ -12,7 +12,7 @@ export const TrackSteps = () => {
             </div>
             {step === 0 && <SendInformation />}
             {/* {step >= 1 && <TrackPoints />} */}
-						<TrackStepsPoints step={step}/>
+						{step >= 1 && <TrackStepsPoints step={step}/> }
             {step === 1 && <FirstStep />}
             {step === 2 && <SecondStep />}
             {step === 3 && <SecondStep />}
