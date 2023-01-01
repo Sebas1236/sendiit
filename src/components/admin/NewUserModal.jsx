@@ -59,7 +59,7 @@ export const NewUserModal = () => {
 
         closeNewUserModal();
         activeUser ?
-            Swal.fire('Éxito, los datos del repartidor han sido actualizados.', 'success')
+            Swal.fire('Éxito', 'Los datos del repartidor han sido actualizados.', 'success')
             :
             Swal.fire('Éxito', 'Se ha registrado al repartidor.El repartidor deberá revisar su correo y crear una nueva contraseña para ingresar al sistema.', 'success');
     }
