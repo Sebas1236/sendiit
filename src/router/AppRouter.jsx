@@ -2,7 +2,6 @@ import { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
 import { InicioApp } from "../InicioApp";
 import { LoginPage, RegisterPage } from '../auth'
-
 import { useAuthStore } from "../hooks"
 import { Bienvenida } from "../components/Bienvenida";
 import { ForgotPassword } from "../reset/pages/ForgotPassword";
@@ -14,10 +13,10 @@ import { AddPaymentMet } from '../auth/pages/AddPaymentMet';
 import { LoadingPage } from "../LoadingPage";
 import { Bienvenidaa } from '../components/Bienvenidaa';
 import { MyPackages } from "../packages/components/MyPackages";
-import { FirstStep } from "../packages/components/FirstStep";
 import { TrackSteps } from "../packages/components/TrackSteps";
 import { TrackPackage } from "../packages/components";
 import { Inicio } from "../components/admin/Inicio";
+import { CreatePassword, MenuRepartidor, MyPackagesRepartidor, PackageRoutes } from "../components/repartidor";
 
 export const AppRouter = () => {
 
@@ -53,6 +52,7 @@ export const AppRouter = () => {
             {/* Forgot & Reset Password  */}
             <Route path="/auth/recover-email" element={<RecoverMessageEmail />} />
             <Route path="/auth/forgot-password" element={<ForgotPassword />} />
+            <Route path="/auth/new-password/*" element={<CreatePassword />} />
             {/* <Route path="/auth/reset-password/landing" element={ <LandingPage/> }/> */}
             <Route path="/auth/reset-password/*" element={<ResetPassword />} />
 
@@ -84,6 +84,18 @@ export const AppRouter = () => {
         (
           <>
             <Route path="/" element={<Inicio />} />
+            <Route path="/*" element={<Navigate to="/" />} />
+          </>
+        )
+      }
+      {
+        (status === 'Repartidor')
+        &&
+        (
+          <>
+            <Route path="/" element={<MenuRepartidor/>}/>
+            <Route path="/ver-paquetes" element={<MyPackagesRepartidor/>}/>
+            <Route path="/ver-rutas" element={<PackageRoutes/>}/>
             <Route path="/*" element={<Navigate to="/" />} />
           </>
         )

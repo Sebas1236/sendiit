@@ -1,19 +1,21 @@
+import { RouteMap } from "../../components/repartidor";
+import { useAuthStore } from "../../hooks";
 import { usePlacesStore } from "../../hooks/usePlacesStore";
-import { NextButton } from "../../packages/components";
-import { BtnLockerLocations, BtnMyLocation, DisplayLockers, MapView, SearchBar, Sendiitlogo } from "../components";
+import { MapView } from "../components";
 
 
 export const HomeScreen = (props) => {
     const { userLocation } = usePlacesStore();
+    const { status } = useAuthStore();
     return (
         <div className="d-flex justify-content-center align-items-center">
-            <MapView/>
-            {/* <BtnMyLocation/> */}
-            {/* <Sendiitlogo/> */}
-            {/* <SearchBar/> */}
-            {/* <BtnLockerLocations/> */}
-            {/* <NextButton/> */}
-            {/* <DisplayLockers/> */}
+            {
+                status === 'Cliente'
+                    ?
+                    <MapView /> :
+                    <RouteMap />
+            }
+
         </div>
     )
 }

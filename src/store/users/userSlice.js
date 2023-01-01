@@ -9,9 +9,11 @@ export const userSlice = createSlice({
         ],
         message: undefined,
         activeUser: null,
+        checking: true,
     },
     reducers: {
         onSetActiveUser: (state, { payload }) => {
+            state.checking = false;
             state.activeUser = payload;
         },
         onAddNewUser: (state, { payload }) => {
@@ -26,6 +28,7 @@ export const userSlice = createSlice({
                 }
                 return user;
             });
+            state.activeUser = null;
         },
         onDeleteUser: (state) => {
             if (state.activeUser) {

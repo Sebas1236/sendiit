@@ -4,7 +4,7 @@ import sendiitApi from "../api/sendiitApi";
 import { onSetActivePackage, onLoadPackages, onAddNewPackage } from "../store";
 
 export const usePackageStore = () => {
-    const { packages, activePackage } = useSelector(state => state.package);
+    const { packages, activePackage, isLoadingPackages } = useSelector(state => state.package);
     const dispatch = useDispatch();
     const { user } = useSelector(state => state.auth);
 
@@ -48,18 +48,31 @@ export const usePackageStore = () => {
             dispatch(onLoadPackages(paquetes));
         } catch (error) {
             console.log(error);
-            console.log('Error cargando tarjetas');
+            console.log('Error cargando paquetes');
         }
     };
+
+    const startLoadingAllPackages = async() => {
+        try {
+            const { data } = await sendiitApi.get('/paquetes/');
+            const { paquetes } = data;
+            dispatch(onLoadPackages(paquetes));
+        } catch (error) {
+            console.log(error);
+            console.log('Error cargando paquetes - Repartidor');
+        }
+    }
 
     return {
         //*Propiedades
         packages,
         activePackage,
+        isLoadingPackages,
         hasPackageSelected: !!activePackage,
         //*Métodos
         setActivePackage,
         startLoadingPackages,
+        startLoadingAllPackages,
         startSavingPackage,
     }
 

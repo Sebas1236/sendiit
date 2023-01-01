@@ -3,6 +3,8 @@ import { useEffect } from 'react'
 import { useUserStore } from '../../hooks'
 import { FooterLanding } from '../FooterLanding'
 import { Navbar } from '../Navbar'
+import { NewUserModal } from './NewUserModal'
+import { Example } from './tables/Example'
 import { UserTable } from './tables/UserTable'
 
 export const Inicio = () => {
@@ -10,7 +12,7 @@ export const Inicio = () => {
     const { startLoadingUsers, isLoadingUsers } = useUserStore();
 
     useEffect(() => {
-        const role = 'Cliente';
+        const role = 'Repartidor';
         startLoadingUsers(role);
     }, [])
 
@@ -18,7 +20,9 @@ export const Inicio = () => {
     return (
         <>
             <Navbar />
-            {!isLoadingUsers && <UserTable/>}
+            {/* {!isLoadingUsers && <UserTable/>} */}
+            {!isLoadingUsers && <Example/>}
+            <NewUserModal/>
             
             {/* <div className="row">
                 <div className="col-sm-6">

@@ -5,6 +5,7 @@ export const uiSlice = createSlice({
     name: 'ui',
     initialState: {
         isCreditCardModalOpen: false,
+        isNewUserModalOpen: false,
     },
     reducers: {
         onOpenCreditCardModal: ( state ) => {
@@ -13,9 +14,15 @@ export const uiSlice = createSlice({
         onCloseCreditCardModal: ( state ) => {
             state.isCreditCardModalOpen = false;
         },
+        onOpenNewUserModal: ( state ) => {
+            state.isNewUserModalOpen = true;
+        },
+        onCloseNewUserModal: ( state ) => {
+            state.isNewUserModalOpen = false;
+        },
     },
 });
 
 
 // Action creators are generated for each case reducer function
-export const { onOpenCreditCardModal, onCloseCreditCardModal } = uiSlice.actions;
+export const { onOpenCreditCardModal, onCloseCreditCardModal, onCloseNewUserModal, onOpenNewUserModal } = uiSlice.actions;

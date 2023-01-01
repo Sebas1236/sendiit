@@ -7,6 +7,7 @@ export * from './Package';
 export * from './PreviousButton';
 export * from './SecondStep';
 export * from './SendInformation';
+export * from './table/UserPackagesTable';
 export * from './ThirdStep';
 export * from './TrackPackage';
 export * from './TrackPoints';

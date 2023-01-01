@@ -2,7 +2,8 @@
 
 import { useDispatch, useSelector } from "react-redux"
 import resetApi from "../api/resetApi";
-import { onChecking, clearErrorMessage, onLogout } from "../store";
+import sendiitApi from "../api/sendiitApi";
+import { onChecking, clearErrorMessage, onLogout, onAddNewUser } from "../store";
 
 export const useResetStore = () => {
     const { status, errorMessage } = useSelector(state => state.auth);
@@ -40,6 +41,18 @@ export const useResetStore = () => {
         }
     }
 
+    const startDeliveryManPassword = async({ token, password }) => {
+        console.log({token, password});
+        dispatch( onChecking() );
+        try {
+            const { data } = await sendiitApi.post(`/user/repartidores/${token}`, { password });
+            const { usuario } = data;
+            dispatch( onAddNewUser({usuario}));
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return{
         //Propiedades
         errorMessage,
@@ -48,5 +61,6 @@ export const useResetStore = () => {
         //Métodos
         startRecoverEmail,
         startResetPassword,
+        startDeliveryManPassword
     }
 }

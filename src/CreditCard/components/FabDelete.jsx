@@ -11,7 +11,7 @@ export const FabDelete = () => {
             cancelButton: 'btn btn-danger'
         },
         buttonsStyling: false
-    })
+    });
     const handleDelete = async () => {
         await swalWithBootstrapButtons.fire({
             title: '¿Estás seguro que deseas eliminar esta tarjeta?',

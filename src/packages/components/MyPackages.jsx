@@ -7,17 +7,17 @@ import { useEffect } from "react";
 import { usePackageStore } from "../../hooks";
 import { Package } from "./Package";
 import { PackageTable } from "./table/PackageTable";
+import { UserPackagesTable } from "./table/UserPackagesTable";
 
 export const MyPackages = () => {
-    const { startLoadingPackages, packages, setActivePackage } = usePackageStore();
+    const { startLoadingPackages, packages, isLoadingPackages } = usePackageStore();
     useEffect(() => {
-        console.log(packages);
+        // console.log(packages);
         startLoadingPackages();
     }, []);
 
 //TODO: ACTUALIZAR RUTA (SACAR DEL BACKEND)
     return (
-
         <div className='container-fluid'>
             <div className='row'>
                 <Navbar />
@@ -32,16 +32,10 @@ export const MyPackages = () => {
                         <Package key={paquete._id} paquete={paquete}/>
                     ))
                 }
-
+                {
+                    !isLoadingPackages && <UserPackagesTable/>
+                }
             </div>
-            {/* <div className='row p-2 mt-3 mb-5 blanc anchox m-auto rounded-3'>
-                <PackageTable/>
-            </div> */}
-            
-            {/* <div className='row p-2 mt-3 mb-5 blanc anchox m-auto rounded-3'>
-                <Package estado="En locker origen" descripcion="Guirnalda navidad" ruta="Origen: Santa Fe. Destino: Satélite"/>
-                <Package estado="Por recibir" descripcion="Documentos de oficina" ruta="Origen: Coyoacán. Destino: Del Valle"/>
-            </div> */}
             <div className="alturax"></div>
             <div className='row mt-5s'>
                 <FooterLanding />

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { onCloseCreditCardModal, onOpenCreditCardModal } from "../store";
+import { onCloseCreditCardModal, onOpenCreditCardModal, onCloseNewUserModal, onOpenNewUserModal } from "../store";
 
 
 export const useUiStore = () => {
@@ -8,7 +8,8 @@ export const useUiStore = () => {
 
     //Acceder al store
     const {
-        isCreditCardModalOpen 
+        isCreditCardModalOpen,
+        isNewUserModalOpen,
     } = useSelector( state => state.ui );
 
     const openCreditCardModal = () => {
@@ -17,6 +18,14 @@ export const useUiStore = () => {
 
     const closeCreditCardModal = () => {
         dispatch( onCloseCreditCardModal() );
+    }
+
+    const openNewUserModal = () => {
+        dispatch( onOpenNewUserModal() );
+    }
+
+    const closeNewUserModal = () => {
+        dispatch( onCloseNewUserModal() );
     }
 
     const toggleCreditCardModal = () => {
@@ -28,10 +37,14 @@ export const useUiStore = () => {
     return {
         //* Propiedades
         isCreditCardModalOpen,
+        isNewUserModalOpen,
 
         //* Métodos
         closeCreditCardModal,
         openCreditCardModal,
+        openNewUserModal,
+        closeNewUserModal,
+        closeCreditCardModal,
         toggleCreditCardModal,
     }
 }
