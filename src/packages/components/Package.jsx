@@ -7,7 +7,6 @@ export const Package = ({ paquete }) => {
     const { setActivePackage } = usePackageStore();
 
     const onSelect = (paquete) => {
-        console.log({ paquete });
         setActivePackage(paquete);
     }
 

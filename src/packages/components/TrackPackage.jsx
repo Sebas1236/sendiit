@@ -3,6 +3,7 @@ import '../../css/Stepper.css';
 import '../../auth/pages/css/LoginPage.css'
 import { usePackageStore } from '../../hooks';
 import { Link } from 'react-router-dom';
+import { PackageStatus } from './PackageStatus';
 
 export const TrackPackage = () => {
 
@@ -19,13 +20,11 @@ export const TrackPackage = () => {
         });
     });
 
-
     return (
         <div className='container-fluid'>
             <div className='row'>
                 <Navbar />
             </div>
-            {console.log(activePackage)}
             <div className='row text-center'>
 
                 <div className="form-signin w-100 m-auto">
@@ -54,33 +53,7 @@ export const TrackPackage = () => {
 
                         <div className='col'>
                             <nav className='navmenu'>
-                                <ul>
-                                    <li>
-                                        <p className='title active'>Por recibir</p>
-                                        <p>{activePackage.estadosFechas.porRecibir.slice(0,10)}</p>
-                                        {/* <p>3 de nov. 2022 a las 16:00hrs </p> */}
-                                    </li>
-                                    <li>
-                                        <p className=' title'> En espera</p>
-                                        {/* <p>3 de nov. 2022 a las 20:00hrs </p> */}
-                                    </li>
-                                    <li>
-                                        <p className=' title'>En camino</p>
-                                        {/* <p>4 de nov. 2022 a las 10:00hrs </p> */}
-                                    </li>
-                                    <li>
-                                        <p className=' title'>En locker</p>
-                                    </li>
-                                    <li>
-                                        <p className=' title'>Recogido</p>
-                                    </li>
-                                    <li>
-                                        <p className=' title'>En almacén</p>
-                                    </li>
-                                    <li>
-                                        <p className=' title'>Desechado</p>
-                                    </li>
-                                </ul>
+                                <PackageStatus/>
                             </nav>
                         </div>
                     </div>

@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { usePackageStore } from "../../../hooks";
 import MaterialReactTable from 'material-react-table';
 import { MRT_Localization_ES } from 'material-react-table/locales/es';
+import { Box, Typography } from "@mui/material";
 
 export const AllPackagesTable = () => {
 
@@ -21,12 +22,6 @@ export const AllPackagesTable = () => {
             {
                 accessorKey: 'estadoActual',
                 header: 'Estado Actual',
-                // enableClickToCopy: true,
-                // muiTableBodyCellCopyButtonProps: {
-                //     fullWidth: true,
-                //     startIcon: <ContentCopy />,
-                //     sx: { justifyContent: 'flex-start' },
-                // },
             },
             {
                 accessorKey: 'casilleroOrigen.ubicacion',
@@ -45,6 +40,9 @@ export const AllPackagesTable = () => {
             {
                 accessorKey: 'estadosFechas.porRecibir',
                 header: '',
+                Cell: ({ cell }) => (
+                    <span>Por recibir el {cell.getValue().slice(0, 10)}</span>
+                ),
             },
         ],
         [], //end
@@ -73,9 +71,9 @@ export const AllPackagesTable = () => {
             state={{ rowSelection }}
             enableColumnFilterModes
             enableColumnOrdering
-            enableEditing
+            // enableEditing
             enablePinning
-            enableRowActions
+            // enableRowActions
             enableColumnResizing
             // enableRowSelection
             // enableRowNumbers
@@ -108,6 +106,25 @@ export const AllPackagesTable = () => {
             //         Dar de alta repartidor
             //     </Button>
             // )}
+            renderDetailPanel={({ row }) => (
+                <Box
+                    sx={{
+                        display: 'flex',
+                        // margin: 'auto',
+                        // gridTemplateColumns: '1fr 1fr',
+                        alignItems: 'center',
+                        // textAlign: 'center',
+                        justifyContent: 'space-around',
+                        // width: '100%',
+                    }}
+                >
+                    <Typography>QR:</Typography>
+                    <img
+                        alt='codigoQR'
+                        // style={{ borderRadius: '50%' }} 
+                        src={row.original.qrOrigen} />
+                </Box>
+            )}
         />
     )
 }

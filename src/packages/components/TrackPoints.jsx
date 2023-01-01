@@ -8,13 +8,13 @@ export const TrackPoints = () => {
                 {
                     step >= 1 &&
 
-                    <span className="dot primer"></span>
+                    <span className="dot primer" style={{backgroundColor:'green'}}></span>
                 }
                 <hr />
                 {
                     step >= 2
                         ?
-                        <span className="dot primer"></span>
+                        <span className="dot primer" style={{backgroundColor:'green'}}></span>
                         :
 
                         <span className="dot"></span>
@@ -23,7 +23,7 @@ export const TrackPoints = () => {
                 {
                     step >= 3
                         ?
-                        <span className="dot primer"></span>
+                        <span className="dot primer" style={{backgroundColor:'green'}}></span>
                         :
 
                         <span className="dot"></span>
@@ -32,7 +32,7 @@ export const TrackPoints = () => {
                 {
                     step >= 4
                         ?
-                        <span className="dot primer"></span>
+                        <span className="dot primer" style={{backgroundColor:'green'}}></span>
                         :
 
                         <span className="dot"></span>
@@ -41,7 +41,7 @@ export const TrackPoints = () => {
                 {
                     step === 5
                         ?
-                        <span className="dot primer"></span>
+                        <span className="dot primer" style={{backgroundColor:'green'}}></span>
                         :
 
                         <span className="dot"></span>

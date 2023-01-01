@@ -10,6 +10,7 @@ import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { ExportToCsv } from 'export-to-csv';
 import Swal from 'sweetalert2';
 
+//TODO: DIVIDIR LÓGICA Y RENDERIZAR AL HACER UNA OPERACIÓN DE ACTUALIZACIÓN O ELIMINACIÓN
 export const Example = () => {
     const { users, startStatusChange } = useUserStore();
     const data = users;
@@ -64,6 +65,7 @@ export const Example = () => {
     const [rowSelection, setRowSelection] = useState({});
     const { activeUser, setActiveUser, startDeletingUser, startSavingUser } = useUserStore();
     const { openNewUserModal, closeNewUserModal } = useUiStore();
+    const [tableData, setTableData] = useState(() => data);
 
     const handleSaveRowEdits = (user) => {
         // console.log(user);
@@ -83,7 +85,7 @@ export const Example = () => {
         buttonsStyling: false
     });
 
-    const handleStatusChange = async (deliveryManId, status) => {
+    const handleStatusChange = async (deliveryManId, status, row) => {
         // console.log(deliveryManId);
         // console.log(status);
         await swalWithBootstrapButtons.fire({
@@ -108,6 +110,7 @@ export const Example = () => {
                 Swal.fire('No se guardaron los cambios', '', 'info')
             }
         });
+        // tableData[row.index] = 
     };
 
     const handleDeleteRow = async (row) => {
@@ -287,7 +290,7 @@ export const Example = () => {
             muiTableBodyCellProps={({ cell, row }) => ({
                 onClick: (event) => {
                     if (cell.column.id === 'status') {
-                        handleStatusChange(row.original._id, row.original.status);
+                        handleStatusChange(row.original._id, row.original.status, row);
                     }
                 },
             })}

@@ -24,8 +24,9 @@ export const UserPackagesTable = () => {
                 header: 'Descripcion',
                 Cell: ({ cell }) => (
                     <>
-                        <img src="../../../public/img/package.jfif" alt="paquete" className="w-50" />
+                        <img src="../../../public/img/package.jfif" alt="paquete" className="w-50"/>
                         <br />
+                        <br/>
                         <span><strong>
                             {cell.getValue().charAt(0).toUpperCase() + cell.getValue().slice(1)}
                         </strong></span>
