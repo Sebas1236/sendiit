@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import MaterialReactTable from 'material-react-table';
-import { ContentCopy, Delete, Edit } from '@mui/icons-material';
-import { Box, Button, IconButton, MenuItem, Tooltip, Typography, } from '@mui/material';
+import { ContentCopy, Delete, Edit, AccountCircle, Send } from '@mui/icons-material';
+import { Box, Button, IconButton, ListItemIcon, MenuItem, Tooltip, Typography, } from '@mui/material';
 import PrintIcon from '@mui/icons-material/Print';
 //Import Material React Table Translations
 import { MRT_Localization_ES } from 'material-react-table/locales/es';
@@ -83,10 +83,12 @@ export const Example = () => {
         buttonsStyling: false
     });
 
-    const handleStatusChange = async (deliveryManId) => {
+    const handleStatusChange = async (deliveryManId, status) => {
         // console.log(deliveryManId);
+        // console.log(status);
         await swalWithBootstrapButtons.fire({
-            title: '¿Estás seguro que deseas actualizar el status de este repartidor?',
+            title: `¿Estás seguro que deseas actualizar el status de este repartidor a
+            ${status==='Active' ? 'Inactivo' : 'Activo'}?`,
             icon: 'warning',
             // showDenyButton: true,
             showCancelButton: true,
@@ -179,7 +181,8 @@ export const Example = () => {
             state={{ rowSelection }}
             enableColumnFilterModes
             enableColumnOrdering
-            enableEditing
+            enableGrouping
+            // enableEditing
             enablePinning
             enableRowActions
             // enableRowSelection
@@ -205,23 +208,23 @@ export const Example = () => {
                     <Typography>Teléfono: {row.original.phone}</Typography>
                 </Box>
             )}
-            positionExpandColumn="last"
-            // positionActionsColumn='last'
-            renderRowActions={({ row, table }) => (
-                <Box sx={{ display: 'flex', gap: '1rem' }}>
-                    <Tooltip arrow placement="left" title="Edit">
-                        {/* <IconButton onClick={() => table.setEditingRow(row)}> */}
-                        <IconButton onClick={() => handleEditRow(row)}>
-                            <Edit />
-                        </IconButton>
-                    </Tooltip>
-                    <Tooltip arrow placement="right" title="Delete">
-                        <IconButton color="error" onClick={() => handleDeleteRow(row)}>
-                            <Delete />
-                        </IconButton>
-                    </Tooltip>
-                </Box>
-            )}
+            // positionExpandColumn="last"
+            positionActionsColumn='last'
+            // renderRowActions={({ row, table }) => (
+            //     <Box sx={{ display: 'flex', gap: '1rem' }}>
+            //         <Tooltip arrow placement="left" title="Edit">
+            //             {/* <IconButton onClick={() => table.setEditingRow(row)}> */}
+            //             <IconButton onClick={() => handleEditRow(row)}>
+            //                 <Edit />
+            //             </IconButton>
+            //         </Tooltip>
+            //         <Tooltip arrow placement="right" title="Delete">
+            //             <IconButton color="error" onClick={() => handleDeleteRow(row)}>
+            //                 <Delete />
+            //             </IconButton>
+            //         </Tooltip>
+            //     </Box>
+            // )}
             renderTopToolbarCustomActions={({ table }) => (
                 <Box sx={{ display: 'flex', gap: '1rem', p: '4px' }}>
                     <Button
@@ -284,10 +287,58 @@ export const Example = () => {
             muiTableBodyCellProps={({ cell, row }) => ({
                 onClick: (event) => {
                     if (cell.column.id === 'status') {
-                        handleStatusChange(row.original._id);
+                        handleStatusChange(row.original._id, row.original.status);
                     }
                 },
             })}
+            renderRowActionMenuItems={({ closeMenu, row }) => [
+                <MenuItem
+                    key={0}
+                    onClick={() => handleEditRow(row)}
+                    sx={{ m: 0 }}
+                >
+                    <ListItemIcon >
+                        <Edit />
+                    </ListItemIcon>
+                    Editar
+                </MenuItem>,
+                <MenuItem
+                    key={1}
+                    onClick={() => {
+                        // View profile logic...
+                        closeMenu();
+                    }}
+                    sx={{ m: 0 }}
+                >
+                    <ListItemIcon>
+                        <AccountCircle />
+                    </ListItemIcon>
+                    Ver Perfil
+                </MenuItem>,
+                <MenuItem
+                    key={2}
+                    onClick={() => {
+                        // Send email logic...
+                        closeMenu();
+                    }}
+                    sx={{ m: 0 }}
+                >
+                    <ListItemIcon>
+                        <Send />
+                    </ListItemIcon>
+                    Enviar email
+                </MenuItem>,
+                <MenuItem
+                    key={0}
+                    onClick={() => handleDeleteRow(row)}
+                    sx={{ m: 0 }}
+                >
+                    <ListItemIcon>
+                        <Delete color='error'/>
+                    </ListItemIcon>
+                    Eliminar
+                </MenuItem>,
+            ]}
         // renderToolbarInternalActions={({ table }) => (
         //     <Box>
         //       {/* add custom button to print table  */}

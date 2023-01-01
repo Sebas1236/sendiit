@@ -58,7 +58,10 @@ export const NewUserModal = () => {
         //TODO: ENVIAR CORREO AL REPARTIDOR PARA QUE CREE SU CONTRASEÑA
 
         closeNewUserModal();
-        Swal.fire('Éxito', 'Se ha registrado al repartidor.El repartidor deberá revisar su correo y crear una nueva contraseña para ingresar al sistema.', 'success');
+        activeUser ?
+            Swal.fire('Éxito, los datos del repartidor han sido actualizados.', 'success')
+            :
+            Swal.fire('Éxito', 'Se ha registrado al repartidor.El repartidor deberá revisar su correo y crear una nueva contraseña para ingresar al sistema.', 'success');
     }
 
     return (
