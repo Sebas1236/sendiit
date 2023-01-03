@@ -4,7 +4,7 @@ import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
 import { useMapStore, usePlacesStore } from "../../hooks";
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { Loading } from "../../maps/components";
-import { RouteMap } from "./";
+import { RouteMap, StartMap } from "./";
 import { MapsApp } from "../../maps/MapsApp";
 
 export const PackageRoutes = () => {
@@ -12,15 +12,8 @@ export const PackageRoutes = () => {
     // mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
 
     return (
-        <div className='container-fluid'>
-            <div className='row'>
-                <Navbar />
-            </div>
-            <MapsApp/>
-            <div className='row'>
-                <FooterLanding />
-            </div>
-
-        </div>
+        // <StartMap/>
+            <MapsApp />
     )
 }
+

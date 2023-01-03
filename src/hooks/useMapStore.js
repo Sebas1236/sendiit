@@ -4,6 +4,7 @@ import directionsApi from "../api/directionsApi";
 import { mapReducer, setMarkers } from '../store/maps/mapSlice';
 import { featureCollection, point } from '@turf/turf';
 
+
 export const useMapStore = () => {
     const { isMapReady, map, markers } = useSelector(state => state.map);
     const { places, userLocation } = useSelector(state => state.places);
@@ -414,8 +415,10 @@ export const useMapStore = () => {
         markers,
         //* Métodos
         setMap,
+        // setRouteMap,
         setMarker,
         getRouteBetweenPoints,
         getRouteMinutes,
+
     }
 }

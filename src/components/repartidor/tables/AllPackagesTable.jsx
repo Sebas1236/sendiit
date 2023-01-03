@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { usePackageStore } from "../../../hooks";
 import MaterialReactTable from 'material-react-table';
 import { MRT_Localization_ES } from 'material-react-table/locales/es';
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 
 export const AllPackagesTable = () => {
 
@@ -22,6 +22,24 @@ export const AllPackagesTable = () => {
             {
                 accessorKey: 'estadoActual',
                 header: 'Estado Actual',
+                Cell: ({ cell }) => (
+                    <span>
+                        {
+                            cell.getValue() === 'Desechado' ?
+                                <Button style={{ textTransform: 'none' }} variant="contained" size='small' color="error" className='badge badge-success rounded-pill d-inline'>
+                                    Desechado
+                                </Button>
+                                :
+                                cell.getValue() === 'En almacén' ?
+                                    <Button style={{ textTransform: 'none' }} variant="contained" size='small' className='badge badge-success rounded-pill d-inline '>
+                                        {cell.getValue()}
+                                    </Button>
+                                    : <Button style={{ textTransform: 'none' }} variant="contained" size='small' color="success" className='badge badge-success rounded-pill d-inline'>
+                                        {cell.getValue()}
+                                    </Button>
+                        }
+                    </span>
+                ),
             },
             {
                 accessorKey: 'casilleroOrigen.ubicacion',

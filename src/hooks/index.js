@@ -8,5 +8,6 @@ export * from './usePackageDeliveryStore';
 export * from './usePackageStore';
 export * from './usePlacesStore';
 export * from './useResetStore';
+export * from './useRouteMapStore';
 export * from './useUiStore';
 export * from './useUserStore';

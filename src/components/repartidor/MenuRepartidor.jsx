@@ -10,7 +10,11 @@ import { useEffect } from 'react';
 export const MenuRepartidor = () => {
 
     const { user } = useAuthStore();
-
+    // const { startLoadingAllPackages } = usePackageStore();
+    // useEffect(() => {
+    //     startLoadingAllPackages();
+    // }, []);
+    
     return (
         <div className='container-fluid'>
             <div className='row'>

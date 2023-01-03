@@ -34,7 +34,7 @@ export const lockerSlice = createSlice({
                 locker_coords: [-99.264389, 19.365604],
                 minutes: 55,
             },
-        ]
+        ],
     },
     reducers: {
         onSetLockerNumber: (state, { payload }) => {

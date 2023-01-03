@@ -1,4 +1,4 @@
-import { RouteMap } from "../../components/repartidor";
+import { RouteMap, StartMap } from "../../components/repartidor";
 import { useAuthStore } from "../../hooks";
 import { usePlacesStore } from "../../hooks/usePlacesStore";
 import { MapView } from "../components";
@@ -12,8 +12,21 @@ export const HomeScreen = (props) => {
             {
                 status === 'Cliente'
                     ?
-                    <MapView /> :
-                    <RouteMap />
+                    (<>
+                        <div className='container-fluid'>
+                            <div className='row'>
+                                <Navbar />
+                            </div>
+                            <MapView />
+                            <div className='row'>
+                                <FooterLanding />
+                            </div>
+
+                        </div>
+                    </>)
+                    :
+                    // <RouteMap />
+                    <StartMap />
             }
 
         </div>
