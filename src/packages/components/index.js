@@ -10,4 +10,5 @@ export * from './SendInformation';
 export * from './ThirdStep';
 export * from './TrackPackage';
 export * from './TrackPoints';
+export * from './TrackStepPoints';
 export * from './TrackSteps';
