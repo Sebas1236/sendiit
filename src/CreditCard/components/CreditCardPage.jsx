@@ -38,7 +38,7 @@ export const CreditCardPage = () => {
             </div>
             <br />
             {/* <FabDelete/> */}
-
+            <div className='row altura'></div>
             <div className='row'>
                 <FooterLanding />
             </div>

@@ -349,23 +349,25 @@ export const InicioApp = () => {
 
                     <div className='row'>
                         <div className='col'>
-                            <input type="button" className='w-100 btn btn-lg btn-gris' 
-                            disabled={cancelarActivo} onClick={activarCampos}
-                            value="Cancelar"/>
-                        </div>
-
-                        <div className='col'>
                             <input
                                 className="w-100 btn btn-lg btn-rojo"
                                 type="submit"
                                 value="Guardar" disabled={guardarActivo}/>
                         </div>
+                        <div className='col'>
+                            <input type="button" className='w-100 btn btn-lg btn-gris' 
+                            disabled={cancelarActivo} onClick={activarCampos}
+                            value="Cancelar"/>
+                        </div>
+
+                        
 
                     </div>
                 </form>
 
 
             </div>
+            <div className="row altura"></div>
             <div className='row mt-5'>
                 <FooterLanding />
             </div>

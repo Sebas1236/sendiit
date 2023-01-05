@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
 import { InicioApp } from "../InicioApp";
 import { LoginPage, RegisterPage } from '../auth'
+import { GestionarUsuarios, MenuAdmin } from "../components/admin";
 
 import { useAuthStore } from "../hooks"
 import { Bienvenida } from "../components/Bienvenida";
@@ -18,6 +19,7 @@ import { FirstStep } from "../packages/components/FirstStep";
 import { TrackSteps } from "../packages/components/TrackSteps";
 import { TrackPackage } from "../packages/components";
 import { Inicio } from "../components/admin/Inicio";
+import { MenuRepartidor } from "../components/repartidor";
 
 export const AppRouter = () => {
 
@@ -83,7 +85,19 @@ export const AppRouter = () => {
         &&
         (
           <>
-            <Route path="/" element={<Inicio />} />
+            <Route path="/" element={<MenuAdmin />} />
+            <Route path="/gestionUsuarios" element={<GestionarUsuarios />}  />
+            <Route path="/*" element={<Navigate to="/" />} />
+          </>
+        )
+      }
+      {
+        (status === 'Repartidor')
+        &&
+        (
+          <>
+            <Route path="/" element={<MenuRepartidor />} />
+            <Route path="/gestionUsuarios" element={<GestionarUsuarios />}  />
             <Route path="/*" element={<Navigate to="/" />} />
           </>
         )

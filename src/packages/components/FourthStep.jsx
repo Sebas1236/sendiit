@@ -4,7 +4,7 @@ import '../../css/colores.css'
 import { NextButton } from './NextButton'
 import { usePackageDeliveryStore } from '../../hooks'
 import { PreviousButton } from './PreviousButton'
-
+import { Link } from 'react-router-dom'
 
 export const FourthStep = () => {
 
@@ -20,7 +20,7 @@ export const FourthStep = () => {
     return (
         <div className='container-fluid'>
 
-            <p className='center fW-700 borde'>Resumen de envío</p>
+            <p className='center fw-bold borde'>Resumen de envío</p>
 
             <div className='formulario row m-auto anchox'>
 
@@ -41,14 +41,17 @@ export const FourthStep = () => {
                     </div>
                 </div>
 
+                
             </div>
 
             <div className='row m-auto mt-3 mb-5 p-3 anchox justify-content-between'>
-                <div className='col-5 text-start'>
-                    {/* <button type="button" className="btn btn-cancelar ">Cancelar</button> */}
-                    <PreviousButton/>
+                <div className='col-4 text-start'>
+                <PreviousButton/>
                 </div>
-                <div className='col-5 text-end'>
+                <div className='col-4 text-center'>
+                    <Link to="/" className='btn btn-sig2'>Cancelar</Link>
+                </div>
+                <div className='col-4 text-end'>
                     <button 
                         type="button" 
                         className="w-20 btn btn-lg btn-sig" 

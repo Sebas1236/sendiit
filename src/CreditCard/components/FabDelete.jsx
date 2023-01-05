@@ -49,7 +49,7 @@ export const FabDelete = () => {
         //     <i className='fa-solid fa-trash-alt'></i>
         // </button>
         <button
-            className="btn btn-rojo btn-block col"
+            className="btn btn-azul btn-block col"
             type="button"
             onClick={handleDelete}
             style={{

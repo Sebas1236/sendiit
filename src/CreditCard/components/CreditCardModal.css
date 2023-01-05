@@ -1,3 +1,9 @@
+.modal2 {
+    max-height: 420px !important;
+    max-width: 600px !important;
+   
+}
+
 .header-text {
     font-size: 20px;
     text-align: center;
@@ -35,3 +41,6 @@
 }
 */
 
+.altura{
+    height: 300px;
+}

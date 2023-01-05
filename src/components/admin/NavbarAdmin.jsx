@@ -1,7 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
-import { useAuthStore } from "../hooks/useAuthStore";
+import { useAuthStore } from "../../hooks";
 
-export const Navbar = () => {
+
+export const NavbarAdmin = () => {
     const { startLogout, user } = useAuthStore();
     const styles = "active";
     return (
@@ -16,81 +17,51 @@ export const Navbar = () => {
                 </button>
                 <div className="collapse navbar-collapse fs-5" id="navbarNav">
                     <ul className="navbar-nav ms-auto">
+                 
+                        
+                       
                         <li className="nav-item text-end">
+                            
                             <NavLink
                                 exact="true"
-                                to="/enviar-paquete"
+                                to="/gestionUsuarios"
                                 className="nav-link"
                                 children={({ isActive }) => (
                                     isActive
                                         ?
                                         <>
                                             <div className="active">
-                                                <i className="fa-regular fa-paper-plane"></i>
+                                                <i className="fa-solid fa-users"></i>
                                             </div>
                                         </>
                                         :
-                                        <i className="fa-regular fa-paper-plane"></i>
-                                )}
-                            />
-                        </li>
-                        <li className="nav-item text-end">
-                            <NavLink
-                                exact="true"
-                                to="/mis-paquetes"
-                                className="nav-link"
-                                children={({ isActive }) => (
-                                    isActive
-                                        ?
-                                        <>
-                                            <div className="active">
-                                                <i className="fa-solid fa-boxes-packing"></i>
-                                            </div>
-                                        </>
-                                        :
-                                        <i className="fa-solid fa-boxes-packing"></i>
-                                )}
-                            />
-                        </li>
-                        <li className="nav-item text-end">
-
-                            <NavLink
-                                exact="true"
-                                to="/pago"
-                                className="nav-link"
-                                children={({ isActive }) => (
-                                    isActive
-                                        ?
-                                        <>
-                                            <div className="active">
-                                                <i className="fa-regular fa-credit-card"></i>
-                                            </div>
-                                        </>
-                                        :
-                                        <i className="fa-regular fa-credit-card"></i>
-                                )}
-                            />
-                        </li>
-                        <li className="nav-item text-end">
-                            {/* <a className="nav-link" href="/editar"><i className="fa-regular fa-user"></i></a> */}
-                            <NavLink
-                                exact="true"
-                                to="/editar"
-                                className="nav-link"
-                                children={({ isActive }) => (
-                                    isActive
-                                        ?
-                                        <>
-                                            <div className="active">
-                                                <i className="fa-regular fa-user"></i>
-                                            </div>
-                                        </>
-                                        :
-                                        <i className="fa-regular fa-user"></i>
+                                        <i className="fa-solid fa-users"></i>
                                 )}
                             />
 
                         </li>
+                        
+                        <li className="nav-item text-end">
+                            <NavLink
+                                exact="true"
+                                className="nav-link"
+                                children={() => (
+                                    <i className="fa-solid fa-chart-pie"></i>
+                                )}
+                            />
+                        
+                        </li>
+                        <li className="nav-item text-end">
+                            <NavLink
+                                exact="true"
+                                className="nav-link"
+                                children={() => (
+                                    <i className="fa-solid fa-building"></i>
+                                )}
+                            />
+                        
+                        </li>
+
                         <li className="nav-item ">
                             <button
                                 className="nav-link blue float-end"
@@ -107,4 +78,3 @@ export const Navbar = () => {
         </div>
     )
 }
-

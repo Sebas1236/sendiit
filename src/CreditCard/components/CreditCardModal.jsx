@@ -64,13 +64,13 @@ export const CreditCardModal = () => {
             isOpen={isCreditCardModalOpen}
             onRequestClose={onCloseModal}
             style={customStyles}
-            className={"modal"}
+            className={"modal modal2"}
             //clase al fondo
             overlayClassName="modal-fondo"
             closeTimeoutMS={200}
         >
             <div className="back-color">
-            <h6 className='header-text'><strong>
+            <h6 className='header-text p-3'><strong>
                 {
                     (activeCard)
                     ? "Editar método de pago"
@@ -191,6 +191,14 @@ export const CreditCardModal = () => {
                 <br/>
                 <div className='row gap-3'>
                 <button 
+                    type="submit"
+                    className="btn btn-rojo btn-block col"
+                >
+                    
+                    <span> Guardar</span>
+                </button>
+                {activeCard&&<FabDelete/>}
+                <button 
                     className="btn btn-gris btn-block col"
                     onClick={onCloseModal}
                     type="button"
@@ -199,18 +207,12 @@ export const CreditCardModal = () => {
                     <span> Cancelar</span>
                 </button>
                 
-                {activeCard&&<FabDelete/>}
+                
                 {/* <button 
                     className="btn btn-rojo btn-block col"
                     type="button"
                 > Eliminar</button> */}
-                <button 
-                    type="submit"
-                    className="btn btn-azul btn-block col"
-                >
-                    
-                    <span> Guardar</span>
-                </button>
+                
                 </div>
                 {/* <div>{activeCard&& <FabDelete/>}</div> */}
             </form>
