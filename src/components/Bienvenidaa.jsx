@@ -16,14 +16,21 @@ export const Bienvenidaa = () => {
                 <Navbar/>
             </div>
 
-            <div className='row mt-5 mb-5'>
-                <div className="col text-center">
-                    <h1>¡Hola {user.name}!</h1>
+            <div className='row m-5 pt-4 card-background'>
+							<div className='px-5'>
+								<h1 className='py-0'>¡Hola {user.name}!</h1>
+								<hr/>
+							</div>
+
+                <div className="col text-center col-12 col-md-6">
+                    
+									
                     <img src="../public/img/delivery.jfif" alt="bienvenido" className="ms-3 m-auto w-50" />
                 </div>
-                <div className="col">
+								
+                <div className="col col-12 col-md-6 center">
+							
                     <div className="container-fluid">
-                        <div className="row altura1"></div>
                         <div className="row">
                             <p>De click en la operación que desee realizar</p>
                         </div>
@@ -38,7 +45,7 @@ export const Bienvenidaa = () => {
                                 onClick={startLogout}
                             >Salir</Link>
                         </div>
-                        <div className="altura2"></div>
+                       <div className="altura2"></div>
                     </div>
                 </div>
             </div>

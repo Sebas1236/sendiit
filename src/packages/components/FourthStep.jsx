@@ -19,10 +19,9 @@ export const FourthStep = () => {
     const iva = Math.round(0.16*subtotal);
     return (
         <div className='container-fluid'>
-
-            <p className='center fw-bold borde'>Resumen de envío</p>
-
-            <div className='formulario row m-auto anchox'>
+            <div className='formulario row m-auto mb-5 anchox mt-4'>
+            	<p className='center fw-bold fs-5 text-center borde pb-4'>Resumen de envío</p>
+							{/* <hr/> */}
 
                 <p>Locker de origen:<span className='fW-700'>{origen.locker_name}</span></p>
                 <p>Locker de destino:<span className='fW-700'> {destino.locker_name}</span></p>
@@ -40,18 +39,14 @@ export const FourthStep = () => {
                         <p id='total' className='fW-700'>Total: <span>${subtotal+iva}</span></p>
                     </div>
                 </div>
-
-                
-            </div>
-
-            <div className='row m-auto mt-3 mb-5 p-3 anchox justify-content-between'>
-                <div className='col-4 text-start'>
+							<div className='d-flex m-auto mt-5 mb-5 p-3 justify-content-between'>
+                <div className=''>
                 <PreviousButton/>
                 </div>
-                <div className='col-4 text-center'>
+                <div className=''>
                     <Link to="/" className='btn btn-sig2'>Cancelar</Link>
                 </div>
-                <div className='col-4 text-end'>
+                <div className=''>
                     <button 
                         type="button" 
                         className="w-20 btn btn-lg btn-sig" 
@@ -63,6 +58,10 @@ export const FourthStep = () => {
                 </div>
                 {/* <NextButton/> */}
             </div>
+                
+            </div>
+
+            
         </div>
     )
 }

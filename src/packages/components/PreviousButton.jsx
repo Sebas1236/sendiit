@@ -9,7 +9,7 @@ export const PreviousButton = ({ text = 'Regresar'}) => {
 
         // <div className='col'>
             <input
-                className="w-20 btn btn-lg btn-prev"
+                className="w-20 btn btn-lg btn-prev btn-primary-c"
                 onClick={decrement}
                 type="button"
                 value={text} />

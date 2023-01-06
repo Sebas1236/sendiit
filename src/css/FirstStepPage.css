@@ -47,7 +47,7 @@
 
 .formulario{
     margin: 2% 7% 8% 7%;
-    background-color: #F9F9F9;
+    background-color: #fafafa;
     border-radius: 16px;
     padding: 2% 5%;
 }
@@ -67,7 +67,7 @@ select{
     color: #F9F9F9;
     border-radius: 16px;
     background-color: #E41F1A;
-    margin-left: 87%;
+    
 }
 
 .btn-prev{
