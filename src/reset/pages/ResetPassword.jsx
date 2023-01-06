@@ -79,14 +79,8 @@ export const ResetPassword = () => {
             html:
               '<a href="/auth/login">Iniciar Sesión</a> ',
             showCloseButton: true,
-            showCancelButton: true,
             focusConfirm: false,
-            confirmButtonText:
-              '<i class="fa fa-thumbs-up"></i> Genial!',
-            confirmButtonAriaLabel: 'Thumbs up, great!',
-            cancelButtonText:
-              '<i class="fa fa-thumbs-down"></i>',
-            cancelButtonAriaLabel: 'Thumbs down'
+            
           })
     }
 

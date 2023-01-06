@@ -8,6 +8,7 @@ import { NextButton, PreviousButton } from './';
 import { SearchBar } from '../../maps/components';
 import Swal from 'sweetalert2';
 import { useMemo } from 'react';
+import { Link } from 'react-router-dom';
 
 export const SecondStep = () => {
     const [locationState, setLocationState] = useState("");
@@ -125,7 +126,7 @@ export const SecondStep = () => {
         <div className='container-fluid'>
             <div className='formulario'>
                 <div className='row'>
-                    <div className='col-lg-6'>
+                    <div className='col-lg-6 fw-bold'>
                         {step === 2 && <p className='fW-700 fZ'>Selecciona la ubicación de origen de tu paquete</p>}
                         {step === 3 && <p className='fW-700 fZ'>Selecciona la ubicación de destino de tu paquete</p>}
                     </div>
@@ -142,7 +143,7 @@ export const SecondStep = () => {
                 </div>
 
                 <div className='row'>
-                    <div className='col-lg-6'>
+                    <div className='col-lg-6 '>
                         {/* <img className='mapa-img' height={400} width={500} src='/img/Mapa.png'></img> */}
                         <MapsApp />
                         {/*   <i className="fa-solid fa-location-dot satelite" id='Satelite'></i>
@@ -158,6 +159,7 @@ export const SecondStep = () => {
                             Regresar
                         </button> */}
                         <PreviousButton />
+                        <Link to="/" className='btn btn-sig2 ms-5 '>Cancelar</Link>
                     </div>
                     <div className='col-lg-6 center'>
                         <div className='row borde'>
@@ -170,7 +172,12 @@ export const SecondStep = () => {
                             </div>
                             <div className='col-lg-3'></div>
                         </div>
-                        {	lockersToShow.length === 0 && <p className='fW-700 fZ text-center'>No hay lockers disponibles en esa ubicación</p>}
+                        {	
+													lockersToShow.length === 0 && 
+													<p className='fW-700 fZ text-center'>
+														No hay lockers disponibles en esa ubicación
+													</p>
+												}
 												{
                             lockersToShow.map(locker => (
 

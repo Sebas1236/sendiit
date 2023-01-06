@@ -146,10 +146,10 @@ export const Navbar = () => {
                         }
                         <li className="nav-item text-end">
                             <button
-                                className="nav-link blue"
+                                className="nav-link blue float-end"
                                 style={{ color: '#212e46' }}
                                 onClick={startLogout}
-                            ><i className="fa-solid fa-right-from-bracket rojo"></i></button>
+                            ><i className="fa-solid fa-right-from-bracket rojo" data-title="Salir"></i></button>
                         </li>
                     </ul>
                 </div>

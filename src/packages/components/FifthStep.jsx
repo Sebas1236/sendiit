@@ -7,6 +7,7 @@ import { useCardStore, usePackageDeliveryStore, usePackageStore } from '../../ho
 import { useEffect } from 'react'
 import { PreviousButton } from './PreviousButton'
 import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom'
 
 //TODO: REDIRECCIONAR UNA VEZ FINALIZADO EL ENVÍO
 const Tarjeta = ({ tipo, terminacion, nombre, vencimiento, idR }) => {
@@ -101,14 +102,16 @@ export const FifthStep = () => {
             </div>
 
             <div className='row m-auto mt-3 mb-5 p-3 anchox justify-content-between'>
-                <div className='col-5 text-start'>
-                    {/* <button type="button" className="btn btn-cancelar ">Cancelar</button> */}
-                    <PreviousButton/>
+                <div className='col-4 text-start'>
+                <PreviousButton/>
                 </div>
-                <div className='col-5 text-end'>
-                    <button
-                        type="button"
-                        className="w-20 btn btn-lg btn-sig"
+                <div className='col-4 text-center'>
+                    <Link to="/" className='btn btn-sig2'>Cancelar</Link>
+                </div>
+                <div className='col-4 text-end'>
+                    <button 
+                        type="button" 
+                        className="w-20 btn btn-lg btn-sig" 
                         onClick={onSavePackage}
                     >
                         Finalizar

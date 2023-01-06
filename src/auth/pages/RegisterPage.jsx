@@ -193,7 +193,7 @@ export const RegisterPage = () => {
                             <div className="form-check d-flex justify-content-center mb-3">
                                 <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3c" onChange={handleChangeCheckBox} />
                                 <label className="form-check-label" htmlFor="form2Example3">
-                                    Acepto los <a href="#!">Términos y condiciones</a>
+                                    Acepto los <a href="/TerminosyCondiciones.pdf" target="_blank">Términos y condiciones</a>
                                 </label>
                             </div>
 

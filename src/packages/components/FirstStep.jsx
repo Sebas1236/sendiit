@@ -6,6 +6,8 @@ import '../../css/FirstStepPage.css'
 import { useLockerStore, usePackageDeliveryStore } from '../../hooks'
 import { NextButton } from './NextButton'
 import { PreviousButton } from './PreviousButton'
+import { Link } from 'react-router-dom';
+import "./style.css"
 
 export const FirstStep = () => {
     const { setDecrementStep, setIncrementStep, step, startSetDestinatario, destinatario } = usePackageDeliveryStore();
@@ -36,6 +38,7 @@ export const FirstStep = () => {
     
     return (
         <div className="container-fluid">
+            <h5 className='fw-bold text-center mt-3'>Información de envio</h5>
             <div className='formulario'>
                 <form onSubmit={handleSubmit(onDestinatarioSubmit)} noValidate>
                     <div className='row'>
@@ -310,18 +313,18 @@ export const FirstStep = () => {
 
                     </div>
 
-                    <div className="d-flex align-items-start flex-column" style={{ float: "left" }}>
-                        <PreviousButton />
-                    </div>
-
-                    <div className="d-flex align-items-end flex-column" style={{ float: "right" }}>
-                        {/* <input
-                                className="w-20 btn btn-lg btn-sig"
-                                type="submit"
-                                // onClick={increment}
-                                value="Siguiente" /> */}
-                        <NextButton />
-                    </div>
+                    <div className='row m-auto mt-3 mb-5 p-3 me-1  justify-content-between'>
+                            <div className='col-4 text-start'>
+                                <PreviousButton />
+                            </div>
+                            <div className='col-4 text-center'>
+                                <Link to="/" className='btn btn-sig2'>Cancelar</Link>
+                            </div>
+                            <div className='col-4 text-end'>
+                                 <NextButton />
+                            </div>
+                {/* <NextButton/> */}
+                        </div>
                 </form>
             </div>
         </div>

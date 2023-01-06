@@ -1,0 +1,45 @@
+.azul{
+    background-color: rgb(33, 46, 70);
+}
+
+.bordeCard{
+    border-radius: 10px;
+}
+
+.bordeBo{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.icono{
+    height: 10px;
+    width: 10px;
+}
+
+.blanc{
+    color: white;
+}
+
+.altura2{
+    height: 300px;;
+}
+
+.imagen{
+   
+    width: 50%;
+}
+
+.ancho{
+    width: 70% !important;
+}
+
+.titulo{
+    text-decoration: none;
+    color: white;
+
+}
+
+a:hover {
+    color: white;
+}
+

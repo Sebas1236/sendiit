@@ -1,45 +1,47 @@
-.puntos{
-    padding-top:2%;
-    
+:root{
+	--gray-border: #898989;
+	--green-border: #228B22;
+	--green-ok: #35AF22;
+}
+
+.circle{
+	height: 35px;
+  width: 35px;
+	border: 5px solid var(--gray-border);
+	border-radius: 100%;
+	display: inline-block;
+	background-color: #F9F9F9;
+}
+
+.done{
+	background-color: var(--green-ok);
+	border: 5px solid var(--green-border);
+}
+
+.current{
+	border: 5px solid var(--green-border);
 }
 
 .right{
     text-align: right;
 }
 
-.dot.primer{
-    border: 5px solid #228B22;
+.check{
+	color: white;
+	font-size: 16px;
 }
 
-.verde{
-    background-color: #228B22;
+.green-line{
+	width: 10px;
+	border: 2px solid var(--green-border);
+	opacity: 1;
 }
 
-.dot{
-    height: 35px;
-    width: 35px;
-    border-radius: 100% ;
-    display: inline-block;
-    border: 5px solid #898989;
-}
-
-hr{
+.gray-line{
     width: 10px;
-    border-top: 3px solid #898989;
-    display: inline-block;  
-    opacity: 1;
+    border: 2px solid var(--gray-border);
+		opacity: 1;
 }
-
-.step{
-    padding-left: 5%;
-}
-
-
-.fW-700{
-    font-weight: 700;
-}
-
-
 
 /*----------------------FORMULARIO-----------------------*/
 
