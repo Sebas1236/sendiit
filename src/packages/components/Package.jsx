@@ -27,7 +27,8 @@ export const Package = ({ paquete }) => {
                         <span className="fw-bold">Descripción: {paquete.descripcion}</span>
                     </p>
                     <p>Estado: {paquete.estadoActual}</p>
-                    <p>Origen: {paquete.casilleroOrigen.ubicacion.charAt(0).toUpperCase()+paquete.casilleroOrigen.ubicacion.slice(1)} Destino: {paquete.casilleroDestino.ubicacion.charAt(0).toUpperCase()+paquete.casilleroDestino.ubicacion.slice(1)}
+                    <p>Origen: {paquete.casilleroOrigen.ubicacion.charAt(0).toUpperCase()+paquete.casilleroOrigen.ubicacion.slice(1)},
+										 Destino: {paquete.casilleroDestino.ubicacion.charAt(0).toUpperCase()+paquete.casilleroDestino.ubicacion.slice(1)}
                     </p>
                 </div>
 

@@ -26,7 +26,7 @@ export const MyPackages = () => {
                 <h1>Mis paquetes</h1>
             </div>
             
-            <div className='row p-2 mt-3 mb-5 blanc anchox m-auto rounded-3'>
+            <div className='row p-2 mt-3 mb-5 card-background anchox m-auto rounded-3'>
                 {
                     packages.map(paquete => (
                         <Package key={paquete._id} paquete={paquete}/>
