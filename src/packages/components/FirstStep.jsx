@@ -38,8 +38,9 @@ export const FirstStep = () => {
     
     return (
         <div className="container-fluid">
-            <h5 className='fw-bold text-center mt-3'>Información de envio</h5>
             <div className='formulario'>
+            <h5 className='fw-bold text-center pb-4'>Información de envio</h5>
+						{/* <hr/> */}
                 <form onSubmit={handleSubmit(onDestinatarioSubmit)} noValidate>
                     <div className='row'>
                         <div className='col-lg-6'>

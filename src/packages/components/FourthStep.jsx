@@ -19,10 +19,9 @@ export const FourthStep = () => {
     const iva = Math.round(0.16*subtotal);
     return (
         <div className='container-fluid'>
-
-            <p className='center fw-bold borde'>Resumen de envío</p>
-
-            <div className='formulario row m-auto anchox'>
+            <div className='formulario row m-auto anchox mt-4'>
+            	<p className='center fw-bold text-center borde'>Resumen de envío</p>
+							<hr/>
 
                 <p>Locker de origen:<span className='fW-700'>{origen.locker_name}</span></p>
                 <p>Locker de destino:<span className='fW-700'> {destino.locker_name}</span></p>

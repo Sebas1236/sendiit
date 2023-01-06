@@ -159,7 +159,7 @@ export const SecondStep = () => {
                             Regresar
                         </button> */}
                         <PreviousButton />
-                        <Link to="/" className='btn btn-sig2 ms-5 '>Cancelar</Link>
+                        <Link to="/" className='btn btn-sig2 ms-5'>Cancelar</Link>
                     </div>
                     <div className='col-lg-6 center'>
                         <div className='row borde'>
@@ -210,7 +210,7 @@ export const SecondStep = () => {
                                                 <button
                                                     type="button"
                                                     onClick={() => onClick(locker)}
-                                                    className="btn btn-rojo mb-2"
+                                                    className="btn btn-rojo mb-2 btn-primary-c"
                                                 // w-20 btn btn-lg btn-sig
                                                 >
                                                     Seleccionar
@@ -226,7 +226,7 @@ export const SecondStep = () => {
                         }
                         {
                             destino && <input
-                                className="w-20 btn btn-lg btn-sig"
+                                className="w-20 btn btn-lg btn-sig btn-primary-c"
                                 onClick={setIncrementStep}
                                 type="button"
                                 value="Siguiente" />

@@ -55,9 +55,9 @@ export const FifthStep = () => {
 
     return (
         <div className='container-fluid'>
-            <p className='center fW-700 borde fw-bold'>Información de pago</p>
 
-            <div className='formulario2 row anchox m-auto'>
+            <div className='formulario row anchox m-auto mt-4'>
+            <p className='center fW-700 text-center borde fw-bold'>Información de pago</p>
 
                 <p className='fw-bold '>Mis tarjetas de crédito y débito</p>
 
