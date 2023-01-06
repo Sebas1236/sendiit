@@ -396,6 +396,12 @@ export const useRouteMapStore = () => {
         //Recibe: Waypoint 0, 1, 2, 3, coordenadas de las ubicaciones
         const directions = new MapboxDirections({
             accessToken: mapboxgl.accessToken,
+            controls: {
+                inputs: true,
+                profileSwitcher: false,
+            },
+            placeholderOrigin: 'Tu ubicación',
+            placeholderDestination: 'Sendiit Satélite',
             unit: 'metric',
             profile: 'mapbox/driving',
             alternatives: 'false',
@@ -407,6 +413,7 @@ export const useRouteMapStore = () => {
         const obstacle = buffer(clearances, 0.25, { units: 'kilometers' });
         //TODO: PASAR COMO ORIGEN WAYPOINT 0 Y COMO DESTINO WAYPOINT 1, así consecutivamente
         map.on('load', async () => {
+            
             map.addLayer({
                 id: 'clearances',
                 type: 'fill',
@@ -450,6 +457,11 @@ export const useRouteMapStore = () => {
 
             map.scrollZoom.enable();
             map.addControl(directions, 'top-right');
+            const language = new MapboxLanguage({
+                defaultLanguage: 'es'
+            });
+            map.addControl(language);
+
 
             directions.on('route', (event) => {
                 const reports = document.getElementById('reports');

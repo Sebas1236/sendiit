@@ -24,7 +24,7 @@ export const NavbarRepartidor = () => {
                             
                             <NavLink
                                 exact="true"
-                                to=""
+                                to="/ver-rutas"
                                 className="nav-link"
                                 children={({ isActive }) => (
                                     isActive
@@ -45,7 +45,7 @@ export const NavbarRepartidor = () => {
                             
                             <NavLink
                                 exact="true"
-                                to="/myPackages"
+                                to="/ver-paquetes"
                                 className="nav-link"
                                 children={({ isActive }) => (
                                     isActive

@@ -19,6 +19,7 @@ import { TrackSteps } from "../packages/components/TrackSteps";
 import { TrackPackage } from "../packages/components";
 import { Inicio } from "../components/admin/Inicio";
 import { CreatePassword, MenuRepartidor, MyPackagesRepartidor, PackageRoutes, EditStatusRep, MyPackagesDeliveryMan } from "../components/repartidor";
+import { Example } from "../components/admin/tables/Example";
 
 export const AppRouter = () => {
 
@@ -86,6 +87,9 @@ export const AppRouter = () => {
         (
           <>
             <Route path="/" element={<MenuAdmin />} />
+            <Route path="/gestionUsuarios/repartidores" element={<Inicio userRole="Repartidor"/>}  />
+            <Route path="/gestionUsuarios/clientes" element={<Inicio userRole="Cliente"/>}  />
+            <Route path="/ver-paquetes" element={<MyPackagesRepartidor/>}/>
             <Route path="/gestionUsuarios" element={<GestionarUsuarios />}  />
             <Route path="/*" element={<Navigate to="/" />} />
             
@@ -98,7 +102,8 @@ export const AppRouter = () => {
         (
           <>
             <Route path="/" element={<MenuRepartidor />} />
-            <Route path="/gestionUsuarios" element={<GestionarUsuarios />}  />
+            {/* <Route path="/gestionUsuarios" element={<GestionarUsuarios />}  /> */}
+            
             <Route path="/*" element={<Navigate to="/" />} />
             <Route path="/myPackages" element={<MyPackagesDeliveryMan />} />
             <Route path="/editStatus" element={<EditStatusRep/>} />

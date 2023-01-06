@@ -13,7 +13,7 @@ export const GestionarUsuarios= () => {
 
         <div className='container-fluid'>
             <div className='row'>
-                <NavbarAdmin/>
+                <Navbar/>
             </div>
                 <div className='row mt-5 text-center '>
                 <h2 className='fw-bold' >Gestionar usuarios</h2>
@@ -26,7 +26,7 @@ export const GestionarUsuarios= () => {
                 <div className="card bordeCard blanc ancho m-auto" >
                     <img src='/img/cliente.png' className="card-img-top imagen m-auto mt-3 mb-3"/>
                     <div className="card-body azul bordeBo text-center">
-                      <Link to="/" className="card-title fw-bold titulo h5">Administrar Clientes</Link>
+                      <Link to="/gestionUsuarios/clientes" className="card-title fw-bold titulo h5">Administrar Clientes</Link>
                     </div>
                 </div>
                 </div>
@@ -35,7 +35,7 @@ export const GestionarUsuarios= () => {
                 <div className="card bordeCard blanc ancho  m-auto" >
                     <img src='/img/repartidores.png' className="card-img-top imagen m-auto mt-3 mb-3"/>
                     <div className="card-body azul bordeBo text-center">
-                      <Link to="/" className="card-title fw-bold titulo h5">Administrar Repartidores</Link>
+                      <Link to="/gestionUsuarios/repartidores" className="card-title fw-bold titulo h5">Administrar Repartidores</Link>
                     </div>
                 </div>
                 </div>

@@ -24,24 +24,7 @@ export const Navbar = () => {
                             (
                                 <>
                                     <li className="nav-item text-end">
-                                        <NavLink
-                                            exact="true"
-                                            to="/ver-paquetes"
-                                            className="nav-link"
-                                            children={({ isActive }) => (
-                                                isActive
-                                                    ?
-                                                    <>
-                                                        <div className="active-red">
-                                                            <i className="fa-solid fa-boxes-packing"></i>
-                                                        </div>
-                                                    </>
-                                                    :
-                                                    <i className="fa-solid fa-boxes-packing"></i>
-                                            )}
-                                        />
-                                    </li>
-                                    <li className="nav-item text-end">
+
                                         <NavLink
                                             exact="true"
                                             to="/ver-rutas"
@@ -50,14 +33,36 @@ export const Navbar = () => {
                                                 isActive
                                                     ?
                                                     <>
-                                                        <div className="active-red">
-                                                            <RouteIcon />
+                                                        <div style={{ color: "#f9d950" }}>
+                                                            <i class="fa-solid fa-route" data-title="Ver rutas"></i>
                                                         </div>
                                                     </>
                                                     :
-                                                    <RouteIcon />
+                                                    <i class="fa-solid fa-route" data-title="Ver rutas"></i>
                                             )}
                                         />
+
+                                    </li>
+
+                                    <li className="nav-item text-end">
+
+                                        <NavLink
+                                            exact="true"
+                                            to="/ver-paquetes"
+                                            className="nav-link"
+                                            children={({ isActive }) => (
+                                                isActive
+                                                    ?
+                                                    <>
+                                                        <div style={{ color: "#f9d950" }}>
+                                                            <i class="fa-solid fa-box" data-title="Ver paquetes"></i>
+                                                        </div>
+                                                    </>
+                                                    :
+                                                    <i class="fa-solid fa-box" data-title="Ver paquetes"></i>
+                                            )}
+                                        />
+
                                     </li>
                                 </>
                             )
@@ -75,7 +80,7 @@ export const Navbar = () => {
                                                 isActive
                                                     ?
                                                     <>
-                                                        <div style={{color: "#f9d950"}}>
+                                                        <div style={{ color: "#f9d950" }}>
                                                             <i className="fa-regular fa-paper-plane"></i>
                                                         </div>
                                                     </>
@@ -93,7 +98,7 @@ export const Navbar = () => {
                                                 isActive
                                                     ?
                                                     <>
-                                                        <div style={{color: "#f9d950"}}>
+                                                        <div style={{ color: "#f9d950" }}>
                                                             <i className="fa-solid fa-boxes-packing"></i>
                                                         </div>
                                                     </>
@@ -112,7 +117,7 @@ export const Navbar = () => {
                                                 isActive
                                                     ?
                                                     <>
-                                                        <div style={{color: "#f9d950"}}>
+                                                        <div style={{ color: "#f9d950" }}>
                                                             <i className="fa-regular fa-credit-card"></i>
                                                         </div>
                                                     </>
@@ -131,12 +136,80 @@ export const Navbar = () => {
                                                 isActive
                                                     ?
                                                     <>
-                                                        <div style={{color: "#f9d950"}}>
+                                                        <div style={{ color: "#f9d950" }}>
                                                             <i className="fa-regular fa-user"></i>
                                                         </div>
                                                     </>
                                                     :
                                                     <i className="fa-regular fa-user"></i>
+                                            )}
+                                        />
+
+                                    </li>
+                                </>
+                            )
+                        }
+                        {
+                            status === 'Administrador'
+                            && (
+                                <>
+                                    <li className="nav-item text-end">
+
+                                        <NavLink
+                                            // exact="true"
+                                            to="/gestionUsuarios"
+                                            className="nav-link"
+                                            children={({ isActive }) => (
+                                                isActive
+                                                    ?
+                                                    <>
+                                                        <div style={{ color: "#f9d950" }}>
+                                                            <i className="fa-solid fa-users" data-title="Gestionar usuarios"></i>
+                                                        </div>
+                                                    </>
+                                                    :
+                                                    <i className="fa-solid fa-users" data-title="Gestionar usuarios"></i>
+                                            )}
+                                        />
+
+                                    </li>
+
+                                    <li className="nav-item text-end">
+                                        <NavLink
+                                            exact="true"
+                                            className="nav-link"
+                                            children={() => (
+                                                <i className="fa-solid fa-chart-pie" data-title="Estadisticas"></i>
+                                            )}
+                                        />
+
+                                    </li>
+                                    <li className="nav-item text-end">
+                                        <NavLink
+                                            exact="true"
+                                            className="nav-link"
+                                            children={() => (
+                                                <i className="fa-solid fa-building" data-title="Gestionar lockers"></i>
+                                            )}
+                                        />
+
+                                    </li>
+                                    <li className="nav-item text-end">
+
+                                        <NavLink
+                                            exact="true"
+                                            to="/ver-paquetes"
+                                            className="nav-link"
+                                            children={({ isActive }) => (
+                                                isActive
+                                                    ?
+                                                    <>
+                                                        <div style={{ color: "#f9d950" }}>
+                                                            <i class="fa-solid fa-box" data-title="Ver paquetes"></i>
+                                                        </div>
+                                                    </>
+                                                    :
+                                                    <i class="fa-solid fa-box" data-title="Ver paquetes"></i>
                                             )}
                                         />
 
