@@ -32,9 +32,9 @@ export const MyPackages = () => {
                         <Package key={paquete._id} paquete={paquete}/>
                     ))
                 }
-                {
+                {/* {
                     !isLoadingPackages && <UserPackagesTable/>
-                }
+                } */}
             </div>
             <div className="alturax"></div>
             <div className='row mt-5s'>

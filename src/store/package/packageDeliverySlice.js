@@ -12,7 +12,7 @@ export const packageDeliverySlice = createSlice({
     },
     reducers: {
         incrementStep: (state, /* action */) => {
-            if (state.step < 5) {
+            if (state.step < 10) {
                 state.step += 1;
             }
             return;
@@ -21,6 +21,9 @@ export const packageDeliverySlice = createSlice({
             if (state.step >= 1) {
                 state.step -= 1;
             }
+        },
+        setStep: (state ) => {
+            state.step = 0
         },
         onSetKms: (state, { payload }) => {
             state.kms = payload;
@@ -61,4 +64,5 @@ export const {
     setRouteDestiny,
     onLogoutPackageDelivery,
     onSetKms,
+    setStep
 } = packageDeliverySlice.actions;

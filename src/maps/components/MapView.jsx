@@ -41,10 +41,10 @@ export const MapView = () => {
             style={{
                 // backgroundColor: 'red',
                 height: '80vh',
-                left: 0,
-                position: 'relative',
-                top: 0,
-                width: '100vh',
+                // left: 0,
+                // position: 'relative',
+                // top: 0,
+                // width: '100vh',
             }}
         >
             {

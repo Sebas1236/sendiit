@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import MaterialReactTable from 'material-react-table';
 import { ContentCopy, Delete, Edit, AccountCircle, Send } from '@mui/icons-material';
 import { Box, Button, IconButton, ListItemIcon, MenuItem, Tooltip, Typography, } from '@mui/material';
@@ -15,6 +15,18 @@ export const Example = () => {
     const { users, startStatusChange } = useUserStore();
     const data = users;
 
+    // useEffect(() => {
+    //     const timer = setInterval(() => {
+    //       setData(prevData => [
+    //         {
+    //           ...prevData[0],
+    //           users,
+    //         }
+    //       ]);
+    //     }, 500);
+    //     return () => clearInterval(timer);
+    //   }, []);
+    
     const columns = useMemo(
         //column definitions...
         () => [

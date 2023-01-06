@@ -4,7 +4,6 @@ import directionsApi from "../api/directionsApi";
 import { mapReducer, setMarkers } from '../store/maps/mapSlice';
 import { featureCollection, point } from '@turf/turf';
 
-
 export const useMapStore = () => {
     const { isMapReady, map, markers } = useSelector(state => state.map);
     const { places, userLocation } = useSelector(state => state.places);
@@ -177,8 +176,8 @@ export const useMapStore = () => {
                 if (response.code !== 'Ok') {
                     const handleMessage =
                         response.code === 'InvalidInput'
-                            ? 'Refresh to start a new route. For more information: https://docs.mapbox.com/api/navigation/optimization/#optimization-api-errors'
-                            : 'Try a different point.';
+                            ? 'Recargar para una nueva ruta. '
+                            : 'Intente un punto distinto.';
                     alert(`${response.code} - ${response.message}\n\n${handleMessage}`);
                     // Remove invalid point
                     dropoffs.features.pop();
@@ -198,8 +197,6 @@ export const useMapStore = () => {
                 map.getSource('dropoffs-symbol').setData(geojson);
             }
 
-
-
             const addWaypoints = async (event) => {
                 // console.log(map.unproject(event.point));
                 await newDropoff(map.unproject(event.point));
@@ -208,7 +205,7 @@ export const useMapStore = () => {
 
             const warehouse = featureCollection([point(warehouseLocation)]);
 
-            map.on('load', async () => {
+            map.on('load', async() => {
 
                 map.addLayer({
                     id: 'warehouse',

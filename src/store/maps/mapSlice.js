@@ -6,6 +6,7 @@ export const mapSlice = createSlice({
         isMapReady: false,
         map: undefined,
         markers: [],
+        waypoints: [],
     },
     reducers: {
         // setMap
@@ -15,10 +16,13 @@ export const mapSlice = createSlice({
         },
         setMarkers: ( state, action ) => {
             state.markers = action.payload;
+        },
+        setWaypoints: ( state, action ) => {
+            state.waypoints = action.payload;
         }
     },
 });
 
 
 // Action creators are generated for each case reducer function
-export const { mapReducer, setMarkers } = mapSlice.actions;
+export const { mapReducer, setMarkers, setWaypoints } = mapSlice.actions;

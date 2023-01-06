@@ -28,7 +28,8 @@ export const PackageStatus = () => {
                             <p>{activePackage.estadosFechas.enLockerDeDestino.slice(0, 10)}</p>
                         </li>
                         <li>
-                            <p className='title'>Recogido</p>
+                            <p className='title inactive'>Recogido</p>
+                            <p>El paquete no fue recogido</p>
                             {/* <p>{activePackage.estadosFechas.recogido.slice(0, 10)}</p> */}
                         </li>
                         <li>

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { decrementStep, incrementStep, onLogoutPackageDelivery, onSetKms, setDatosPaquete, setDestinatario, setRouteDestiny, setRouteOrigin } from "../store";
+import { setStep ,decrementStep, incrementStep, onLogoutPackageDelivery, onSetKms, setDatosPaquete, setDestinatario, setRouteDestiny, setRouteOrigin } from "../store";
 
 export const usePackageDeliveryStore = () => {
 
@@ -51,6 +51,7 @@ export const usePackageDeliveryStore = () => {
         destino,
         kms,
         //*Métodos
+        setStep,
         setIncrementStep,
         setDecrementStep,
         startSetDestinatario,

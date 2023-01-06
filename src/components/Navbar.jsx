@@ -75,7 +75,7 @@ export const Navbar = () => {
                                                 isActive
                                                     ?
                                                     <>
-                                                        <div className="active">
+                                                        <div style={{color: "#f9d950"}}>
                                                             <i className="fa-regular fa-paper-plane"></i>
                                                         </div>
                                                     </>
@@ -93,7 +93,7 @@ export const Navbar = () => {
                                                 isActive
                                                     ?
                                                     <>
-                                                        <div className="active">
+                                                        <div style={{color: "#f9d950"}}>
                                                             <i className="fa-solid fa-boxes-packing"></i>
                                                         </div>
                                                     </>
@@ -112,7 +112,7 @@ export const Navbar = () => {
                                                 isActive
                                                     ?
                                                     <>
-                                                        <div className="active">
+                                                        <div style={{color: "#f9d950"}}>
                                                             <i className="fa-regular fa-credit-card"></i>
                                                         </div>
                                                     </>
@@ -131,7 +131,7 @@ export const Navbar = () => {
                                                 isActive
                                                     ?
                                                     <>
-                                                        <div className="active">
+                                                        <div style={{color: "#f9d950"}}>
                                                             <i className="fa-regular fa-user"></i>
                                                         </div>
                                                     </>
