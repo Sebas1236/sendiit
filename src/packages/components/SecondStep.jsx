@@ -127,8 +127,8 @@ export const SecondStep = () => {
             <div className='formulario'>
                 <div className='row'>
                     <div className='col-lg-6 fw-bold'>
-                        {step === 2 && <p className='fW-700 fZ'>Selecciona la ubicación de origen de tu paquete</p>}
-                        {step === 3 && <p className='fW-700 fZ'>Selecciona la ubicación de destino de tu paquete</p>}
+                        {step === 2 && <p className='fw-bold fs-5'>Selecciona la ubicación de origen de tu paquete</p>}
+                        {step === 3 && <p className='fw-bold fs-5'>Selecciona la ubicación de destino de tu paquete</p>}
                     </div>
                     <div className='col-lg-6'>
 
@@ -158,8 +158,7 @@ export const SecondStep = () => {
                         >
                             Regresar
                         </button> */}
-                        <PreviousButton />
-                        <Link to="/" className='btn btn-sig2 ms-5'>Cancelar</Link>
+                       
                     </div>
                     <div className='col-lg-6 center'>
                         <div className='row borde'>
@@ -224,15 +223,24 @@ export const SecondStep = () => {
                             ))
 														
                         }
-                        {
-                            destino && <input
-                                className="w-20 btn btn-lg btn-sig btn-primary-c"
-                                onClick={setIncrementStep}
-                                type="button"
-                                value="Siguiente" />
-                        }
+												
 
                     </div>
+										<div className='d-flex justify-content-between mb-5 p-5'>
+													
+													<PreviousButton />
+													<Link to="/" className='btn btn-sig2 ms-5'>Cancelar</Link>
+													{
+														!destino && <div></div>
+													}
+													{
+															destino && <input
+																	className="w-20 btn btn-lg btn-sig btn-primary-c"
+																	onClick={setIncrementStep}
+																	type="button"
+																	value="Siguiente" />
+													}
+												</div>
                 </div>
 
             </div>

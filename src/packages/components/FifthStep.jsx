@@ -57,7 +57,7 @@ export const FifthStep = () => {
         <div className='container-fluid'>
 
             <div className='formulario row anchox m-auto mt-4'>
-            <p className='center fW-700 text-center borde fw-bold'>Información de pago</p>
+            <p className='center fw-bold fs-5 text-center borde pb-4'>Información de pago</p>
 
                 <p className='fw-bold '>Mis tarjetas de crédito y débito</p>
 
@@ -98,27 +98,30 @@ export const FifthStep = () => {
                 <div className='text-center fw-bold fs-4'>
                     <FabAddNew />
                 </div>
-
-            </div>
-
-            <div className='row m-auto mt-3 mb-5 p-3 anchox justify-content-between'>
-                <div className='col-4 text-start'>
-                <PreviousButton/>
+							
+							<div className='my-5 p-3  d-flex justify-content-between'>
+                <div className=''>
+                	<PreviousButton/>
                 </div>
-                <div className='col-4 text-center'>
-                    <Link to="/" className='btn btn-sig2'>Cancelar</Link>
+                <div className=''>
+                  <Link to="/" className='btn btn-sig2'>Cancelar</Link>
                 </div>
-                <div className='col-4 text-end'>
+                <div className=''>
                     <button 
                         type="button" 
-                        className="w-20 btn btn-lg btn-sig" 
+                        className="w-20 btn btn-lg btn-sig btn-primary-c" 
                         onClick={onSavePackage}
                     >
                         Finalizar
                     </button>
                 </div>
                 {/* <NextButton /> */}
+            	</div>
+
+
             </div>
+
+            
 
             <div className='alturax'>
 

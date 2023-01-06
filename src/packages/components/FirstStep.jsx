@@ -39,8 +39,8 @@ export const FirstStep = () => {
     return (
         <div className="container-fluid">
             <div className='formulario'>
-            <h5 className='fw-bold text-center pb-4'>Información de envio</h5>
-						{/* <hr/> */}
+            <h5 className='fw-bold text-center fs-5 pb-4' >Información de envío</h5>
+						{/* <hr className='pb-2' /> */}
                 <form onSubmit={handleSubmit(onDestinatarioSubmit)} noValidate>
                     <div className='row'>
                         <div className='col-lg-6'>
@@ -314,14 +314,14 @@ export const FirstStep = () => {
 
                     </div>
 
-                    <div className='row m-auto mt-3 mb-5 p-3 me-1  justify-content-between'>
-                            <div className='col-4 text-start'>
+                    <div className='d-flex m-auto mt-5 mb-5 p-3 justify-content-between'>
+                            <div className=''>
                                 <PreviousButton />
                             </div>
-                            <div className='col-4 text-center'>
+                            <div className=''>
                                 <Link to="/" className='btn btn-sig2'>Cancelar</Link>
                             </div>
-                            <div className='col-4 text-end'>
+                            <div className=''>
                                  <NextButton />
                             </div>
                 {/* <NextButton/> */}

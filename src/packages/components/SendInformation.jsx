@@ -8,9 +8,10 @@ export const SendInformation = () => {
     }
     return (
         <div className='container-fluid'>
-            <div className='step-background m-5'>
+            <div className='step-background m-5 pb-5'>
 							<br /><br />
-							<p className="text-center fw-bold fs-4">Información antes de enviar el paquete</p>
+							<p className="fw-bold text-center fs-5 pb-4">Información antes de enviar el paquete</p>
+							{/* <hr className="anchox m-auto pb-3" /> */}
 							<div className="d-flex justify-content-center align-items-center">
 									<div className="col-md-7">
 											<ul>
@@ -25,19 +26,15 @@ export const SendInformation = () => {
 											</div>
 									</div>
 							</div>
-							<div className='d-flex justify-content-evenly'>
-									<div></div>
-									<div></div>
-									<div></div>
-									{/* <Link to="/auth/landing" className='w-20 btn btn-lg btn-rojo mt-auto p-2'>Siguiente</Link> */}
-									{/* <PreviousButton/> */}
-									<div className='col'>
+							<div className='d-flex anchox justify-content-end justify-self-center'>
+						
+									
 											<input
 													className="w-20 btn btn-lg btn-sig btn-primary-c"
 													onClick={increment}
 													type="submit"
 													value="Siguiente" />
-									</div>
+									
 							</div>
 							<br />
 						</div>
