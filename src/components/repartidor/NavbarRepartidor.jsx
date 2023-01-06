@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { useAuthStore } from "../../hooks";
-
+import '../../css/navbar.css'
 
 export const NavbarRepartidor = () => {
     const { startLogout, user } = useAuthStore();
@@ -24,18 +24,18 @@ export const NavbarRepartidor = () => {
                             
                             <NavLink
                                 exact="true"
-                                to="/"
+                                to=""
                                 className="nav-link"
                                 children={({ isActive }) => (
                                     isActive
                                         ?
                                         <>
                                             <div className="active">
-                                                <i class="fa-solid fa-route"></i>
+                                                <i class="fa-solid fa-route" data-title="Ver rutas"></i>
                                             </div>
                                         </>
                                         :
-                                        <i class="fa-solid fa-route"></i>
+                                        <i class="fa-solid fa-route" data-title="Ver rutas"></i>
                                 )}
                             />
 
@@ -45,18 +45,18 @@ export const NavbarRepartidor = () => {
                             
                             <NavLink
                                 exact="true"
-                                to="/"
+                                to="/myPackages"
                                 className="nav-link"
                                 children={({ isActive }) => (
                                     isActive
                                         ?
                                         <>
                                             <div className="active">
-                                                <i class="fa-solid fa-box"></i>
+                                                <i class="fa-solid fa-box" data-title="Ver paquetes"></i>
                                             </div>
                                         </>
                                         :
-                                        <i class="fa-solid fa-box"></i>
+                                        <i class="fa-solid fa-box" data-title="Ver paquetes"></i>
                                 )}
                             />
 
@@ -69,7 +69,7 @@ export const NavbarRepartidor = () => {
                                 className="nav-link blue float-end"
                                 style={{ color: '#212e46' }}
                                 onClick={startLogout}
-                            ><i className="fa-solid fa-right-from-bracket rojo"></i></button>
+                            ><i className="fa-solid fa-right-from-bracket rojo" data-title="Salir"></i></button>
                         </li>
 
 

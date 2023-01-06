@@ -36,7 +36,7 @@ export const MenuRepartidor = () => {
                 <div className="card bordeCard blanc ancho m-auto" >
                     <img src='/img/paquetes.png' className="card-img-top imagen m-auto mt-3 mb-3"/>
                     <div className="card-body azul bordeBo text-center">
-                      <Link to="/" className="card-title fw-bold titulo h5">Ver paquetes</Link>
+                      <Link to="/myPackages" className="card-title fw-bold titulo h5">Ver paquetes</Link>
                     </div>
                 </div>
                 </div>

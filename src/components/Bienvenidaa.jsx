@@ -31,12 +31,12 @@ export const Bienvenidaa = () => {
                             <Link to="/enviar-paquete" className='btn w-75 btn-primary-c m-auto mb-4 mt-3'>Enviar paquete</Link>
                             <Link to="/mis-paquetes" className='btn w-75 btn-primary-c m-auto mb-4'>Ver mis paquetes</Link>
                             <Link to="/editar" className='btn w-75 btn-primary-c m-auto mb-4'>Ver mi cuenta</Link>
-                            <Link to="/pago" className='btn w-75 btn-primary-c m-auto mb-4'>Agregar métodos de pago</Link>
+                            <Link to="/pago" className='btn w-75 btn-primary-c m-auto mb-4'>Administrar métodos de pago</Link>
                             <Link 
                                 to="/auth/register" 
                                 className='btn w-75 btn-primary-c m-auto mb-4'
                                 onClick={startLogout}
-                            >Cerrar sesión</Link>
+                            >Salir</Link>
                         </div>
                         <div className="altura2"></div>
                     </div>

@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { useAuthStore } from "../hooks/useAuthStore";
+import '../css/navbar.css'
 
 export const Navbar = () => {
     const { startLogout, user } = useAuthStore();
@@ -26,11 +27,11 @@ export const Navbar = () => {
                                         ?
                                         <>
                                             <div className="active">
-                                                <i className="fa-regular fa-paper-plane"></i>
+                                                <i className="fa-regular fa-paper-plane" data-title="Enviar paquete"></i>
                                             </div>
                                         </>
                                         :
-                                        <i className="fa-regular fa-paper-plane"></i>
+                                        <i className="fa-regular fa-paper-plane" data-title="Enviar paquete"></i>
                                 )}
                             />
                         </li>
@@ -44,11 +45,11 @@ export const Navbar = () => {
                                         ?
                                         <>
                                             <div className="active">
-                                                <i className="fa-solid fa-boxes-packing"></i>
+                                                <i className="fa-solid fa-boxes-packing" data-title="Ver mis paquetes"></i>
                                             </div>
                                         </>
                                         :
-                                        <i className="fa-solid fa-boxes-packing"></i>
+                                        <i className="fa-solid fa-boxes-packing" data-title="Ver mis paquetes"></i>
                                 )}
                             />
                         </li>
@@ -63,11 +64,11 @@ export const Navbar = () => {
                                         ?
                                         <>
                                             <div className="active">
-                                                <i className="fa-regular fa-credit-card"></i>
+                                                <i className="fa-regular fa-credit-card" data-title="Administrar metodos de pago"></i>
                                             </div>
                                         </>
                                         :
-                                        <i className="fa-regular fa-credit-card"></i>
+                                        <i className="fa-regular fa-credit-card" data-title="Administrar metodos de pago"></i>
                                 )}
                             />
                         </li>
@@ -82,11 +83,11 @@ export const Navbar = () => {
                                         ?
                                         <>
                                             <div className="active">
-                                                <i className="fa-regular fa-user"></i>
+                                                <i className="fa-regular fa-user"  data-title="Ver mi cuenta"></i>
                                             </div>
                                         </>
                                         :
-                                        <i className="fa-regular fa-user"></i>
+                                        <i className="fa-regular fa-user" data-title="Ver mi cuenta"></i>
                                 )}
                             />
 
@@ -96,7 +97,7 @@ export const Navbar = () => {
                                 className="nav-link blue float-end"
                                 style={{ color: '#212e46' }}
                                 onClick={startLogout}
-                            ><i className="fa-solid fa-right-from-bracket rojo"></i></button>
+                            ><i className="fa-solid fa-right-from-bracket rojo" data-title="Salir"></i></button>
                         </li>
 
 

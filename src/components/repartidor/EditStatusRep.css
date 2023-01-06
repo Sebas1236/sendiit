@@ -1,0 +1,37 @@
+.btn-rojo{
+    background-color: red;
+    border-radius: 53px;
+    border-color: #ff0000;
+   /* color: rgb(255, 0, 0);*/
+}
+
+.btn-60{
+    width: 60% !important;
+}
+
+.btn-gris{
+    background-color:#8B8B8B;
+    border-radius: 53px;
+    color: white;
+}
+
+.btn-red{
+       background-color: red;
+       border-color: red;
+       color: white;
+}
+
+.btn-bd-primary {
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: var(--bs-white);
+    --bs-btn-bg: var(--bd-violet);
+    --bs-btn-border-color: var(--bd-violet);
+    --bs-btn-border-radius: .5rem;
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: #{shade-color($bd-violet, 10%)};
+    --bs-btn-hover-border-color: #{shade-color($bd-violet, 10%)};
+    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+    --bs-btn-active-color: var(--bs-btn-hover-color);
+    --bs-btn-active-bg: #{shade-color($bd-violet, 20%)};
+    --bs-btn-active-border-color: #{shade-color($bd-violet, 20%)};
+  }

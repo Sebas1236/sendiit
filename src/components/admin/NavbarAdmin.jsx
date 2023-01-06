@@ -31,11 +31,11 @@ export const NavbarAdmin = () => {
                                         ?
                                         <>
                                             <div className="active">
-                                                <i className="fa-solid fa-users"></i>
+                                                <i className="fa-solid fa-users" data-title="Gestionar usuarios"></i>
                                             </div>
                                         </>
                                         :
-                                        <i className="fa-solid fa-users"></i>
+                                        <i className="fa-solid fa-users" data-title="Gestionar usuarios"></i>
                                 )}
                             />
 
@@ -46,7 +46,7 @@ export const NavbarAdmin = () => {
                                 exact="true"
                                 className="nav-link"
                                 children={() => (
-                                    <i className="fa-solid fa-chart-pie"></i>
+                                    <i className="fa-solid fa-chart-pie" data-title="Estadisticas"></i>
                                 )}
                             />
                         
@@ -56,7 +56,7 @@ export const NavbarAdmin = () => {
                                 exact="true"
                                 className="nav-link"
                                 children={() => (
-                                    <i className="fa-solid fa-building"></i>
+                                    <i className="fa-solid fa-building" data-title="Gestionar lockers"></i>
                                 )}
                             />
                         
@@ -67,7 +67,7 @@ export const NavbarAdmin = () => {
                                 className="nav-link blue float-end"
                                 style={{ color: '#212e46' }}
                                 onClick={startLogout}
-                            ><i className="fa-solid fa-right-from-bracket rojo"></i></button>
+                            ><i className="fa-solid fa-right-from-bracket rojo" data-title="Salir"></i></button>
                         </li>
 
 
