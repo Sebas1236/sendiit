@@ -2,11 +2,8 @@ import { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
 import { InicioApp } from "../InicioApp";
 import { LoginPage, RegisterPage } from '../auth'
-<<<<<<< HEAD
-=======
 import { GestionarUsuarios, MenuAdmin } from "../components/admin";
 
->>>>>>> 5d5737507bc8b586f1c070c89fc7d27ee3cb195b
 import { useAuthStore } from "../hooks"
 import { Bienvenida } from "../components/Bienvenida";
 import { ForgotPassword } from "../reset/pages/ForgotPassword";
@@ -21,11 +18,7 @@ import { MyPackages } from "../packages/components/MyPackages";
 import { TrackSteps } from "../packages/components/TrackSteps";
 import { TrackPackage } from "../packages/components";
 import { Inicio } from "../components/admin/Inicio";
-<<<<<<< HEAD
-import { CreatePassword, MenuRepartidor, MyPackagesRepartidor, PackageRoutes } from "../components/repartidor";
-=======
-import { EditStatusRep, MenuRepartidor, MyPackagesDeliveryMan } from "../components/repartidor";
->>>>>>> 5d5737507bc8b586f1c070c89fc7d27ee3cb195b
+import { CreatePassword, MenuRepartidor, MyPackagesRepartidor, PackageRoutes, EditStatusRep, MyPackagesDeliveryMan } from "../components/repartidor";
 
 export const AppRouter = () => {
 
