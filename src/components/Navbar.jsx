@@ -34,11 +34,11 @@ export const Navbar = () => {
                                                     ?
                                                     <>
                                                         <div style={{ color: "#f9d950" }}>
-                                                            <i class="fa-solid fa-route" data-title="Ver rutas"></i>
+                                                            <i className="fa-solid fa-route" data-title="Ver rutas"></i>
                                                         </div>
                                                     </>
                                                     :
-                                                    <i class="fa-solid fa-route" data-title="Ver rutas"></i>
+                                                    <i className="fa-solid fa-route" data-title="Ver rutas"></i>
                                             )}
                                         />
 
@@ -55,11 +55,11 @@ export const Navbar = () => {
                                                     ?
                                                     <>
                                                         <div style={{ color: "#f9d950" }}>
-                                                            <i class="fa-solid fa-box" data-title="Ver paquetes"></i>
+                                                            <i className="fa-solid fa-box" data-title="Ver paquetes"></i>
                                                         </div>
                                                     </>
                                                     :
-                                                    <i class="fa-solid fa-box" data-title="Ver paquetes"></i>
+                                                    <i className="fa-solid fa-box" data-title="Ver paquetes"></i>
                                             )}
                                         />
 
@@ -205,11 +205,11 @@ export const Navbar = () => {
                                                     ?
                                                     <>
                                                         <div style={{ color: "#f9d950" }}>
-                                                            <i class="fa-solid fa-box" data-title="Ver paquetes"></i>
+                                                            <i className="fa-solid fa-box" data-title="Ver paquetes"></i>
                                                         </div>
                                                     </>
                                                     :
-                                                    <i class="fa-solid fa-box" data-title="Ver paquetes"></i>
+                                                    <i className="fa-solid fa-box" data-title="Ver paquetes"></i>
                                             )}
                                         />
 

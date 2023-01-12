@@ -7,6 +7,7 @@ import { Box, Button, Typography } from "@mui/material";
 export const AllPackagesTable = () => {
 
     const { packages } = usePackageStore();
+    console.log(packages);
 
     const columns = useMemo(
         //column definitions...
@@ -41,20 +42,34 @@ export const AllPackagesTable = () => {
                     </span>
                 ),
             },
+            // {
+            //     accessorKey: 'casilleroOrigen.ubicacion',
+            //     header: 'Origen',
+            //     Cell: ({ cell }) => (
+            //         <span>{cell.getValue().charAt(0).toUpperCase() + cell.getValue().slice(1)}</span>
+            //     ),
+            // },
             {
-                accessorKey: 'casilleroOrigen.ubicacion',
+                // accessorKey: 'casilleroOrigen.ubicacion',
                 header: 'Origen',
                 Cell: ({ cell }) => (
-                    <span>{cell.getValue().charAt(0).toUpperCase() + cell.getValue().slice(1)}</span>
+                    <span>Santa Fe</span>
                 ),
             },
             {
-                accessorKey: 'casilleroDestino.ubicacion',
+                // accessorKey: 'casilleroOrigen.ubicacion',
                 header: 'Destino',
                 Cell: ({ cell }) => (
-                    <span>{cell.getValue().charAt(0).toUpperCase() + cell.getValue().slice(1)}</span>
+                    <span>Satélite</span>
                 ),
             },
+            // {
+            //     accessorKey: 'casilleroDestino.ubicacion',
+            //     header: 'Destino',
+            //     Cell: ({ cell }) => (
+            //         <span>{cell.getValue().charAt(0).toUpperCase() + cell.getValue().slice(1)}</span>
+            //     ),
+            // },
             {
                 accessorKey: 'estadosFechas.porRecibir',
                 header: '',

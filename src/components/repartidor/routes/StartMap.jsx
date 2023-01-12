@@ -7,7 +7,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { Loading } from '../../../maps/components';
 
 export const StartMap = () => {
-    const MAPBOX_ACCESS_TOKEN = "pk.eyJ1Ijoic2ViYXMxMjM2IiwiYSI6ImNsYmlyeWVpNTBhYTQzcG54cTRoenhpZ3QifQ.BFA6ei27WaRWEQRBknO62Q"
+    const MAPBOX_ACCESS_TOKEN = "YOUR ACCESS TOKEN"
     mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
 
     const { isLoading, userLocation } = usePlacesStore();
