@@ -5,7 +5,6 @@ import { MRT_Localization_ES } from 'material-react-table/locales/es';
 import VisibilitySharpIcon from '@mui/icons-material/VisibilitySharp';
 import { Box, Button, Tooltip, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import Swal from 'sweetalert2';
 
 export const AllPackagesTable = () => {
 
