@@ -3,11 +3,26 @@ import { usePackageStore } from "../../../hooks";
 import MaterialReactTable from 'material-react-table';
 import { MRT_Localization_ES } from 'material-react-table/locales/es';
 import { Box, Button, Typography } from "@mui/material";
+import Swal from 'sweetalert2';
 
 export const AllPackagesTable = () => {
 
     const { packages } = usePackageStore();
     console.log(packages);
+
+		// when click on qr image open sweatalert with qr code 
+		const handleQrClick = (row) => {
+			Swal.fire({
+				title: 'Código QR',
+				html: `<img src="${row.original.qrOrigen}" alt="qr code" width="300px"/>`,
+				showCloseButton: true,
+				showCancelButton: false,
+				showConfirmButton: false,
+				focusConfirm: false,
+				focusCancel: false,
+			});
+		};
+
 
     const columns = useMemo(
         //column definitions...
@@ -153,6 +168,9 @@ export const AllPackagesTable = () => {
                 >
                     <Typography>QR:</Typography>
                     <img
+												onClick={() => {handleQrClick(row)}}
+												// onClick={() => handleQrClick(row)}
+												id="qrCode"
                         alt='codigoQR'
                         // style={{ borderRadius: '50%' }} 
                         src={row.original.qrOrigen} />
