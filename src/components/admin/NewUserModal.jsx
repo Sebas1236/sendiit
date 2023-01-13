@@ -75,7 +75,7 @@ export const NewUserModal = () => {
             closeTimeoutMS={200}
         >
             <div className="back-color">
-                <h6 className='header-text'><strong>
+                <h6 className='header-text pt-2'><strong>
                     {
                         (activeUser)
                             ? "Editar repartidor"
