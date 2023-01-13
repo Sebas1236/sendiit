@@ -11,7 +11,7 @@ export const TrackRoute = () => {
     const MAPBOX_ACCESS_TOKEN = "pk.eyJ1Ijoic2ViYXMxMjM2IiwiYSI6ImNsYmlyeWVpNTBhYTQzcG54cTRoenhpZ3QifQ.BFA6ei27WaRWEQRBknO62Q"
     mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
 
-    const { isLoading, userLocation,  } = usePlacesStore();
+    const { isLoading, userLocation, } = usePlacesStore();
     const { step } = usePackageDeliveryStore();
     const { prepareRouteGeneration, startTrip, waypoints } = useRouteMapStore();
 
@@ -152,10 +152,10 @@ export const TrackRoute = () => {
                                         === 'satélite' && paquete.estadoActual === 'En espera').map(
                                             paquete => ((
                                                 <>
-                                                    <input 
-                                                        type="checkbox" 
-                                                        key={paquete._id} 
-                                                        onClick={()=>handleStatusChange(paquete)}
+                                                    <input
+                                                        type="checkbox"
+                                                        key={paquete._id}
+                                                        onClick={() => handleStatusChange(paquete)}
                                                     /> Tamaño: {paquete.tamano}. Destino: {paquete.casilleroDestino.ubicacion.charAt(0).toUpperCase() + paquete.casilleroDestino.ubicacion.slice(1)}<img height={30} width={30} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAYAAABRRIOnAAAAAklEQVR4AewaftIAAAOaSURBVO3BQW7dWAIEwayHf/8r52jRi1oR4JCSbaEi4hdm/nOYKYeZcpgph5lymCmHmXKYKYeZcpgph5lymCmHmXKYKYeZcpgpHx5Kwk9SuZKEptKS0FSeSEJTaUn4SSpPHGbKYaYcZsqHl6m8KQl3qFxRuSMJb1J5UxLedJgph5lymCkfvlkS7lC5IwlNpSWhqbxJ5Ykk3KHynQ4z5TBTDjPlwy+ThCtJuEPlShKayr/sMFMOM+UwUz78cipXktBUWhKaSlP5TQ4z5TBTDjPlwzdT+ZOS8IRKS0JTeULlb3KYKYeZcpgpH16WhD9JpSWhqbQkXElCU2lJaCpXkvA3O8yUw0w5zJT4hX9YEprK/P8OM+UwUw4z5cNDSWgqLQlvUmkqLQlNpSWhqbQkNJWWhCsqLQlvUvlOh5lymCmHmfLhZUm4ovKTktBUWhKaSktCU7mShKZyRxKayk86zJTDTDnMlPiFB5LQVFoSmkpLQlNpSbiickcS7lBpSWgqTyThTSpPHGbKYaYcZsqHh1RaEp5IQlNpSWhJaCp3qFxJQlO5IwlXVFoSmkpLQlN502GmHGbKYaZ8eCgJV1RaEprKlSQ0lStJaCpN5UoSmkpLwhWVKyotCU2lJaGptCQ0lScOM+UwUw4z5cPLVN6k0pLQVJrKHUloKi0JTeVKEppKS0JTaUloKi0JTeVNh5lymCmHmRK/8EASmsodSbhD5UoSmsoTSbiiciUJV1SeSEJTeeIwUw4z5TBTPvzlVFoSmkpTuSMJTeWKSktCU/lJKm86zJTDTDnMlA/fLAlN5Y4k3JGEKypXktBUWhKuJOGOJLxJ5YnDTDnMlMNMiV/4hyXhisoTSWgqLQlN5Y4kNJUrSWgqbzrMlMNMOcyUDw8l4SepNJU7knCHyhNJaCpPqLQkNJUnDjPlMFMOM+XDy1TelIQrSXhC5UoSnlC5IwlN5ScdZsphphxmyodvloQ7VJ5QuZKEloQ3JeEJlZaEptJU3nSYKYeZcpgpH365JDSVloSmckcSvpNKS8IVlScOM+UwUw4z5cMvk4Q7VO5IQlP5TkloKi0JbzrMlMNMOcyUD99M5TuptCQ0lSeS0FRaEppKS8IVlSsqP+kwUw4z5TBTPrwsCT8pCU3liSQ0lZaEptKS0FTuSMKfdJgph5lymCnxCzP/OcyUw0w5zJTDTDnMlMNMOcyUw0w5zJTDTDnMlMNMOcyUw0w5zJT/AdXBqwAFVgMAAAAAAElFTkSuQmCC" alt="noqr" />
                                                     <br />
                                                     <br />
@@ -170,13 +170,7 @@ export const TrackRoute = () => {
                                 <input type="checkbox" /> id: 3 Tamaño: Mediano <img height={30} width={30} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAYAAABRRIOnAAAAAklEQVR4AewaftIAAAOaSURBVO3BQW7dWAIEwayHf/8r52jRi1oR4JCSbaEi4hdm/nOYKYeZcpgph5lymCmHmXKYKYeZcpgph5lymCmHmXKYKYeZcpgpHx5Kwk9SuZKEptKS0FSeSEJTaUn4SSpPHGbKYaYcZsqHl6m8KQl3qFxRuSMJb1J5UxLedJgph5lymCkfvlkS7lC5IwlNpSWhqbxJ5Ykk3KHynQ4z5TBTDjPlwy+ThCtJuEPlShKayr/sMFMOM+UwUz78cipXktBUWhKaSlP5TQ4z5TBTDjPlwzdT+ZOS8IRKS0JTeULlb3KYKYeZcpgpH16WhD9JpSWhqbQkXElCU2lJaCpXkvA3O8yUw0w5zJT4hX9YEprK/P8OM+UwUw4z5cNDSWgqLQlvUmkqLQlNpSWhqbQkNJWWhCsqLQlvUvlOh5lymCmHmfLhZUm4ovKTktBUWhKaSktCU7mShKZyRxKayk86zJTDTDnMlPiFB5LQVFoSmkpLQlNpSbiickcS7lBpSWgqTyThTSpPHGbKYaYcZsqHh1RaEp5IQlNpSWhJaCp3qFxJQlO5IwlXVFoSmkpLQlN502GmHGbKYaZ8eCgJV1RaEprKlSQ0lStJaCpN5UoSmkpLwhWVKyotCU2lJaGptCQ0lScOM+UwUw4z5cPLVN6k0pLQVJrKHUloKi0JTeVKEppKS0JTaUloKi0JTeVNh5lymCmHmRK/8EASmsodSbhD5UoSmsoTSbiiciUJV1SeSEJTeeIwUw4z5TBTPvzlVFoSmkpTuSMJTeWKSktCU/lJKm86zJTDTDnMlA/fLAlN5Y4k3JGEKypXktBUWhKuJOGOJLxJ5YnDTDnMlMNMiV/4hyXhisoTSWgqLQlN5Y4kNJUrSWgqbzrMlMNMOcyUDw8l4SepNJU7knCHyhNJaCpPqLQkNJUnDjPlMFMOM+XDy1TelIQrSXhC5UoSnlC5IwlN5ScdZsphphxmyodvloQ7VJ5QuZKEloQ3JeEJlZaEptJU3nSYKYeZcpgpH365JDSVloSmckcSvpNKS8IVlScOM+UwUw4z5cMvk4Q7VO5IQlP5TkloKi0JbzrMlMNMOcyUD99M5TuptCQ0lSeS0FRaEppKS8IVlSsqP+kwUw4z5TBTPrwsCT8pCU3liSQ0lZaEptKS0FTuSMKfdJgph5lymCnxCzP/OcyUw0w5zJTDTDnMlMNMOcyUw0w5zJTDTDnMlMNMOcyUw0w5zJT/AdXBqwAFVgMAAAAAAElFTkSuQmCC" alt="noqr" />
                                 <br />
                                 <input type="checkbox" /> id: 4 Tamaño: Grande <img height={30} width={30} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAYAAABRRIOnAAAAAklEQVR4AewaftIAAAOaSURBVO3BQW7dWAIEwayHf/8r52jRi1oR4JCSbaEi4hdm/nOYKYeZcpgph5lymCmHmXKYKYeZcpgph5lymCmHmXKYKYeZcpgpHx5Kwk9SuZKEptKS0FSeSEJTaUn4SSpPHGbKYaYcZsqHl6m8KQl3qFxRuSMJb1J5UxLedJgph5lymCkfvlkS7lC5IwlNpSWhqbxJ5Ykk3KHynQ4z5TBTDjPlwy+ThCtJuEPlShKayr/sMFMOM+UwUz78cipXktBUWhKaSlP5TQ4z5TBTDjPlwzdT+ZOS8IRKS0JTeULlb3KYKYeZcpgpH16WhD9JpSWhqbQkXElCU2lJaCpXkvA3O8yUw0w5zJT4hX9YEprK/P8OM+UwUw4z5cNDSWgqLQlvUmkqLQlNpSWhqbQkNJWWhCsqLQlvUvlOh5lymCmHmfLhZUm4ovKTktBUWhKaSktCU7mShKZyRxKayk86zJTDTDnMlPiFB5LQVFoSmkpLQlNpSbiickcS7lBpSWgqTyThTSpPHGbKYaYcZsqHh1RaEp5IQlNpSWhJaCp3qFxJQlO5IwlXVFoSmkpLQlN502GmHGbKYaZ8eCgJV1RaEprKlSQ0lStJaCpN5UoSmkpLwhWVKyotCU2lJaGptCQ0lScOM+UwUw4z5cPLVN6k0pLQVJrKHUloKi0JTeVKEppKS0JTaUloKi0JTeVNh5lymCmHmRK/8EASmsodSbhD5UoSmsoTSbiiciUJV1SeSEJTeeIwUw4z5TBTPvzlVFoSmkpTuSMJTeWKSktCU/lJKm86zJTDTDnMlA/fLAlN5Y4k3JGEKypXktBUWhKuJOGOJLxJ5YnDTDnMlMNMiV/4hyXhisoTSWgqLQlN5Y4kNJUrSWgqbzrMlMNMOcyUDw8l4SepNJU7knCHyhNJaCpPqLQkNJUnDjPlMFMOM+XDy1TelIQrSXhC5UoSnlC5IwlN5ScdZsphphxmyodvloQ7VJ5QuZKEloQ3JeEJlZaEptJU3nSYKYeZcpgpH365JDSVloSmckcSvpNKS8IVlScOM+UwUw4z5cMvk4Q7VO5IQlP5TkloKi0JbzrMlMNMOcyUD99M5TuptCQ0lSeS0FRaEppKS8IVlSsqP+kwUw4z5TBTPrwsCT8pCU3liSQ0lZaEptKS0FTuSMKfdJgph5lymCnxCzP/OcyUw0w5zJTDTDnMlMNMOcyUw0w5zJTDTDnMlMNMOcyUw0w5zJT/AdXBqwAFVgMAAAAAAElFTkSuQmCC" alt="noqr" /> */}
-                                <br />
-                                <br />
-                                <br />
-                                <br />
-                                <br />
-                                <br />
-                                <br />
+
                             </>)
 
                         }
@@ -190,10 +184,10 @@ export const TrackRoute = () => {
                                             paquete => ((
 
                                                 <>
-                                                    <input 
-                                                        type="checkbox" 
+                                                    <input
+                                                        type="checkbox"
                                                         key={paquete._id}
-                                                        onClick={()=>handleStatusChange(paquete)} 
+                                                        onClick={() => handleStatusChange(paquete)}
                                                     /> Tamaño: {paquete.tamano}. Destino: {paquete.casilleroDestino.ubicacion.charAt(0).toUpperCase() + paquete.casilleroDestino.ubicacion.slice(1)}<img height={30} width={30} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAYAAABRRIOnAAAAAklEQVR4AewaftIAAAOaSURBVO3BQW7dWAIEwayHf/8r52jRi1oR4JCSbaEi4hdm/nOYKYeZcpgph5lymCmHmXKYKYeZcpgph5lymCmHmXKYKYeZcpgpHx5Kwk9SuZKEptKS0FSeSEJTaUn4SSpPHGbKYaYcZsqHl6m8KQl3qFxRuSMJb1J5UxLedJgph5lymCkfvlkS7lC5IwlNpSWhqbxJ5Ykk3KHynQ4z5TBTDjPlwy+ThCtJuEPlShKayr/sMFMOM+UwUz78cipXktBUWhKaSlP5TQ4z5TBTDjPlwzdT+ZOS8IRKS0JTeULlb3KYKYeZcpgpH16WhD9JpSWhqbQkXElCU2lJaCpXkvA3O8yUw0w5zJT4hX9YEprK/P8OM+UwUw4z5cNDSWgqLQlvUmkqLQlNpSWhqbQkNJWWhCsqLQlvUvlOh5lymCmHmfLhZUm4ovKTktBUWhKaSktCU7mShKZyRxKayk86zJTDTDnMlPiFB5LQVFoSmkpLQlNpSbiickcS7lBpSWgqTyThTSpPHGbKYaYcZsqHh1RaEp5IQlNpSWhJaCp3qFxJQlO5IwlXVFoSmkpLQlN502GmHGbKYaZ8eCgJV1RaEprKlSQ0lStJaCpN5UoSmkpLwhWVKyotCU2lJaGptCQ0lScOM+UwUw4z5cPLVN6k0pLQVJrKHUloKi0JTeVKEppKS0JTaUloKi0JTeVNh5lymCmHmRK/8EASmsodSbhD5UoSmsoTSbiiciUJV1SeSEJTeeIwUw4z5TBTPvzlVFoSmkpTuSMJTeWKSktCU/lJKm86zJTDTDnMlA/fLAlN5Y4k3JGEKypXktBUWhKuJOGOJLxJ5YnDTDnMlMNMiV/4hyXhisoTSWgqLQlN5Y4kNJUrSWgqbzrMlMNMOcyUDw8l4SepNJU7knCHyhNJaCpPqLQkNJUnDjPlMFMOM+XDy1TelIQrSXhC5UoSnlC5IwlN5ScdZsphphxmyodvloQ7VJ5QuZKEloQ3JeEJlZaEptJU3nSYKYeZcpgpH365JDSVloSmckcSvpNKS8IVlScOM+UwUw4z5cMvk4Q7VO5IQlP5TkloKi0JbzrMlMNMOcyUD99M5TuptCQ0lSeS0FRaEppKS8IVlSsqP+kwUw4z5TBTPrwsCT8pCU3liSQ0lZaEptKS0FTuSMKfdJgph5lymCnxCzP/OcyUw0w5zJTDTDnMlMNMOcyUw0w5zJTDTDnMlMNMOcyUw0w5zJT/AdXBqwAFVgMAAAAAAElFTkSuQmCC" alt="noqr" />
                                                     <br />
                                                 </>
@@ -206,17 +200,25 @@ export const TrackRoute = () => {
                                         === 'del valle' && paquete.estadoActual === 'En camino').map(
                                             paquete => ((
                                                 <>
-                                                    <input 
-                                                        type="checkbox" 
-                                                        key={paquete._id} 
-                                                        onClick={()=>handleStatusChange(paquete)}
+                                                    <input
+                                                        type="checkbox"
+                                                        key={paquete._id}
+                                                        onClick={() => handleStatusChange(paquete)}
                                                     /> Tamaño: {paquete.tamano}. Origen: {paquete.casilleroOrigen.ubicacion.charAt(0).toUpperCase() + paquete.casilleroOrigen.ubicacion.slice(1)}<img height={30} width={30} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAYAAABRRIOnAAAAAklEQVR4AewaftIAAAOaSURBVO3BQW7dWAIEwayHf/8r52jRi1oR4JCSbaEi4hdm/nOYKYeZcpgph5lymCmHmXKYKYeZcpgph5lymCmHmXKYKYeZcpgpHx5Kwk9SuZKEptKS0FSeSEJTaUn4SSpPHGbKYaYcZsqHl6m8KQl3qFxRuSMJb1J5UxLedJgph5lymCkfvlkS7lC5IwlNpSWhqbxJ5Ykk3KHynQ4z5TBTDjPlwy+ThCtJuEPlShKayr/sMFMOM+UwUz78cipXktBUWhKaSlP5TQ4z5TBTDjPlwzdT+ZOS8IRKS0JTeULlb3KYKYeZcpgpH16WhD9JpSWhqbQkXElCU2lJaCpXkvA3O8yUw0w5zJT4hX9YEprK/P8OM+UwUw4z5cNDSWgqLQlvUmkqLQlNpSWhqbQkNJWWhCsqLQlvUvlOh5lymCmHmfLhZUm4ovKTktBUWhKaSktCU7mShKZyRxKayk86zJTDTDnMlPiFB5LQVFoSmkpLQlNpSbiickcS7lBpSWgqTyThTSpPHGbKYaYcZsqHh1RaEp5IQlNpSWhJaCp3qFxJQlO5IwlXVFoSmkpLQlN502GmHGbKYaZ8eCgJV1RaEprKlSQ0lStJaCpN5UoSmkpLwhWVKyotCU2lJaGptCQ0lScOM+UwUw4z5cPLVN6k0pLQVJrKHUloKi0JTeVKEppKS0JTaUloKi0JTeVNh5lymCmHmRK/8EASmsodSbhD5UoSmsoTSbiiciUJV1SeSEJTeeIwUw4z5TBTPvzlVFoSmkpTuSMJTeWKSktCU/lJKm86zJTDTDnMlA/fLAlN5Y4k3JGEKypXktBUWhKuJOGOJLxJ5YnDTDnMlMNMiV/4hyXhisoTSWgqLQlN5Y4kNJUrSWgqbzrMlMNMOcyUDw8l4SepNJU7knCHyhNJaCpPqLQkNJUnDjPlMFMOM+XDy1TelIQrSXhC5UoSnlC5IwlN5ScdZsphphxmyodvloQ7VJ5QuZKEloQ3JeEJlZaEptJU3nSYKYeZcpgpH365JDSVloSmckcSvpNKS8IVlScOM+UwUw4z5cMvk4Q7VO5IQlP5TkloKi0JbzrMlMNMOcyUD99M5TuptCQ0lSeS0FRaEppKS8IVlSsqP+kwUw4z5TBTPrwsCT8pCU3liSQ0lZaEptKS0FTuSMKfdJgph5lymCnxCzP/OcyUw0w5zJTDTDnMlMNMOcyUw0w5zJTDTDnMlMNMOcyUw0w5zJT/AdXBqwAFVgMAAAAAAElFTkSuQmCC" alt="noqr" />
                                                     <br />
                                                 </>
                                             ))
                                         )
                                 }
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+
                             </>)
+
                         }
                         {
                             step === 4 && (<>
@@ -227,10 +229,10 @@ export const TrackRoute = () => {
                                             paquete => ((
                                                 <>
                                                     {/* {console.log(paquete)} */}
-                                                    <input 
-                                                        type="checkbox" 
-                                                        key={paquete._id} 
-                                                        onClick={()=>handleStatusChange(paquete)}
+                                                    <input
+                                                        type="checkbox"
+                                                        key={paquete._id}
+                                                        onClick={() => handleStatusChange(paquete)}
                                                     /> Tamaño: {paquete.tamano}. Destino: {paquete.casilleroDestino.ubicacion.charAt(0).toUpperCase() + paquete.casilleroDestino.ubicacion.slice(1)}<img height={30} width={30} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAYAAABRRIOnAAAAAklEQVR4AewaftIAAAOaSURBVO3BQW7dWAIEwayHf/8r52jRi1oR4JCSbaEi4hdm/nOYKYeZcpgph5lymCmHmXKYKYeZcpgph5lymCmHmXKYKYeZcpgpHx5Kwk9SuZKEptKS0FSeSEJTaUn4SSpPHGbKYaYcZsqHl6m8KQl3qFxRuSMJb1J5UxLedJgph5lymCkfvlkS7lC5IwlNpSWhqbxJ5Ykk3KHynQ4z5TBTDjPlwy+ThCtJuEPlShKayr/sMFMOM+UwUz78cipXktBUWhKaSlP5TQ4z5TBTDjPlwzdT+ZOS8IRKS0JTeULlb3KYKYeZcpgpH16WhD9JpSWhqbQkXElCU2lJaCpXkvA3O8yUw0w5zJT4hX9YEprK/P8OM+UwUw4z5cNDSWgqLQlvUmkqLQlNpSWhqbQkNJWWhCsqLQlvUvlOh5lymCmHmfLhZUm4ovKTktBUWhKaSktCU7mShKZyRxKayk86zJTDTDnMlPiFB5LQVFoSmkpLQlNpSbiickcS7lBpSWgqTyThTSpPHGbKYaYcZsqHh1RaEp5IQlNpSWhJaCp3qFxJQlO5IwlXVFoSmkpLQlN502GmHGbKYaZ8eCgJV1RaEprKlSQ0lStJaCpN5UoSmkpLwhWVKyotCU2lJaGptCQ0lScOM+UwUw4z5cPLVN6k0pLQVJrKHUloKi0JTeVKEppKS0JTaUloKi0JTeVNh5lymCmHmRK/8EASmsodSbhD5UoSmsoTSbiiciUJV1SeSEJTeeIwUw4z5TBTPvzlVFoSmkpTuSMJTeWKSktCU/lJKm86zJTDTDnMlA/fLAlN5Y4k3JGEKypXktBUWhKuJOGOJLxJ5YnDTDnMlMNMiV/4hyXhisoTSWgqLQlN5Y4kNJUrSWgqbzrMlMNMOcyUDw8l4SepNJU7knCHyhNJaCpPqLQkNJUnDjPlMFMOM+XDy1TelIQrSXhC5UoSnlC5IwlN5ScdZsphphxmyodvloQ7VJ5QuZKEloQ3JeEJlZaEptJU3nSYKYeZcpgpH365JDSVloSmckcSvpNKS8IVlScOM+UwUw4z5cMvk4Q7VO5IQlP5TkloKi0JbzrMlMNMOcyUD99M5TuptCQ0lSeS0FRaEppKS8IVlSsqP+kwUw4z5TBTPrwsCT8pCU3liSQ0lZaEptKS0FTuSMKfdJgph5lymCnxCzP/OcyUw0w5zJTDTDnMlMNMOcyUw0w5zJTDTDnMlMNMOcyUw0w5zJT/AdXBqwAFVgMAAAAAAElFTkSuQmCC" alt="noqr" />
                                                     <br />
                                                 </>
@@ -243,16 +245,22 @@ export const TrackRoute = () => {
                                         === 'coyoacán' && paquete.estadoActual === 'En camino').map(
                                             paquete => ((
                                                 <>
-                                                    <input 
-                                                        type="checkbox" 
-                                                        key={paquete._id} 
-                                                        onClick={()=>handleStatusChange(paquete)}
+                                                    <input
+                                                        type="checkbox"
+                                                        key={paquete._id}
+                                                        onClick={() => handleStatusChange(paquete)}
                                                     /> Tamaño: {paquete.tamano}. Origen: {paquete.casilleroOrigen.ubicacion.charAt(0).toUpperCase() + paquete.casilleroOrigen.ubicacion.slice(1)}<img height={30} width={30} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAYAAABRRIOnAAAAAklEQVR4AewaftIAAAOaSURBVO3BQW7dWAIEwayHf/8r52jRi1oR4JCSbaEi4hdm/nOYKYeZcpgph5lymCmHmXKYKYeZcpgph5lymCmHmXKYKYeZcpgpHx5Kwk9SuZKEptKS0FSeSEJTaUn4SSpPHGbKYaYcZsqHl6m8KQl3qFxRuSMJb1J5UxLedJgph5lymCkfvlkS7lC5IwlNpSWhqbxJ5Ykk3KHynQ4z5TBTDjPlwy+ThCtJuEPlShKayr/sMFMOM+UwUz78cipXktBUWhKaSlP5TQ4z5TBTDjPlwzdT+ZOS8IRKS0JTeULlb3KYKYeZcpgpH16WhD9JpSWhqbQkXElCU2lJaCpXkvA3O8yUw0w5zJT4hX9YEprK/P8OM+UwUw4z5cNDSWgqLQlvUmkqLQlNpSWhqbQkNJWWhCsqLQlvUvlOh5lymCmHmfLhZUm4ovKTktBUWhKaSktCU7mShKZyRxKayk86zJTDTDnMlPiFB5LQVFoSmkpLQlNpSbiickcS7lBpSWgqTyThTSpPHGbKYaYcZsqHh1RaEp5IQlNpSWhJaCp3qFxJQlO5IwlXVFoSmkpLQlN502GmHGbKYaZ8eCgJV1RaEprKlSQ0lStJaCpN5UoSmkpLwhWVKyotCU2lJaGptCQ0lScOM+UwUw4z5cPLVN6k0pLQVJrKHUloKi0JTeVKEppKS0JTaUloKi0JTeVNh5lymCmHmRK/8EASmsodSbhD5UoSmsoTSbiiciUJV1SeSEJTeeIwUw4z5TBTPvzlVFoSmkpTuSMJTeWKSktCU/lJKm86zJTDTDnMlA/fLAlN5Y4k3JGEKypXktBUWhKuJOGOJLxJ5YnDTDnMlMNMiV/4hyXhisoTSWgqLQlN5Y4kNJUrSWgqbzrMlMNMOcyUDw8l4SepNJU7knCHyhNJaCpPqLQkNJUnDjPlMFMOM+XDy1TelIQrSXhC5UoSnlC5IwlN5ScdZsphphxmyodvloQ7VJ5QuZKEloQ3JeEJlZaEptJU3nSYKYeZcpgpH365JDSVloSmckcSvpNKS8IVlScOM+UwUw4z5cMvk4Q7VO5IQlP5TkloKi0JbzrMlMNMOcyUD99M5TuptCQ0lSeS0FRaEppKS8IVlSsqP+kwUw4z5TBTPrwsCT8pCU3liSQ0lZaEptKS0FTuSMKfdJgph5lymCnxCzP/OcyUw0w5zJTDTDnMlMNMOcyUw0w5zJTDTDnMlMNMOcyUw0w5zJT/AdXBqwAFVgMAAAAAAElFTkSuQmCC" alt="noqr" />
                                                     <br />
                                                 </>
                                             ))
                                         )
                                 }
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
                             </>)
                         }
                         {
@@ -265,16 +273,18 @@ export const TrackRoute = () => {
                                             === 'santa fe' && paquete.estadoActual === 'En camino').map(
                                                 paquete => ((
                                                     <>
-                                                        <input 
-                                                            type="checkbox" 
-                                                            key={paquete._id} 
-                                                            onClick={()=>handleStatusChange(paquete)}
+                                                        <input
+                                                            type="checkbox"
+                                                            key={paquete._id}
+                                                            onClick={() => handleStatusChange(paquete)}
                                                         /> Tamaño: {paquete.tamano}. Origen: {paquete.casilleroOrigen.ubicacion.charAt(0).toUpperCase() + paquete.casilleroOrigen.ubicacion.slice(1)}<img height={30} width={30} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAYAAABRRIOnAAAAAklEQVR4AewaftIAAAOaSURBVO3BQW7dWAIEwayHf/8r52jRi1oR4JCSbaEi4hdm/nOYKYeZcpgph5lymCmHmXKYKYeZcpgph5lymCmHmXKYKYeZcpgpHx5Kwk9SuZKEptKS0FSeSEJTaUn4SSpPHGbKYaYcZsqHl6m8KQl3qFxRuSMJb1J5UxLedJgph5lymCkfvlkS7lC5IwlNpSWhqbxJ5Ykk3KHynQ4z5TBTDjPlwy+ThCtJuEPlShKayr/sMFMOM+UwUz78cipXktBUWhKaSlP5TQ4z5TBTDjPlwzdT+ZOS8IRKS0JTeULlb3KYKYeZcpgpH16WhD9JpSWhqbQkXElCU2lJaCpXkvA3O8yUw0w5zJT4hX9YEprK/P8OM+UwUw4z5cNDSWgqLQlvUmkqLQlNpSWhqbQkNJWWhCsqLQlvUvlOh5lymCmHmfLhZUm4ovKTktBUWhKaSktCU7mShKZyRxKayk86zJTDTDnMlPiFB5LQVFoSmkpLQlNpSbiickcS7lBpSWgqTyThTSpPHGbKYaYcZsqHh1RaEp5IQlNpSWhJaCp3qFxJQlO5IwlXVFoSmkpLQlN502GmHGbKYaZ8eCgJV1RaEprKlSQ0lStJaCpN5UoSmkpLwhWVKyotCU2lJaGptCQ0lScOM+UwUw4z5cPLVN6k0pLQVJrKHUloKi0JTeVKEppKS0JTaUloKi0JTeVNh5lymCmHmRK/8EASmsodSbhD5UoSmsoTSbiiciUJV1SeSEJTeeIwUw4z5TBTPvzlVFoSmkpTuSMJTeWKSktCU/lJKm86zJTDTDnMlA/fLAlN5Y4k3JGEKypXktBUWhKuJOGOJLxJ5YnDTDnMlMNMiV/4hyXhisoTSWgqLQlN5Y4kNJUrSWgqbzrMlMNMOcyUDw8l4SepNJU7knCHyhNJaCpPqLQkNJUnDjPlMFMOM+XDy1TelIQrSXhC5UoSnlC5IwlN5ScdZsphphxmyodvloQ7VJ5QuZKEloQ3JeEJlZaEptJU3nSYKYeZcpgpH365JDSVloSmckcSvpNKS8IVlScOM+UwUw4z5cMvk4Q7VO5IQlP5TkloKi0JbzrMlMNMOcyUD99M5TuptCQ0lSeS0FRaEppKS8IVlSsqP+kwUw4z5TBTPrwsCT8pCU3liSQ0lZaEptKS0FTuSMKfdJgph5lymCnxCzP/OcyUw0w5zJTDTDnMlMNMOcyUw0w5zJTDTDnMlMNMOcyUw0w5zJT/AdXBqwAFVgMAAAAAAElFTkSuQmCC" alt="noqr" />
                                                         <br />
                                                     </>
                                                 ))
                                             )
                                     }
+                                    <br />
+                                    <br />
                                     <br />
                                     <br />
                                     <br />
