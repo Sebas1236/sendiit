@@ -29,6 +29,9 @@ export const packageSlice = createSlice({
                 }
             });
         },
+        onPackageStatusChange: (state, { payload }) => {
+            state.activePackage = payload;
+        },
         onLogoutPackage: ( state ) => {
             state.isLoadingPackages = true;
             state.packages = [];
@@ -44,4 +47,5 @@ export const {
     onAddNewPackage, 
     onLoadPackages, 
     onLogoutPackage,
+    onPackageStatusChange,
 } = packageSlice.actions;

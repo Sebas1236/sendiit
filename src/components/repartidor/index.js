@@ -10,3 +10,5 @@ export * from './tables/AllPackagesTable';
 export * from './NavbarRepartidor';
 export * from './EditStatusRep';
 export * from './MyPackagesDeliveryMan';
+export * from './EditStatusRep';
+export * from './StatusPackage';

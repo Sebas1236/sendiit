@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import Swal from "sweetalert2";
 import sendiitApi from "../api/sendiitApi";
-import { onSetActivePackage, onLoadPackages, onAddNewPackage } from "../store";
+import { onSetActivePackage, onLoadPackages, onAddNewPackage, onPackageStatusChange } from "../store";
 
 export const usePackageStore = () => {
     const { packages, activePackage, isLoadingPackages } = useSelector(state => state.package);
@@ -63,6 +63,21 @@ export const usePackageStore = () => {
         }
     }
 
+    const startHandlePackageStatus = async(paqueteID) => {
+        try {
+            console.log(paqueteID);
+            const { data } = await sendiitApi.post('/paquetes/cambiar-status', { paqueteID });
+            const { paquete } = data;
+            console.log(paquete);
+            dispatch( onPackageStatusChange(paquete) );
+
+            return paquete;
+        } catch (error) {
+            console.log(error);
+            console.log('Error cambiando status - Repartidor');
+        }
+    }
+
     return {
         //*Propiedades
         packages,
@@ -74,6 +89,7 @@ export const usePackageStore = () => {
         startLoadingPackages,
         startLoadingAllPackages,
         startSavingPackage,
+        startHandlePackageStatus
     }
 
 }

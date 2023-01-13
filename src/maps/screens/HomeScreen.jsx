@@ -19,7 +19,7 @@ export const HomeScreen = (props) => {
         // console.log(step);
         if (step === 0) {
             setBtnText("Empezar ruta");
-        }else {
+        } else {
             setBtnText("Siguiente");
         }
 
@@ -55,18 +55,33 @@ export const HomeScreen = (props) => {
                                     }
 
                                 </div>
-                                <div className="col-lg-6 center">
+                                {/* <div className="col-lg-6 center">
 
                                     <button
                                         className="w-20 btn btn-lg btn-sig"
                                         onClick={startRoute}
                                         style={{
-                                            position: 'absolute',
-                                            right: 20,
-                                            bottom: 0,
+                                            // position: 'absolute',
+                                            // right: 20,
+                                            marginBottom: '5%'
                                         }}
                                     >{btnText}</button>
 
+                                </div> */}
+                                <div className='d-flex m-auto mt-5 mb-5 p-3 justify-content-between'>
+                                    <div className=''></div>
+                                    <div className=''></div>
+                                    <div className=''>
+                                        <button
+                                            className="w-20 btn btn-lg btn-sig"
+                                            onClick={startRoute}
+                                            style={{
+                                                // position: 'absolute',
+                                                // right: 20,
+                                                marginBottom: '20%'
+                                            }}
+                                        >{btnText}</button>
+                                    </div>
                                 </div>
                             </div>
                             <div className='row'>

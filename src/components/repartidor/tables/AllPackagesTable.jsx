@@ -1,13 +1,16 @@
 import { useMemo, useState } from "react";
-import { usePackageStore } from "../../../hooks";
+import { useAuthStore, usePackageStore } from "../../../hooks";
 import MaterialReactTable from 'material-react-table';
 import { MRT_Localization_ES } from 'material-react-table/locales/es';
-import { Box, Button, Typography } from "@mui/material";
+import VisibilitySharpIcon from '@mui/icons-material/VisibilitySharp';
+import { Box, Button, Tooltip, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
 
 export const AllPackagesTable = () => {
 
-    const { packages } = usePackageStore();
+    const { packages, setActivePackage } = usePackageStore();
+    const { status } = useAuthStore();
     console.log(packages);
 
 		// when click on qr image open sweatalert with qr code 
@@ -57,47 +60,37 @@ export const AllPackagesTable = () => {
                     </span>
                 ),
             },
-            // {
-            //     accessorKey: 'casilleroOrigen.ubicacion',
-            //     header: 'Origen',
-            //     Cell: ({ cell }) => (
-            //         <span>{cell.getValue().charAt(0).toUpperCase() + cell.getValue().slice(1)}</span>
-            //     ),
-            // },
             {
-                // accessorKey: 'casilleroOrigen.ubicacion',
+                accessorKey: 'casilleroOrigen.ubicacion',
                 header: 'Origen',
                 Cell: ({ cell }) => (
-                    <span>Santa Fe</span>
+                    <span>{cell.getValue().charAt(0).toUpperCase() + cell.getValue().slice(1)}</span>
                 ),
             },
             {
-                // accessorKey: 'casilleroOrigen.ubicacion',
+                accessorKey: 'casilleroDestino.ubicacion',
                 header: 'Destino',
                 Cell: ({ cell }) => (
-                    <span>Satélite</span>
+                    <span>{cell.getValue().charAt(0).toUpperCase() + cell.getValue().slice(1)}</span>
                 ),
             },
             // {
-            //     accessorKey: 'casilleroDestino.ubicacion',
-            //     header: 'Destino',
+            //     accessorKey: 'estadosFechas.porRecibir',
+            //     header: '',
             //     Cell: ({ cell }) => (
-            //         <span>{cell.getValue().charAt(0).toUpperCase() + cell.getValue().slice(1)}</span>
+            //         <span>Por recibir el {cell.getValue().slice(0, 10)}</span>
             //     ),
             // },
-            {
-                accessorKey: 'estadosFechas.porRecibir',
-                header: '',
-                Cell: ({ cell }) => (
-                    <span>Por recibir el {cell.getValue().slice(0, 10)}</span>
-                ),
-            },
         ],
         [], //end
     );
 
     const [rowSelection, setRowSelection] = useState({});
     // console.log(packages);
+
+    const onSelect = (paquete) => {
+        setActivePackage(paquete);
+    };
 
     return (
         <MaterialReactTable
@@ -121,7 +114,7 @@ export const AllPackagesTable = () => {
             enableColumnOrdering
             // enableEditing
             enablePinning
-            // enableRowActions
+            enableRowActions
             enableColumnResizing
             // enableRowSelection
             // enableRowNumbers
@@ -154,6 +147,18 @@ export const AllPackagesTable = () => {
             //         Dar de alta repartidor
             //     </Button>
             // )}
+            positionActionsColumn='last'
+            renderRowActions={({ row }) => (
+                <Box sx={{ display: 'flex', gap: '1rem' }}>
+                    <Tooltip arrow placement="right" title="Ver Detalles">
+                        <Link
+                            to="/editar-paquete"
+                            // className='btn w-75 btn-primary-c text-center mb-4 mt-3'
+                            onClick={() => onSelect(row.original)}
+                        ><VisibilitySharpIcon></VisibilitySharpIcon></Link>
+                    </Tooltip>
+                </Box>
+            )}
             renderDetailPanel={({ row }) => (
                 <Box
                     sx={{

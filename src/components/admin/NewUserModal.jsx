@@ -48,12 +48,12 @@ export const NewUserModal = () => {
         closeNewUserModal();
     }
 
-    const onUserSubmit = async(data) => {
+    const onUserSubmit = async (data) => {
         activeUser ?
-            await startSavingUser({...data, _id: activeUser._id})
+            await startSavingUser({ ...data, _id: activeUser._id })
             :
-            await startSavingUser({...data});
-        
+            await startSavingUser({ ...data });
+
         // sendDeliveryManEmail(data);
         //TODO: ENVIAR CORREO AL REPARTIDOR PARA QUE CREE SU CONTRASEÑA
 
@@ -208,14 +208,7 @@ export const NewUserModal = () => {
                 </div>
                 <br />
                 <div className='row gap-3'>
-                    <button
-                        className="btn btn-gris btn-block col"
-                        onClick={onCloseModal}
-                        type="button"
-                    >
 
-                        <span> Cancelar</span>
-                    </button>
 
                     {/* {activeUser && <FabDelete />} */}
                     {/* <button 
@@ -228,6 +221,14 @@ export const NewUserModal = () => {
                     >
 
                         <span> Guardar</span>
+                    </button>
+                    <button
+                        className="btn btn-gris btn-block col"
+                        onClick={onCloseModal}
+                        type="button"
+                    >
+
+                        <span> Cancelar</span>
                     </button>
                 </div>
                 {/* <div>{activeCard&& <FabDelete/>}</div> */}
