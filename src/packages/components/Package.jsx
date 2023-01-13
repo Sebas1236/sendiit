@@ -13,7 +13,7 @@ export const Package = ({ paquete }) => {
     return (
         // <PackageTable/>
         <div className="container-fluid">
-            
+
             <div className="row mt-4 mb-1">
                 <div className="col-3">
                     <div className="w-50 m-auto">
@@ -27,16 +27,16 @@ export const Package = ({ paquete }) => {
                         <span className="fw-bold">Descripción: {paquete.descripcion}</span>
                     </p>
                     <p>Estado: {paquete.estadoActual}</p>
-                    <p>Origen: Santa Fe,
-										 Destino: Satélite
+                    <p>Origen: {paquete.casilleroOrigen.ubicacion.charAt(0).toUpperCase() + paquete.casilleroOrigen.ubicacion.slice(1)},
+                        Destino: {paquete.casilleroDestino.ubicacion.charAt(0).toUpperCase() + paquete.casilleroDestino.ubicacion.slice(1)}
                     </p>
                 </div>
 
                 <div className="col-3">
-                    <Link 
-                        to="/ver-paquete" 
+                    <Link
+                        to="/ver-paquete"
                         className='btn w-75 btn-primary-c text-center mb-4 mt-3'
-                        onClick={()=>onSelect(paquete)}
+                        onClick={() => onSelect(paquete)}
                     >Ver Detalles</Link>
                     {/* <button
                         className="btn w-75 btn-primary-c text-center mb-4 mt-3"

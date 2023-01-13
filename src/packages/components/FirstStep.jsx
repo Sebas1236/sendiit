@@ -286,7 +286,7 @@ export const FirstStep = () => {
                     <div className='row'>
 
                         {/*  CAMPO: DIRECCION DEL DESTINATARIO */}
-                        <div className='col-lg-6'>
+                        {/* <div className='col-lg-6'>
                             <div className="form-group mb-2">
                                 <label htmlFor="direccion" className="form-label">*Dirección</label>
                                 <input
@@ -310,7 +310,7 @@ export const FirstStep = () => {
 
                             </div>
 
-                        </div>
+                        </div> */}
 
                     </div>
 

@@ -7,7 +7,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { Loading } from '../../../maps/components';
 
 export const StartMap = () => {
-    const MAPBOX_ACCESS_TOKEN = "YOUR ACCESS TOKEN"
+    const MAPBOX_ACCESS_TOKEN = "pk.eyJ1Ijoic2ViYXMxMjM2IiwiYSI6ImNsYmlyeWVpNTBhYTQzcG54cTRoenhpZ3QifQ.BFA6ei27WaRWEQRBknO62Q"
     mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
 
     const { isLoading, userLocation } = usePlacesStore();
@@ -54,6 +54,9 @@ export const StartMap = () => {
                     <div className="heading">
                         <h1>Nuestras sucursales</h1>
                     </div>
+                    <br/>
+                    <br/>
+                    <br/>
                     <div id="listings" className="listings"></div>
                     {/* <div id='listings' className='listings'></div> */}
                 </div>
@@ -61,12 +64,14 @@ export const StartMap = () => {
             <div className="row">
                 <div className="col-lg-6">
                     <div ref={mapDiv} id="mapDiv" className="map" style={{
-                        // backgroundColor: 'red',
-                        height: '100vh',
-                        left: '100%',
-                        position: 'relative',
-                        textAlign: 'center',
-                        top: -583,
+                        height: '80vh',
+                        marginTop: '5%',
+                        marginBottom: '5%',
+                        marginLeft: '10%',
+                        // left: '100%',
+                        // position: 'absolute',
+                        // textAlign: 'center',
+                        // top: -583,
                         width: '120vh',
                     }}></div>
                 </div>

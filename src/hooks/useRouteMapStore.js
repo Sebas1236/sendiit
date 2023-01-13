@@ -10,8 +10,8 @@ export const useRouteMapStore = () => {
     const { userLocation } = useSelector(state => state.places);
     const { waypoints } = useSelector(state => state.map);
     const { step } = useSelector(state => state.packageDelivery);
-    const MAPBOX_ACCESS_TOKEN = YOURACCESSTOKEN
-    mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
+    const MAPBOX_ACCESS_TOKEN = "pk.eyJ1Ijoic2ViYXMxMjM2IiwiYSI6ImNsYmlyeWVpNTBhYTQzcG54cTRoenhpZ3QifQ.BFA6ei27WaRWEQRBknO62Q"
+    mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN; 
     const dispatch = useDispatch();
     const { lockersgeojson } = getLockersGeoJSON();
 

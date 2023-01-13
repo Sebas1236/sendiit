@@ -81,11 +81,11 @@ export const Navbar = () => {
                                                     ?
                                                     <>
                                                         <div style={{ color: "#f9d950" }}>
-                                                            <i className="fa-regular fa-paper-plane"></i>
+                                                            <i data-title="Enviar paquete" className="fa-regular fa-paper-plane"></i>
                                                         </div>
                                                     </>
                                                     :
-                                                    <i className="fa-regular fa-paper-plane"></i>
+                                                    <i data-title="Enviar paquete" className="fa-regular fa-paper-plane"></i>
                                             )}
                                         />
                                     </li>
@@ -99,11 +99,11 @@ export const Navbar = () => {
                                                     ?
                                                     <>
                                                         <div style={{ color: "#f9d950" }}>
-                                                            <i className="fa-solid fa-boxes-packing"></i>
+                                                            <i data-title="Ver mis paquetes" className="fa-solid fa-boxes-packing"></i>
                                                         </div>
                                                     </>
                                                     :
-                                                    <i className="fa-solid fa-boxes-packing"></i>
+                                                    <i data-title="Ver mis paquetes" className="fa-solid fa-boxes-packing"></i>
                                             )}
                                         />
                                     </li>
@@ -118,11 +118,11 @@ export const Navbar = () => {
                                                     ?
                                                     <>
                                                         <div style={{ color: "#f9d950" }}>
-                                                            <i className="fa-regular fa-credit-card"></i>
+                                                            <i data-title="Metodos de pago" className="fa-regular fa-credit-card"></i>
                                                         </div>
                                                     </>
                                                     :
-                                                    <i className="fa-regular fa-credit-card"></i>
+                                                    <i data-title="Metodos de pago" className="fa-regular fa-credit-card"></i>
                                             )}
                                         />
                                     </li>
@@ -137,11 +137,11 @@ export const Navbar = () => {
                                                     ?
                                                     <>
                                                         <div style={{ color: "#f9d950" }}>
-                                                            <i className="fa-regular fa-user"></i>
+                                                            <i data-title="Editar cuenta" className="fa-regular fa-user"></i>
                                                         </div>
                                                     </>
                                                     :
-                                                    <i className="fa-regular fa-user"></i>
+                                                    <i data-title="Editar cuenta" className="fa-regular fa-user"></i>
                                             )}
                                         />
 
